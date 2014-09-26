@@ -9,4 +9,8 @@ First commit
 
 //georgi's commit
 
+
 /nqma i az shte si praq kvot si iskam;
+
+PAVEL promqna 1
+
