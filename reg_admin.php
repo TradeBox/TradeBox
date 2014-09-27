@@ -1,29 +1,16 @@
 <?php 
 include('../DBconnect/dbconnect.php');
-if(isset($_POST['login'])){
-$user=$_POST['username'];
-$password=$_POST['password'];
-$crypting=md5($password);
-		$check_where_user=mysql_query("SELECT * FROM users WHERE username='$user'");
-		$check_pass=mysql_fetch_array($check_where_user);
-		if(!empty($check_pass['id'])){
-		$crypted_pass=$check_pass['password'];
-		if($crypted_pass==$crypting){
-			$correct_pass='correct';
-		}else{
-			$correct_pass='incorrect';
-		}
-		if($correct_pass=='correct'){
-		header("Location: page.php");
-		}
-		}else{
-		$correct_pass='no';
-		}
-					}
+$checks=mysql_query("SELECT * FROM users");
+$if1=mysql_num_rows($checks);
+if($if1!=0){
+header("Location: index.php");die(); exit();
+}
+
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-		<title>TradeBox - Login</title>
+		<title>TradeBox - Регистрация</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script id="undefined" src="other/inpage_linkid.js" async="" type="text/javascript"></script><script src="other/233685.js" id="hs-analytics"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/gtm.js" async=""></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o?o:n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({D5DuLP:[function(t,n){function e(t,n){var e=r[t];return e?e.apply(this,n):(o[t]||(o[t]=[]),void o[t].push(n))}var r={},o={};n.exports=e,e.queues=o,e.handlers=r},{}],handle:[function(t,n){n.exports=t("D5DuLP")},{}],G9z0Bl:[function(t,n){function e(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&p&&p.body){l.proto="https"===f.split(":")[0]||t.sslForHttp?"https://":"http://",i("mark",["onload",a()]);var n=p.createElement("script");n.src=l.proto+t.agent,p.body.appendChild(n)}}function r(){"complete"===p.readyState&&o()}function o(){i("mark",["domContent",a()])}function a(){return(new Date).getTime()}var i=t("handle"),u=window,p=u.document,s="addEventListener",c="attachEvent",f=(""+location).split("?")[0],l=n.exports={offset:a(),origin:f,features:[]};p[s]?(p[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(p[c]("onreadystatechange",r),u[c]("onload",e)),i("mark",["firstbyte",a()])},{handle:"D5DuLP"}],loader:[function(t,n){n.exports=t("G9z0Bl")},{}]},{},["G9z0Bl"]);</script>
 		<meta name="robots" content="index,follow">
 		<meta name="googlebot" content="noarchive">
@@ -193,65 +180,53 @@ style.firebugResetStyles {
 				<div id="logo"><center><img height="65px" src="logo_black1.png" /></center></div>
 				<ul id="blocks">
 					<?php 
-					
-					?>
-					
-					<li>
+	if(isset($_POST['register'])){
+	$checks=mysql_query("SELECT * FROM users");
+$if1=mysql_num_rows($checks);
+if($if1!=0){
+header("Location: index.php");die(); exit();
+}
+else{
+	$username=$_POST['user'];
+	$password=$_POST['pass'];
+	$email=$_POST['email'];
+	$date=date(Ymd);
+	$crypted_pass=md5($password);
+	mysql_query("INSERT INTO users (username,password,email,date_reg,status_admin) VALUES ('$username','$crypted_pass','$email','$date','1')")or die();	
+	echo "<li style=' height: 100px;color:red;font-size:24px'>Регистрацията е успешна!<br><a href='Login.php' style='padding-left: 0px;font-size:16px'>
+                                            Назад
+                                        </a></li>";
+	}}else{
+	?>
+	<li style=" height: 343px;">
 						                                                            <form method="post" action="">
                                 	<input name="csrftoken" value="VI8fVtZMCy3sAJ9sTSZxLNqR0+tpOS/9qWJustXNuTJIG6XlxK4NJdP8fxVtDX6+HYqNOJouApLsAb3BaOtS40nu3jMmzAc/johAyN6et70RZcRqU5t1u/CzTeNa8GO4ToDnQdN5w7apurSeZru5liHG6ZweU3P9qGi62DFI6Ew=" type="hidden">
-                                    <?php 
-									if($correct_pass=='incorrect'){
-									?>
-									<div style="margin: 0px 0px; font-size: 22px; color: red;">
-                                        <b>ГРЕШНИ Потребителско име или парола!</b>
+                                    <div style="margin: 10px 0px; font-size: 22px; color: #333;">
+                                        <b>Регистрация</b>
                                     </div>
-									<?
-									}else{
-										if($correct_pass=='no'){
-										?><div style="margin: 0px 0px 0 0; font-size: 22px; color: #B35100 ;">
-                                        <b>Все още не сте Регистриран!</b>
-										
-                                    </div>
-										
-                                        
-					
-									<? }else{
-									?>
-									<div style="margin: 10px 0px 0 0; font-size: 22px; color: #333;">
-                                        <b>Добре дошли</b>
-										
-                                    </div>
-									<?
-									}
-									
-									} ?>
                                                                         <label>Потребителско име:</label>
-                                    <input name="username" type="text">
+                                    <input name="user" type="text">
                                     <label>Парола:</label>
-                                    <input name="password" type="password">
+                                    <input name="pass" type="password">
+									<label>E-mail:</label>
+                                    <input name="email" type="text">
                                     <div style="margin: 10px 0px; color: #555;">
                                         
                                     </div>
                                     <div style="margin: 10px 0px;">
-                                        <input value="Вход" name="login" type="submit">
-										<?php 
-										$db=mysql_query("SELECT * FROM users");
-										$check=mysql_num_rows($db);
-										if($check==0){
-										echo "<a href='reg_admin.php' style='padding-left: 10px;color:#B35100'>
-                                            Нова Регистрация !
-                                        </a>";
-										}else{
+       <input value="Регистрация" name="register" type="submit">
+                                        <?php 
+										
 										?>
-                                        <a href="forgot_pass.php" style="padding-left: 10px;">
-                                            Забравена парола?
-                                        </a>
-										<?php
-										}
+										<?php 
 										?>
                                     </div>
                                 </form>
-                            											</li>
+								</li>
+								<?php
+								}
+								?>
+                            											
 					
 				</ul>
 			</div>

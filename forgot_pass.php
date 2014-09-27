@@ -1,12 +1,16 @@
 <?php 
 include('../DBconnect/dbconnect.php');
-if(isset($_POST['login'])){
-$user=$_POST['username'];
-$password=$_POST['password'];
+$checks=mysql_query("SELECT * FROM users");
+$if1=mysql_num_rows($checks);
+if($if1==0){
+header("Location: index.php");die(); exit();
+}
+
+if(isset($_POST['generate'])){
+$email=$_POST['email'];
 $crypting=md5($password);
 		$check_where_user=mysql_query("SELECT * FROM users WHERE username='$user'");
 		$check_pass=mysql_fetch_array($check_where_user);
-		if(!empty($check_pass['id'])){
 		$crypted_pass=$check_pass['password'];
 		if($crypted_pass==$crypting){
 			$correct_pass='correct';
@@ -15,9 +19,6 @@ $crypting=md5($password);
 		}
 		if($correct_pass=='correct'){
 		header("Location: page.php");
-		}
-		}else{
-		$correct_pass='no';
 		}
 					}
 ?>
@@ -196,7 +197,7 @@ style.firebugResetStyles {
 					
 					?>
 					
-					<li>
+					<li style=" height: 225px;">
 						                                                            <form method="post" action="">
                                 	<input name="csrftoken" value="VI8fVtZMCy3sAJ9sTSZxLNqR0+tpOS/9qWJustXNuTJIG6XlxK4NJdP8fxVtDX6+HYqNOJouApLsAb3BaOtS40nu3jMmzAc/johAyN6et70RZcRqU5t1u/CzTeNa8GO4ToDnQdN5w7apurSeZru5liHG6ZweU3P9qGi62DFI6Ew=" type="hidden">
                                     <?php 
@@ -207,48 +208,23 @@ style.firebugResetStyles {
                                     </div>
 									<?
 									}else{
-										if($correct_pass=='no'){
-										?><div style="margin: 0px 0px 0 0; font-size: 22px; color: #B35100 ;">
-                                        <b>Все още не сте Регистриран!</b>
+									?><div style="margin: 10px 0px 0 0; font-size: 22px; color: #333;">
+                                        <b>Забравена парола</b>
 										
                                     </div>
-										
-                                        
-					
-									<? }else{
-									?>
-									<div style="margin: 10px 0px 0 0; font-size: 22px; color: #333;">
-                                        <b>Добре дошли</b>
-										
-                                    </div>
-									<?
-									}
 									
-									} ?>
-                                                                        <label>Потребителско име:</label>
-                                    <input name="username" type="text">
-                                    <label>Парола:</label>
-                                    <input name="password" type="password">
+                                   
+									<? } ?>
+                                                                        <label>Моля въведете E-mail на Администратора!</label>
+                                    <input name="email" type="text">
                                     <div style="margin: 10px 0px; color: #555;">
                                         
                                     </div>
                                     <div style="margin: 10px 0px;">
-                                        <input value="Вход" name="login" type="submit">
-										<?php 
-										$db=mysql_query("SELECT * FROM users");
-										$check=mysql_num_rows($db);
-										if($check==0){
-										echo "<a href='reg_admin.php' style='padding-left: 10px;color:#B35100'>
-                                            Нова Регистрация !
-                                        </a>";
-										}else{
-										?>
-                                        <a href="forgot_pass.php" style="padding-left: 10px;">
-                                            Забравена парола?
-                                        </a>
-										<?php
-										}
-										?>
+                                        <input value="Изпрати Нова парола!" name="generate" type="submit">
+                                    </div> 
+									<div style="margin: 10px 0px; color: #FF6E06;">
+                                       <i>/ Новата парола ще бъде изпратена на E-mail-а <br>на Администратора! /</i>
                                     </div>
                                 </form>
                             											</li>
