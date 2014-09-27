@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php 
+session_start();
+include('../DBconnect/dbconnect.php');
+$user_id=$_SESSION['user_id'];
+if(empty($user_id)){
+header("Location: Login.php");
+}
+?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 		<script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/233685.js" id="hs-analytics"></script><script src="other/dc.js" async="" type="text/javascript"></script><script id="undefined" src="other/inpage_linkid.js" async="" type="text/javascript"></script><script src="other/ga.js" async="" type="text/javascript"></script><script src="other/gtm.js" async=""></script><script src="other/gtm.js" async=""></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>LEAP3 :: Solutions Center</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
