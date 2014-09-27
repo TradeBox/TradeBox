@@ -241,7 +241,7 @@ else{
 					<li><img src="other/flag_fra.jpg"> France: 0 (800) 910978</li>
 					<li><img src="other/flag_mx.jpg"> Mexico: 01 (800) 681-1819</li>
 					<li><img src="other/flag_uk.jpg"> UK: 0 (808) 120-2343</li>
-				</ul>
+				</ul> 
 				<div id="openContact">
 					<img src="other/arrowDown.png">
 				</div>

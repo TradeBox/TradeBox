@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include('../DBconnect/dbconnect.php');
 if(isset($_POST['login'])){
 $user=$_POST['username'];
@@ -14,6 +15,7 @@ $crypting=md5($password);
 			$correct_pass='incorrect';
 		}
 		if($correct_pass=='correct'){
+		$_SESSION['user_id']=$check_pass['id'];
 		header("Location: page.php");
 		}
 		}else{

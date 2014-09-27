@@ -7,19 +7,30 @@ header("Location: index.php");die(); exit();
 }
 
 if(isset($_POST['generate'])){
+$correct_email='empty';
 $email=$_POST['email'];
-$crypting=md5($password);
-		$check_where_user=mysql_query("SELECT * FROM users WHERE username='$user'");
-		$check_pass=mysql_fetch_array($check_where_user);
-		$crypted_pass=$check_pass['password'];
-		if($crypted_pass==$crypting){
-			$correct_pass='correct';
-		}else{
-			$correct_pass='incorrect';
+		$check_where_user=mysql_query("SELECT * FROM users WHERE email='$email'");
+		$check_pass=mysql_num_rows($check_where_user);
+		if($check_pass==1){
+			$correct_email='correct';
+			
+		function mt_rand_str ($l, $c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
+		for ($s = '', $cl = strlen($c)-1, $i = 0; $i < $l; $s .= $c[mt_rand(0, $cl)], ++$i);
+		return $s;
 		}
-		if($correct_pass=='correct'){
-		header("Location: page.php");
+		
+		$randompass=mt_rand_str(10);
+		$from = "office@TradeBox.com"; // sender
+		$subject = "Нова парола";
+		$message = "Новата Ви парола за административния акаунт е:".$randompass."";
+		// message lines should not exceed 70 characters (PHP rule), so wrap it
+		$message = wordwrap($message, 70);
+		// send mail
+		mail($email,$subject,$message,"From: $from\n");
+		$crypted_new_pass=md5($randompass);
+		mysql_query("UPDATE users SET password = '$crypted_new_pass'");
 		}
+		
 					}
 ?>
 <!DOCTYPE html>
@@ -201,11 +212,50 @@ style.firebugResetStyles {
 						                                                            <form method="post" action="">
                                 	<input name="csrftoken" value="VI8fVtZMCy3sAJ9sTSZxLNqR0+tpOS/9qWJustXNuTJIG6XlxK4NJdP8fxVtDX6+HYqNOJouApLsAb3BaOtS40nu3jMmzAc/johAyN6et70RZcRqU5t1u/CzTeNa8GO4ToDnQdN5w7apurSeZru5liHG6ZweU3P9qGi62DFI6Ew=" type="hidden">
                                     <?php 
-									if($correct_pass=='incorrect'){
+									if($correct_email=='correct'){
 									?>
-									<div style="margin: 0px 0px; font-size: 22px; color: red;">
-                                        <b>ГРЕШНИ Потребителско име или парола!</b>
+									<div style=" color: red;
+    font-size: 15px;
+    margin: 56px 0 0 9px;">
+                                        <b>Изпратена Ви е нова парола на E-mail!</b>
+                                    </div><div style="  font-size: 15px;
+    margin: 24px 85px;"><a style=" background-color: rgb(230, 230, 230);
+    border-color: darkGray #a0a0a0 #959595;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 4px -2px black, 0 1px 0 white inset;
+    color: #333;
+    font: bold 13px/14px helvetica,arial,sans-serif;
+    height: 44px;
+    padding: 6px 30px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 white;" href="Login.php">Към Вход</a></div>
+									<?
+									}else{
+									if($correct_email=='empty'){
+									?>
+									<div style="margin: 10px 0px 0 0; font-size: 22px; color:red;">
+                                        <b>Несъществуващ E-mail!</b>
+										
                                     </div>
+									<div style="  font-size: 15px;
+    margin: 24px 85px;"><a style=" background-color: rgb(230, 230, 230);
+    border-color: darkGray #a0a0a0 #959595;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 4px -2px black, 0 1px 0 white inset;
+    color: #333;
+    font: bold 13px/14px helvetica,arial,sans-serif;
+    height: 44px;
+    padding: 6px 30px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 white;" href="forgot_pass.php">Назад</a></div>
 									<?
 									}else{
 									?><div style="margin: 10px 0px 0 0; font-size: 22px; color: #333;">
@@ -214,8 +264,9 @@ style.firebugResetStyles {
                                     </div>
 									
                                    
-									<? } ?>
-                                                                        <label>Моля въведете E-mail на Администратора!</label>
+									
+                                                                        <label>Моля въведете E-mail на Администратора!</label><?  ?>
+																		<label></label>
                                     <input name="email" type="text">
                                     <div style="margin: 10px 0px; color: #555;">
                                         
@@ -225,7 +276,7 @@ style.firebugResetStyles {
                                     </div> 
 									<div style="margin: 10px 0px; color: #FF6E06;">
                                        <i>/ Новата парола ще бъде изпратена на E-mail-а <br>на Администратора! /</i>
-                                    </div>
+                                    </div><? }} ?>
                                 </form>
                             											</li>
 					
