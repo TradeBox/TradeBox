@@ -16,6 +16,37 @@ $crypting=md5($password);
 		}
 		if($correct_pass=='correct'){
 		$_SESSION['user_id']=$check_pass['id'];
+		$username=$check_pass['id'];
+		
+			
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+
+
+
+	$browserAgent = $_SERVER['HTTP_USER_AGENT'];
+	$ipadd=get_client_ip();
+	mysql_query("INSERT INTO archive (who,action,ip,os) VALUES ('$username','Потребителят влезе в системата','$ipadd','$browserAgent')");
+	
+		
+		
+		
 		header("Location: page.php");
 		}
 		}else{
