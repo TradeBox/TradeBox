@@ -1,6 +1,5 @@
-<?php
-include("header.php");
-?>
+<?php include("header.php"); ?>
+<?php include("customer_add_complete.php"); ?>
 				<div id="module">
 			<div class="container">
 				<div class="caption">
@@ -13,11 +12,11 @@ include("header.php");
 <div id="orderform">
 
 	<ul class="floatingBlocks">
-		<li style="width: 100%;">
+		<li style="width: 100%; border: 1px solid rgb(218, 218, 218);">
 			<div class="caption">
 			<img src="images_2/icon_cloud.png">
 				
-				Основни данни
+				Задължителни данни
 			</div>
 			<form method="POST" action="register_complete.php">
 			<table>
@@ -34,7 +33,7 @@ include("header.php");
 					</td>
 				</tr>
 				<tr>
-					<th>ДДС_Номер:</th>
+					<th>ДДС Номер:</th>
 					<td>
 						<input " id="dds_number" name="dds_number"  type="text">
 					</td>
@@ -51,36 +50,22 @@ include("header.php");
 						<input " id="city" name="city"  type="text">
 					</td>
 				</tr>
+			
 				<tr>
-					<th>Облaст:</th>
-					<td>
-						<input " id="region" name="region"  type="text">
-					</td>
-				</tr>
-				<tr>
-					<th>Пощенски код:</th>
-					<td>
-						<input " id="post_code" name="post_code"  type="text">
-					</td>
-				</tr>
-				<tr>
-					<th>Държава:</th>
-					<td>
-						<input " id="country" name="country"  type="text">
-					</td>
-				</tr>
-				<tr>
-					<th>Управител:</th>
+					<th>МОЛ:</th>
 					<td>
 						<input " id="manager" name="manager"  type="text">
 					</td>
 				</tr>
 				
-					
+						<tr><th></th>
+				<td style="padding: 0 0 0 0">
+				 <input class="gray addSubAccount" type="submit" value="Регистрация" style="float: right; margin-top: 3px;">
+				  </td> </tr>
 				
 			</table>
 		</li>
-				<li style="width: 100%;">
+				<li style="width: 100%; margin-top: 15px; border: 1px solid rgb(218, 218, 218);">
 			<div class="caption">
 				<img src="LEAP3%20%20%20Solutions%20Center_files/globe.png" alt="">
 				Данни за контакт
@@ -115,6 +100,23 @@ include("header.php");
 					<td>
 						<input " id="contact_email" name="contact_email" type="text">
 					</td>
+				</tr>	<tr>
+					<th>Облaст:</th>
+					<td>
+						<input " id="region" name="region"  type="text">
+					</td>
+				</tr>
+				<tr>
+					<th>Пощенски код:</th>
+					<td>
+						<input " id="post_code" name="post_code"  type="text">
+					</td>
+				</tr>
+				<tr>
+					<th>Държава:</th>
+					<td>
+						<input " id="country" name="country"  type="text">
+					</td>
 				</tr>
 				<tr>
 					<th>Уебсайт за контакт:</th>
@@ -128,15 +130,32 @@ include("header.php");
 						<input " id="contact_info" name="contact_info"  type="text">
 					</td>
 				</tr>
-				<tr></table>
+				<tr>
+				<tr>
+					<th>Групи:</th>
+					<td>
+						 <select name="grupa">
+  <option value="normalen_klient">Нормален Клиент</option>
+  <option value="redoven_klient">Редовен Клиент</option>
+  <option value="nov_klient">Нов Клиент</option>
+</select>
+
+					</td>
+				</tr>
+				<tr><th></th>
+				<td>
+				 <input class="gray addSubAccount" type="submit" value="Регистрация" style="float: right; margin-top: 3px;">
+				  </td> </tr>
+				
+				</table>
 		</li>
-				<li style="width: 100%; padding: 67px 0px 0px;">
+				<li style="width: 100%; padding: 67px 0px 0px; ; margin-top: 15px; border: 1px solid rgb(218, 218, 218);">
 			<div class="caption">
 				<img src="LEAP3%20%20%20Solutions%20Center_files/globe.png" alt="">
 				Банкови данни
 			</div>
 			<table>
-			<th>Iban:</th>
+			<th>IBAN:</th>
 					<td>
 						<input " id="iban" name="iban" type="text">
 					</td>
@@ -153,20 +172,10 @@ include("header.php");
 						<input " id="bank_name" name="bank_name"  type="text">
 					</td>
 				</tr>
-				<tr>
-					<th>Групи:</th>
-					<td>
-						 <select name="grupa">
-  <option value="normalen_klient">Нормален Клиент</option>
-  <option value="redoven_klient">Редовен Клиент</option>
-  <option value="nov_klient">Нов Клиент</option>
-</select>
-
-					</td>
-				</tr>
+				<tr><th></th>
 				<td>
-				 <input class="gray addSubAccount" type="submit" value="Регистрация" style="float: right; margin-top: 12px;">
-				  </td>
+				 <input class="gray addSubAccount" type="submit" value="Регистрация" style="float: right; margin-top: 3px;">
+				  </td> </tr>
 				</table>
 				</form>
 	</div>
