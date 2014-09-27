@@ -1,0 +1,59 @@
+.green {
+	background-image: url('/resources/leap3/imgs/global/button_green.png');
+	background-color: rgb(127, 182, 18);
+	border: 1px solid rgb(98, 141, 13);
+	color: white;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 13px;
+	text-shadow: 0px 1px 0px rgb(91, 133, 8);
+	text-decoration: none;
+	line-height: 12px;
+	height: 30px;
+	text-align: center;
+	margin: 4px;
+	cursor: pointer;
+	padding: 0px 15px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	box-shadow: 1px 1px 1px rgba(5, 5, 5, .15);
+	font-family: Helvetica, Arial;
+}
+
+.green:hover {
+	background-color: rgb(107, 162, 0);
+}
+
+.gray {
+	background-image: url('/resources/leap3/imgs/global/button_gray.png');
+	background-color: rgb(235, 235, 235);
+	border: 1px solid rgb(175, 175, 175);
+	color: rgb(70, 70, 70);
+	font-style: normal;
+	font-weight: 700;
+	font-size: 13px;
+	text-shadow: 0px 1px 0px rgb(255, 255, 255);
+	text-decoration: none;
+	line-height: 12px;
+	height: 30px;
+	text-align: center;
+	margin: 4px;
+	cursor: pointer;
+	padding: 0px 15px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	box-shadow: 1px 1px 1px rgba(5, 5, 5, .15);
+	font-family: Helvetica, Arial;
+}
+
+input[type="button"].green:disabled,
+input[type="button"].gray:disabled,
+input[type="submit"].green:disabled,
+input[type="submit"].gray:disabled {
+	color: rgb(220, 220, 220);
+	background: none rgb(145, 145, 145);
+	border-color: rgb(100, 100, 100);
+	box-shadow: none;
+	cursor: default;
+	text-shadow: none;
+}

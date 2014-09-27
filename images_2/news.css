@@ -1,0 +1,134 @@
+#news {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    width: 500px;
+    z-index: 10000;
+}
+
+#news > div {
+    border: 1px solid rgba(10, 10, 10, .9);
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0px 0px;
+    box-shadow: 0px 0px 10px rgba(10, 10, 10, .8);
+    padding-bottom: 4px;
+}
+
+#news .head {
+    background-color: rgba(35, 35, 35, .95);
+    width: 210px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float: right;
+    clear: both;
+    margin-top: -27px;
+    margin-right: 15px;
+}
+
+#news .body {
+    background-color: rgba(20, 20, 20, .95);
+    width: 100%;
+    display: none;
+    max-height: 335px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 15px;
+    color: #eee;
+}
+
+#news .caption {
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#news ul {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+#news ul li {
+    padding: 4px 10px;
+    margin: 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float: left;
+}
+
+#news ul li:last-child {
+    margin-left: 3px;
+}
+
+#news #newIssue {
+    width: 100%;
+}
+
+#news select, #news textarea {
+    margin: 4px 0px;
+    font-size: 12px;
+}
+
+#news textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#news label {
+    color: rgb(210, 210, 210);
+    font-size: 12px;
+}
+
+#news table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#news table th {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 7px 4px;
+    color: rgb(240, 240, 240);
+    text-align: left;
+}
+
+#news table td {
+    font-size: 12px;
+    padding: 7px 4px;
+    color: rgb(190, 190, 190);
+    border-top: 1px solid rgb(80, 80, 80);
+}
+
+#news table td.issue {
+    width: 	292px;
+}
+
+#news li::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 4px;
+    background-color: rgb(30, 30, 30);
+    height: 10px;
+}
+
+#news li::-webkit-scrollbar-track-piece {
+    width: 7px;
+    border-radius: 4px;
+    background-color: rgb(30, 30, 30);
+}
+#news li::-webkit-scrollbar-thumb {
+    width: 7px;
+    border-radius: 4px;
+    border: 1px solid rgb(65, 65, 65);
+    background-color: rgb(60, 60, 60);
+    cursor: pointer;
+}

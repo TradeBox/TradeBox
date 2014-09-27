@@ -1,0 +1,162 @@
+div#existing {
+	padding-bottom: 8px;
+}
+
+div#existing > .header {
+	margin-bottom: 10px;
+}
+
+div#components {
+	margin: 8px 0px 18px 0px;
+	padding: 5px 0px;
+	border-top: 1px solid #DADADA;
+	overflow: hidden;
+}
+
+ul#smallmenus {
+	margin: 8px 0px 0px 0px;
+	padding: 5px 0px;
+	border-top: 1px solid #DADADA;
+	overflow: hidden;
+}
+
+ul#smallmenus > li {
+	float: left;
+	width: 50%;
+	margin: 0px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+ul#smallmenus > #billing {
+	padding: 0px 5px 0px 0px;
+}
+
+ul#smallmenus > #activity, ul#smallmenus > #deploying {
+	padding: 0px 0px 0px 5px;
+}
+
+ul#smallmenus > #deploying img {
+	max-height: 18px;
+	max-width: 19px;
+}
+
+
+div#support {
+	margin: 18px 0px 0px 0px;
+	padding: 0px;
+	border-top: 1px solid #DADADA;
+}
+
+div#support #tickets > .header {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+div#support #ticketlist {
+	border: 1px solid rgb(210, 210, 210);
+}
+
+div#welcome {
+	position: fixed;
+	top: 50%;
+	margin-top: -200px;
+	height: 400px;
+	z-index: 100;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0px 0px 35px 1px rgb(10, 10, 10);
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 750px;
+	margin-left: -375px;
+	left: 50%;
+	background-repeat: repeat-x;
+	display: none;
+	border: 1px solid rgb(10, 10, 10);
+}
+
+div#welcome .close {
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 7px;
+}
+
+div#welcome > div {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 398px;
+}
+
+div#welcome > div:last-child {
+	background-image: url('/resources/leap3/imgs/global/bg.png');
+	box-shadow: inset 7px 0px 10px -5px rgba(10, 10, 10, .85);
+	border-left: 1px solid rgb(180, 180, 180);
+}
+
+div#welcome #tabs {
+	list-style-type: none;
+	margin: 0px;
+	width: 100%;
+	padding: 0px;
+	height: 50px;
+	box-shadow: 0px 1px 4px rgba(140, 140, 140, .73);
+}
+
+div#welcome #tabs > li {
+	width: 152px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	text-align: center;
+	float: left;
+	padding: 14px 0px;
+	margin: 0px;
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(110, 110, 110);
+	text-shadow: 1px 1px 1px rgb(250, 250, 250);
+	background-image: url('/resources/leap3/imgs/user/welcome_gradient.png');
+	background-repeat: repeat-x;
+	border-right: 1px solid rgb(180, 180, 180);
+	cursor: pointer;
+	position: relative;
+}
+
+div#welcome #tabs > li .arrow {
+	position: absolute;
+	bottom: -14px;
+	left: 39%;
+	display: none;
+}
+
+div#welcome #tabs > li.active {
+	background-image: none;
+}
+
+div#welcome #tabs > li.active .arrow {
+	display: inline;
+}
+
+div#welcome #contenttabs {
+	list-style-type: none;
+	margin: 20px 3px;
+	padding: 0px;
+}
+
+div#welcome #contenttabs > li {
+	display: none;
+	padding: 20px 5px;
+	text-align: center;
+	margin: 0px;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 0px;
+}
+
+div.large_empty {
+    height:140px;
+    width:100%;
+    text-align:center;
+    padding-top:25px;
+}

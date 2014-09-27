@@ -1,0 +1,51 @@
+#tickets .header {
+	padding: 20px 0px 20px 20px;
+}
+
+#tickets .header div {
+	font-size: 25px;
+	font-weight: bold;
+	color: rgb(68, 68, 68);
+	text-shadow: 0px 0px 1px rgb(240, 240, 240);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 500px;
+}
+
+#ticketlist {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#ticketlist td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 270px;
+	padding: 9px 5px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-top: 1px solid rgb(210,210,210);
+	color: rgb(115, 115, 115);
+}
+
+#ticketlist img {
+	width: 14px;
+}
+
+#ticketlist td a {
+	color: rgb(115, 115, 115);
+}
+
+#ticketlist td a:hover {
+	color: rgb(78, 115, 13);
+}
+
+#ticketlist tr:last-child td {
+	border-bottom: 1px solid rgb(210,210,210);
+}
+
+#ticketlist tr:nth-child(odd) td {
+	background-color: rgb(240, 240, 240);
+}

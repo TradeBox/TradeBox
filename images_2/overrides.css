@@ -1,0 +1,51 @@
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a img {
+	border: none;
+}
+
+div::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 4px;
+    background-color: rgb(30, 30, 30);
+    height: 10px;
+}
+
+div::-webkit-scrollbar-track-piece {
+	width: 7px;
+	border-radius: 4px;
+    background-color: rgb(30, 30, 30);
+}
+div::-webkit-scrollbar-thumb {
+	width: 7px;
+	border-radius: 4px;
+	border: 1px solid rgb(65, 65, 65);
+    background-color: rgb(60, 60, 60);
+    cursor: pointer;
+}
+
+div#eventsbar .container > ul > li > ul::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 4px;
+    background-color: rgb(210, 210, 210);
+    height: 10px;
+}
+
+div#eventsbar .container > ul > li > ul::-webkit-scrollbar-track-piece {
+	width: 7px;
+	border-radius: 4px;
+    background-color: rgb(210, 210, 210);
+}
+div#eventsbar .container > ul > li > ul::-webkit-scrollbar-thumb {
+	width: 7px;
+	border-radius: 4px;
+	border: 1px solid rgb(130, 130, 130);
+    background-color: rgb(130, 130, 130);
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.components td img.icon {
+	max-height: 21px;
+	margin-right: 2px;
+	float: right;
+}
+
+
+.components .options {
+	text-align: right !important;
+	width: 90px !important;
+}
+
+.components .hostname {
+	font-size: 16px;
+	line-height: 33px;
+	white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+	width: 320px !important;
+
+}
+.components.autoHide .main {
+	display: none;
+}

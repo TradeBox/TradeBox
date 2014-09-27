@@ -1,0 +1,102 @@
+table.dataTable {
+	margin-top: 15px;
+	border: 1px solid rgb(174, 174, 174);
+	border-collapse: collapse;
+	width: 100%;
+	box-shadow: 0px 1px 3px rgba(100, 100, 100, .35);
+}
+
+table.dataTable.small {
+	margin-top: 5px;
+}
+
+table.dataTable > thead > tr {
+	background-image: url('/resources/leap3/imgs/global/datatable_header_bg.png');
+}
+
+table.dataTable > thead > tr:first-child th {
+	border-bottom: 1px solid rgb(184, 184, 184);
+	font-size: 25px;
+	color: rgb(76, 76, 76);
+	text-shadow: 1px 1px 1px rgb(255, 255, 255);
+	line-height: 54px;
+	padding: 0px 10px;
+}
+
+table.dataTable > tbody > tr.main td {
+	height: 42px;
+}
+
+table.dataTable > tbody > tr:first-child:not(.main), table.dataTable > tbody > tr.colnames:not(.main) {
+	background-image: url('/resources/leap3/imgs/global/datatable_bg.png') !important;
+}
+
+table.dataTable > tbody > tr:first-child:not(.main) th, table.dataTable > tbody > tr.colnames:not(.main) th {
+	border-bottom: 1px solid rgb(184, 184, 184);
+	font-size: 16px;
+	color: rgb(76, 76, 76);
+	text-shadow: 1px 1px 1px rgb(255, 255, 255);
+	line-height: 48px;
+	padding: 0px 15px;
+	white-space: nowrap;
+}
+
+table.dataTable.small > tbody > tr:first-child:not(.main) th, table.dataTable > tbody > tr.colnames:not(.main) th {
+	font-size:12px;
+}
+
+table.dataTable .num {
+	min-width: 75px;
+	text-align: center;
+	font-weighT: bold;
+}
+
+table.dataTable > * > tr > th, table.dataTable > * > tr > td {
+	padding: 9px 14px;
+	text-align: left;
+	border-bottom: 1px solid rgb(184, 184, 184);
+	border-right: 1px solid rgb(184, 184, 184);
+}
+
+table.dataTable.small > * > tr > th, table.dataTable.small > * > tr > td {
+	padding: 5px 7px;
+}
+
+table.dataTable > * > tr > td {
+	color: rgb(120, 120, 120);
+	font-size: 14px;
+}
+
+table.dataTable.small > * > tr > td {
+	font-size: 11px;
+}
+
+table.dataTable > * > tr:nth-child(odd) {
+	background-color: rgb(244, 244, 244);
+}
+
+table.dataTable > * > tr:first-child > th img {
+	height: 25px;
+	vertical-align: middle;
+}
+
+table.dataTable .description {
+	width: 400px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 400px;
+}
+
+table.dataTable a {
+	color: rgb(103, 161, 30);
+}
+
+table.dataTable th.sortable:hover {
+	cursor: ns-resize;
+	border-bottom: 1px solid rgba(100, 100, 100, .7) !important;
+}
+
+table.dataTable th.sorted {
+	border-bottom: 1px solid #67A11E !important;
+}

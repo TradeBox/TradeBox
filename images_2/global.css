@@ -1,0 +1,368 @@
+html, body {
+	margin: 0px;
+	height: 101%;
+	font-family: Helvetica;
+	font-size: 12px;
+	color: rgb(30, 30, 30);
+}
+
+
+/**
+ * 	Header
+ */
+div#header {
+	height: 45px;
+	border-bottom: 1px solid rgb(151, 196, 41);
+	box-shadow: 0px 0px 3px 2px rgba(30,30,30,.7);
+	background-color: #69ba00;
+}
+
+div#header div#logo {
+	padding: 5px 0px 0px 0px;
+	float: left;
+}
+
+div#header div#version {
+    float: left;
+    padding: 23px 0 0;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: bold;
+    text-shadow: 0 -1px 1px rgba(40, 40, 40, 0.4);
+    left: -15px;
+    position: relative;
+}
+
+div#header div#user {
+	float: right;
+	padding-right: 25px;
+}
+
+div#header div#user > div:not(.user_menu) {
+	float: left;
+	line-height: 46px;
+	padding: 0px 10px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+div#header div#user > div:not(.user_menu):hover, div#header div#user > div:not(.user_menu).open {
+	background-color: rgba(0,0, 0, .1);
+	box-shadow: inset 0px 0px 3px 0px rgba(10, 10, 10, .8);
+	cursor: pointer;
+}
+
+div#header div#user > div:not(.user_menu) > img {
+	vertical-align: middle;
+}
+
+div#header div#user div#username {
+	color: rgb(255, 255, 255);
+	text-shadow: 0px -1px 1px rgba(40, 40, 40, .4);
+	font-weight: bold;
+	font-size: 14px;
+}
+
+div#header div#user .user_menu {
+	position: absolute;
+	display: none;
+	background-color: #fff;
+	min-width: 155px;
+	border: 1px solid rgb(150, 150, 150);
+	border-top: none;
+	z-index:7;
+}
+
+div#header div#user .user_menu ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+div#header div#user .user_menu ul li {
+	margin: 0px;
+}
+
+div#header div#user .user_menu ul li a {
+	font-size: 12px;
+	color: rgb(99, 159, 24);
+	border-bottom: 1px solid rgb(150, 150, 150);
+	display: block;
+	padding: 9px 7px;
+	text-decoration: none;
+}
+
+div#header div#user .user_menu ul li a:hover {
+	background-color: rgb(240, 240, 240);
+}
+
+div#header div#user .user_menu ul li:last-child a {
+	border-bottom: none;
+}
+
+div#header div#search {
+	position: relative;
+	float: right;
+	margin-top: 12px;
+}
+
+div#header #search_components {
+	width: 200px;
+}
+
+div#header ul#search-results {
+	position: absolute;
+	background-color: rgba(255, 255, 255, .97);
+	margin: 0px;
+	z-index: 100;
+	padding: 0px;
+	width: 250px;
+}
+
+div#header ul#search-results li {
+	margin: 0px;
+	display: none;
+	border: 1px solid rgb(230, 230, 230);
+	border-top: none;
+	padding: 0px;
+    height: 55px;
+
+
+}
+
+div#header ul#search-results li:first-child {
+	border-bottom: 1px solid rgb(230, 230, 230);
+
+}
+
+div#header ul#search-results li a{
+	font-size: 12px;
+	color: rgb(99, 159, 24);
+	display: block;
+	padding: 12px;
+
+}
+
+div#header ul#search-results li:hover {
+	background-color: rgb(240, 240, 240);
+
+}
+.serveritem{
+    heigt: auto;
+}
+.serverinfo {
+    width: 90%;
+    height: auto;
+    float: left;
+}
+
+.serverimg {
+    float: right;
+    width: 10%;
+}
+
+.serverimg img{
+    height: 13px;
+
+}
+
+div#header .container {
+	overflow: visible;
+}
+
+/**
+ * 	Events Bar
+ */
+
+div#eventsbar {
+	display: none;
+
+}
+
+div#eventsbar .container {
+	overflow: hidden;
+	width: 1020px;
+	padding: 15px 0px;
+}
+
+div#eventsbar .container > ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+div#eventsbar .container > ul > li {
+	height: 175px;
+	margin: 0px;
+	float: left;
+	width: 25%;
+	padding: 0px 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-right: 1px solid rgb(222, 222, 222);
+}
+
+div#eventsbar .container > ul > li:first-child {
+	border-left: 1px solid rgb(222, 222, 222);
+}
+
+div#eventsbar .container > ul > li .icon {
+	float: left;
+	margin-right: 8px;
+	max-height: 27px;
+}
+
+div#eventsbar .container > ul > li .events_num {
+	width: 25px;
+	height: 25px;
+	float: right;
+	background-color: rgb(213, 213, 213);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 25px;
+	margin-right: 4px;
+}
+
+div#eventsbar .container > ul > li > .header {
+	font-size: 17px;
+	color: rgb(85, 85, 85);
+	padding-left: 5px;
+	font-weight: bold;
+	text-shadow: 0px 1px 1px rgba(215, 215, 215, .6);
+	line-height: 25px;
+}
+
+div#eventsbar .container > ul > li > ul {
+	list-style-type: none;
+	margin: 9px 5px;
+	padding: 0px;
+	overflow: auto;
+	height: 140px;
+	padding: 0px 8px;
+}
+div#eventsbar .container > ul > li > ul > li {
+	border-top: 1px solid rgb(201, 201, 201);
+	padding: 5px 4px;
+	font-size: 11px;
+	color: rgb(134, 134, 134);
+}
+
+div#eventsbar .container > ul > li > ul > li .time {
+	text-decoration: underline;
+}
+
+div#eventsbar .container > ul > li > ul > li a {
+	color: rgb(113, 167, 45);
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+/**
+ * 	Nav bar
+ */
+
+div#navbar {
+	height: 32px;
+	background-image: url('/resources/leap3/imgs/global/navbar_bg.png');
+	border-bottom: 1px solid rgb(200, 200, 200);
+	box-shadow: -1px 1px 2px rgba(210, 210, 210, .55);
+	background-color: rgb(246, 246, 246);
+	line-height: 32px;
+}
+
+div#navbar .container > * {
+	display: inline-block;
+	font-size: 12px;
+	text-decoration: none;
+	padding: 0px 4px;
+	text-shadow: 0px 0px 1px rgb(240, 240, 240);
+}
+
+div#navbar .container > a {
+	color: rgb(78, 115, 13);
+	text-decoration: none;
+	font-weight: bold;
+}
+div#navbar .container > div, div#navbar .container > a.current {
+	color: rgb(105, 105, 105);
+	text-decoration: none;
+	font-weight: normal;
+}
+
+/**
+ * Module
+ */
+
+div#module .container {
+	border-bottom: 1px solid rgb(218, 218, 218);
+	overflow: hidden;
+}
+
+div#module .icon {
+	margin-top: 24px;
+	margin-right: 9px;
+}
+
+div#module .caption {
+	color: rgb(58, 70, 38);
+	line-height: 77px;
+	font-size: 35px;
+	font-weight: bold;
+	text-shadow: 0px 0px 1px rgb(240, 240, 240);
+	text-rendering: optimizelegibility;
+}
+
+div#module .container > div {
+	float: left;
+}
+
+/**
+ * 	Footer
+ */
+div#footer {
+	padding: 20px 0px;
+}
+
+/**
+ * 	General
+ */
+
+div.container {
+	width: 960px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+div#content {
+	overflow: hidden;
+}
+
+#content .container {
+	padding-bottom: 100px;
+}
+
+a {
+	color: rgb(78, 115, 13);
+}
+
+.two-column,
+.three-column {
+	width: 100%;
+}
+.column {
+	float: left;
+}
+.two-column .column {
+	width: 50%;
+}
+.three-column .column {
+	width: 33.3333332%;
+}
+
+.help-text-requireed {
+    color: red;
+}
