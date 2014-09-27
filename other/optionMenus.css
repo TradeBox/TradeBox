@@ -1,0 +1,85 @@
+.optionMenu {
+	background-color: #363636;
+	box-shadow: inset 7px 0px 10px -5px rgba(10, 10, 10, .35);
+	border-left: 1px solid rgb(180, 180, 180);
+	border-right: 1px solid rgb(180, 180, 180);
+}
+
+.optionMenu > .caption, .optionMenu ul li {
+	box-shadow: inset 7px 0px 10px -5px rgba(10, 10, 10, .45);
+}
+
+.optionMenu > .caption {
+	background-color: #707070;
+	line-height: 35px;
+	color: rgb(255, 255, 255);
+	text-shadow: 1px 1px 1px rgba(30, 30, 30, .9);
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	border-bottom: 1px solid rgba(20, 20, 20, .25);
+	display:block;
+}
+
+.optionMenu .caption.active {
+	background-color: #5eaa00;
+}
+
+.optionMenu ul:not(.ignore) li.caption:first-child {
+	border-top: 1px solid rgba(20, 20, 20, .15);
+}
+
+.optionMenu ul:not(.ignore) {
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 0px 2px 2px -1px rgba(10, 10, 10, .45);
+	margin: 0px;
+	padding: 0px;
+	border-bottom: 1px solid rgba(20, 20, 20, .7);
+}
+
+.optionMenu ul:not(.ignore) li {
+	margin: 0px;
+	line-height: 35px;
+	padding-left: 2px;
+	cursor: pointer;
+}
+
+.optionMenu ul:not(.ignore) li:last-child {
+	border-bottom: none;
+}
+
+.optionMenu ul:not(.ignore) li a img {
+	padding: 0px 6px;
+	vertical-align: middle;
+	margin-bottom: 3px;
+	max-height: 16px;
+}
+
+.optionMenu ul:not(.ignore) li a img.status {
+	float: right;
+	margin: 9px 4px 0px 0px;
+}
+
+.optionMenu ul:not(.ignore) li a{
+	display: block;
+	padding-left: 5px;
+	color: rgb(155, 155, 155);
+	border-bottom: 1px solid rgba(214, 215, 216, .8);
+	font-size: 13px;
+}
+
+.optionMenu ul:not(.ignore):last-child li:last-child {
+	border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.optionMenu ul.ignore {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+.optionMenu ul.ignore li {
+	margin: 0px;
+	padding: 0px;
+}

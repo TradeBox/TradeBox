@@ -1,0 +1,61 @@
+.expandableDetails .indicator { 
+	margin: 0px 1px;
+	padding: 3px;
+	vertical-align: bottom;
+	cursor: pointer;
+}
+
+.expandableDetails .sub {
+	display: none;
+}
+
+.expandableDetails > tbody > tr.main {
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.expandableDetails > tbody > tr:nth-child(4n+0) {
+	background-color: rgb(244, 244, 244);
+}
+
+.expandableDetails tbody .sub td {
+	text-align: left !important;
+	padding: 0px;
+}
+
+.expandableDetails tbody .sub .details {
+	width: 100%;
+	border-left: 5px solid rgb(193, 193, 193);
+	padding-left: 5px;
+	background-color: rgb(246, 246, 246);
+	border-collapse: collapse;
+	box-shadow: inset -1px 0px 2px 1px rgba(10, 10, 10, 0.15);
+	min-height: 50px;
+}
+
+.expandableDetails tbody .sub .details tr td {
+	border-right: 1px solid rgb(213, 213, 213);	
+}
+
+.expandableDetails tbody .sub .details tr td:last-child {
+	border-right: none;
+}
+
+.expandableDetails tbody .sub .details tr td {
+	border-bottom: 1px solid rgb(213, 213, 213);
+	line-height: 17px;
+	width: 50%;
+	padding: 9px 11px 9px 15px;
+	box-sizing: border-box;
+	color: rgb(102, 102, 102);
+	font-size: 13px;
+}
+
+.expandableDetails tbody .sub .details tr td label {
+	font-weight: bold;
+}
+
+.expandableDetails tbody .sub .details tr td img {
+	max-height: 14px;
+	vertical-align: middle;
+}

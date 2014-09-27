@@ -1,0 +1,103 @@
+div.container {
+	overflow: visible;
+	position: relative;
+}
+
+#orderform {
+	border: 1px solid rgb(218, 218, 218);
+	border-top: 0px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	position: relative;
+	min-height: 600px;
+}
+
+#orderform #server {
+	font-size: 28px;
+	color: rgb(40,40,40);
+	font-weight: bold;
+	line-height: 70px;
+	padding: 0px 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+#orderform #server #type {
+	font-weight: normal;
+	color: rgb(140, 140, 140);
+}
+
+ul.floatingBlocks > li > table:not(.dataTable) th {
+	width: 180px;
+}
+
+
+/**
+ * 	Side Options
+ */
+#options {
+	position: absolute;
+	top: 70px;
+	bottom: 0px;
+	width: 233px;
+	margin-left: 725px;
+}
+
+#orderform #options div#total {
+	font-size: 24px;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	text-align: center;
+	margin-top: 25px;
+	text-shadow: 1px 1px 1px rgb(10, 10, 10);
+}
+
+#orderform #options ul#total li.caption {
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	text-align: center;
+	margin-top: 22px;
+	text-shadow: 1px 1px 1px rgb(10, 10, 10);
+}
+
+#orderform #options ul#total li:not(.caption) {
+	font-size: 16px;
+	color: rgb(225, 225, 225);
+	font-weight: bold;
+	text-align: center;
+	margin-top: 7px;
+	text-shadow: 1px 1px 1px rgb(10, 10, 10);
+}
+
+#orderform #options > input {
+	margin: 10px 40px;
+}
+
+ul.checkboxes {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+ul.checkboxes li {
+	margin: 0px;
+	line-height: 25px;
+	padding: 13px 16px;
+	border-bottom: 1px solid #E1E1E1;
+	color: #6E6E6E;
+	font-size: 15px;
+}
+
+ul.checkboxes li span.mgmtName {
+	font-weight: bold;
+	color: rgb(80, 80, 80);
+}
+
+ul.checkboxes li:last-child {
+	border-bottom: none;
+}
+
+.slider_container {
+	width: 99%;
+}

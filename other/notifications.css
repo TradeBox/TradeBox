@@ -1,0 +1,44 @@
+#notifications {
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(15, 15, 15, .91);
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, .7);
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    z-index: 110;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .9);
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, .7);
+    display: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#notifications ul {
+    width: 80%;
+    margin: 0px 0px 0px 30px;
+    padding: 0px;
+}
+
+#notifications li {
+    line-height: 61px;
+    text-align: left;
+}
+
+#notifications img {
+    vertical-align: middle;
+    height: 30px;
+    margin-top: -6px;
+    margin-right: 10px;
+}
+
+#notifications input.close_button {
+    float: right;
+    margin: 17px 90px 0px 0px;
+    vertical-align: top;
+}

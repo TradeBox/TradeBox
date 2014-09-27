@@ -1,0 +1,169 @@
+div#toolbar {
+	border-top: 1px solid rgba(50, 50, 50, .1);
+	height: 42px;
+	background-color: #3a4231;
+	border-bottom: 1px solid rgba(50, 50, 50, .1);
+	box-shadow: -1px 2px 4px rgba(60, 60, 60, .55);
+}
+
+div#toolbar .container {
+	position: relative;
+}
+
+div#toolbar .container > ul {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	border-left: 1px solid rgba(150, 150, 150, .3);
+	border-right: 1px solid rgba(50, 50, 50, .2);
+	height: 42px;
+	display: inline-block;
+
+}
+
+div#toolbar .container > ul > li {
+	float: left;
+	padding: 0px;
+	margin: 0px;
+	border-left: 1px solid rgba(50, 50, 50, .2);
+	border-right: 1px solid rgba(150, 150, 150, .3);
+	line-height: 41px;
+}
+div#toolbar .container > ul > li > a {
+	display: block;
+	padding: 0px 30px;
+	padding-top: 1px;
+	color: #fff;
+	font-size: 16px;
+	text-decoration: none;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, .8);
+	font-weight: bold;
+}
+
+div#toolbar .container > ul > li > a:hover {
+	background-color: rgba(20, 25, 20, .3);
+}
+
+ul#toolbarlinks > li > ul {
+	display: none;
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(15, 20, 15); // Fallback
+	background-color: rgba(15, 20, 15, .98);
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, .7);
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	z-index: 100;
+}
+
+ul#toolbarlinks > li > ul > li {
+	float: left;
+	width: 33.3%;
+	padding: 0px 2px 0px 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-right: 1px solid rgb(20, 25, 20);
+	height: 200px;
+	max-height: 300px;
+}
+
+ul#toolbarlinks > li > ul > li:last-child {
+	border-right: none;
+}
+
+ul#toolbarlinks > li > ul > li .header {
+	color: rgb(255, 255, 255);
+	font-size: 18px;
+	line-height: 28px;
+	text-align: left;
+	font-weight: bold;
+	padding: 9px 15px 4px 15px;
+	text-shadow: 1px 1px 1px rgb(20, 20, 20);
+}
+
+ul#toolbarlinks > li > ul > li .body {
+	max-height: 256px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+ul#toolbarlinks > li > ul > li .body a:not(.fullIcon) img, ul#toolbarlinks > li > ul > li .body .icon {
+	float: right;
+	margin: 5px 1px 0px 1px;
+	max-height: 18px;
+}
+
+ul#toolbarlinks > li > ul > li .body .icon {
+	float: left;
+	margin-right: 10px;
+}
+
+ul#toolbarlinks > li > ul > li .body a:not(.fullIcon) {
+	line-height: 30px;
+	font-size: 14px;
+	color: rgb(140, 140, 140);
+	display: block;
+	padding: 0px 10px;
+}
+
+ul#toolbarlinks > li > ul > li .body span {
+	font-size: 12px;
+	color: rgb(200, 200, 200);
+}
+
+ul#toolbarlinks > li > ul > li .body a:not(.fullIcon):hover, ul#toolbarlinks > li > ul > li .body li:hover {
+	background-color: rgb(10, 15, 10); /* fall back */
+	background-color: rgba(10, 15, 10, .7);
+	color: rgb(180, 180, 180);
+}
+
+ul#toolbarlinks > li > ul > li .body table {
+	width: 100%;
+	line-height: 22px;
+	font-size: 14px;
+}
+
+ul#toolbarlinks > li > ul > li .body table th {
+	font-weight: bold;
+	color: rgb(190, 190, 190);
+	text-align: right;
+	padding-right: 5px;
+	width: 180px;
+}
+
+ul#toolbarlinks > li > ul > li .body table td {
+	color: rgb(170, 170, 170);
+	text-align: left;
+	padding-left: 5px;
+}
+
+ul#toolbarlinks > li> ul > li .body li {
+	line-height: 26px;
+}
+
+div.team a {
+	padding: 15px !important;
+	line-height: 22px !important;
+	font-size: 18px !important;
+	height: 90px;
+
+}
+div.team img {
+	margin-top: 2px !important;
+	border-radius: 3px;
+	max-height:  85px !important;
+	border: 1px solid rgba(200, 200, 200, .6);
+	float: right;
+}
+
+hr.light-gradient-style {
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(150,150,150,0), rgba(150,150,150,0.75), rgba(150,150,150,0));
+    background-image:    -moz-linear-gradient(left, rgba(150,150,150,0), rgba(150,150,150,0.75), rgba(150,150,150,0));
+    background-image:     -ms-linear-gradient(left, rgba(150,150,150,0), rgba(150,150,150,0.75), rgba(150,150,150,0));
+    background-image:      -o-linear-gradient(left, rgba(150,150,150,0), rgba(150,150,150,0.75), rgba(150,150,150,0));
+}

@@ -1,0 +1,109 @@
+ul.floatingBlocks {
+	margin: 0px;
+	padding: 0px;
+	font-size: 0;
+	width: 100%;
+}
+
+ul.floatingBlocks > li {
+	position: relative;
+	width: 50%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	margin: 0px;
+	padding: 20px 5px;
+	box-shadow: inset 0px 1px 2px 0px rgba(70, 70, 70, 0.4);
+	padding-top: 65px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+ul.floatingBlocks > li .caption {
+	position: absolute;
+	top: 17px;
+	left: -10px;
+	border: solid 1px #a5a5a5;
+	color: #585858;
+	text-shadow: 0px 1px 1px rgba(50, 50, 50, .05);
+	box-shadow: 1px 1px 1px rgba(130, 130, 130, .3);
+	font-weight: bold;
+	font-size: 17px;
+	padding: 6px 11px 6px 11px;
+	min-width: 165px;
+	background-color: #eee;
+	text-align: left;
+}
+
+ul.floatingBlocks > li .caption.right {
+    right: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+ul.floatingBlocks > li .caption.right a {
+    color: #000;
+    display: block;
+    margin-right:10px;
+    float: left;
+    cursor: pointer;
+}
+
+ul.floatingBlocks > li .caption img {
+	max-height: 16px;
+	margin-top: 1px;
+}
+
+ul.floatingBlocks > li .description {
+	position: absolute;
+	top: 19px;
+	right: 15px;
+	color: rgb(130, 130, 130);
+	font-size: 15px;
+	line-height: 30px;
+}
+
+ul.floatingBlocks > li .description img {
+	float: right;
+	margin-left: 10px;
+	margin-top: -2px;
+	max-height: 36px;
+}
+
+ul.floatingBlocks > li table:not(.dataTable) {
+	width: 100%;
+}
+
+ul.floatingBlocks > li table:not(.dataTable) th {
+	width: 130px;
+	color: #646464;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: left;
+	padding: 9px 5px 10px 5px;
+	vertical-align: top;
+}
+
+ul.floatingBlocks > li table:not(.dataTable) td {
+	padding: 9px 0px 10px 5px;
+	color: rgb(110, 110, 110);
+	font-size: 15px;
+	text-align: left;
+	vertical-align: top;
+}
+
+ul.floatingBlocks > li table:not(.dataTable):not(.details) select,
+ul.floatingBlocks > li table:not(.dataTable):not(.details) input[type="text"],
+ul.floatingBlocks > li table:not(.dataTable):not(.details) input[type="number"],
+ul.floatingBlocks > li table:not(.dataTable):not(.details) input[type="password"],
+ul.floatingBlocks > li table:not(.dataTable):not(.details) input[type="file"],
+ul.floatingBlocks > li table:not(.dataTable):not(.details) input[type="email"],
+ul.floatingBlocks > li table:not(.dataTable):not(.details) input[type="phone"],
+ul.floatingBlocks > li table:not(.dataTable):not(.details) textarea {
+	font-size: 14px;
+	margin-top: -7px;
+}
+
+ul.floatingBlocks > li table.dataTable {
+	width: 99% !important;
+	margin: 5px 5px 3px !important;
+}

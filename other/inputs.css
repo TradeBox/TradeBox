@@ -1,0 +1,30 @@
+input[type="number"], input[type="text"], input[type="phone"], input[type="number"] input[type="color"], input[type="password"], input[type="email"], select, textarea  {
+	width: 98%;
+	font-size: 14px;
+	color: rgb(110, 110, 110);
+	padding: 7px 5px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-shadow: inset 1px 2px 1px rgb(229, 229, 229);
+	font-family: helvetica, arial;
+	margin: 2px;
+}
+
+select {
+	padding: 7px 5px;
+	min-height: 34px; /* Helps with styling for OSX */
+	background: none; /* Helps with styling for OSX */
+	height: 30px;
+}
+
+
+input[type=file] {
+	padding: 5px;
+	border: 1px solid rgb(169, 169, 169);
+	border-radius: 3px;
+	width: 48%;
+	font-size: 14px;
+	color: rgb(110, 110, 110);
+	box-shadow: inset 1px 2px 1px rgb(229, 229, 229);
+	font-family: helvetica, arial;
+}
