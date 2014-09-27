@@ -1,4 +1,4 @@
-<?php 
+<?php  
 session_start();
 include('../DBconnect/dbconnect.php');
 if(isset($_POST['login'])){
