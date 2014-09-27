@@ -232,7 +232,7 @@ style.firebugResetStyles {
     padding: 6px 30px;
     text-align: center;
     text-decoration: none;
-    text-shadow: 0 1px 0 white;" href="Login.php">Към Вход</a></div>
+    text-shadow: 0 1px 0 white;" href="login.php">Към Вход</a></div>
 									<?
 									}else{
 									if($correct_email=='empty'){

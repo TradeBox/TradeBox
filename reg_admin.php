@@ -223,7 +223,7 @@ $username_id=$iiii['id'];
 	
 	
 	
-	echo "<li style=' height: 100px;color:red;font-size:24px'>Регистрацията е успешна!<br><a href='Login.php' style='padding-left: 0px;font-size:16px'>
+	echo "<li style=' height: 100px;color:red;font-size:24px'>Регистрацията е успешна!<br><a href='login.php' style='padding-left: 0px;font-size:16px'>
                                             Назад
                                         </a></li>";
 	}}else{
