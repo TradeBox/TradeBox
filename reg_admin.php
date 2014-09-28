@@ -229,27 +229,22 @@ $username_id=$iiii['id'];
 	}}else{
 	?>
 	<li style=" height: 343px;">
-						                                                            <form method="post" action="">
-                                	<input name="csrftoken" value="VI8fVtZMCy3sAJ9sTSZxLNqR0+tpOS/9qWJustXNuTJIG6XlxK4NJdP8fxVtDX6+HYqNOJouApLsAb3BaOtS40nu3jMmzAc/johAyN6et70RZcRqU5t1u/CzTeNa8GO4ToDnQdN5w7apurSeZru5liHG6ZweU3P9qGi62DFI6Ew=" type="hidden">
+	<script src="reg_validate.js"></script>					                                                            <form method="POST" action=""  onsubmit="return validate()">
                                     <div style="margin: 10px 0px; font-size: 22px; color: #333;">
                                         <b>Регистрация</b>
                                     </div>
                                                                         <label>Потребителско име:</label>
-                                    <input name="user" type="text">
+                                    <input id='user' name="user" type="text" value="">
                                     <label>Парола:</label>
-                                    <input name="pass" type="password">
+                                    <input id='pass' name="pass" type="password" value="">
 									<label>E-mail:</label>
-                                    <input name="email" type="text">
+                                    <input id='email' name="email" type="text" value="">
                                     <div style="margin: 10px 0px; color: #555;">
                                         
                                     </div>
                                     <div style="margin: 10px 0px;">
-       <input value="Регистрация" name="register" type="submit">
-                                        <?php 
-										
-										?>
-										<?php 
-										?>
+						<input value="Регистрация" name="register" type="submit">
+                                      
                                     </div>
                                 </form>
 								</li>
