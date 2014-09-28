@@ -60,19 +60,19 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
                     Corporate
                 </div>
 																	<div id="user">
-					<div id="username">
+					<div id="username" onmouseover="usermenu.style.display='block'" onmouseout="usermenu.style.display='none'" >
 						ProHost LTD (<span style="font-size: 10px;">Pavel Peev</span>)
 					</div>
-					<div class="user_menu">
+					<div onmouseover="usermenu.style.display='block'" onmouseout="usermenu.style.display='none'" id='usermenu' class="user_menu">
 						<ul>
 							<li>
-								<a href="http://leap3.singlehop.com/account/home/">Account Settings</a>
+								<a href="">Account Settings</a>
 							</li>
                             														<li>
-								<a href="http://leap3.singlehop.com/support/home/">Help</a>
+								<a href="">Help</a>
 							</li>
 							<li>
-								<a href="http://leap3.singlehop.com/user/actn/logout">Logout</a>
+								<a href="log_out.php">Logout</a>
 							</li>
 						</ul>
 					</div>
