@@ -12,7 +12,7 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 		<meta name="author" content="SingleHop, LLC">
 		<meta name="publisher" content="SingleHop, LLC">
 		<meta name="revisit-after" content="1 days">
-        <link rel="icon" type="image/png" href="http://leap3.singlehop.com/resources/leap3/imgs/global/favicon.png">
+        <link rel="icon" type="image/png" href="favicon.png">
 		<link href="other/global.css" rel="stylesheet" type="text/css">
 		<link href="other/buttons.css" rel="stylesheet" type="text/css">
 		<link href="other/overrides.css" rel="stylesheet" type="text/css">
@@ -31,34 +31,8 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 		<script src="other/jquery.js" type="text/javascript"></script>
 		<script src="other/jquery-ui.js" type="text/javascript"></script>
 		
-        	<link media="all" href="other/notifications.css" type="text/css" rel="stylesheet"><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script><div style="width: 1px; height: 1px; display: inline;"><img style="border-style:none;" alt="" src="other/out.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_003.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_004.gif" height="1" width="1">
-<img alt="" style="display:none" src="other/tr.gif" height="1" width="1"><img style="border-style:none;" alt="" src="other/a_004.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_002.gif" height="1" width="1">
-<!-- rmx placeholder -->
-<img src="other/seg.gif" height="1" width="1">
-</div><div style="width: 1px; height: 1px; display: inline;"><img style="border-style:none;" alt="" src="other/out.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_003.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_004.gif" height="1" width="1">
-<img alt="" style="display:none" src="other/tr.gif" height="1" width="1"><img style="border-style:none;" alt="" src="other/a.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_002.gif" height="1" width="1">
-<!-- rmx placeholder -->
-<img src="other/seg.gif" height="1" width="1">
-</div><div style="width: 1px; height: 1px; display: inline;"><img style="border-style:none;" alt="" src="other/out.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_003.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_004.gif" height="1" width="1">
-<img alt="" style="display:none" src="other/tr.gif" height="1" width="1"><img style="border-style:none;" alt="" src="other/a_002.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_002.gif" height="1" width="1">
-<!-- rmx placeholder -->
-<img src="other/seg.gif" height="1" width="1">
-</div><div style="width: 1px; height: 1px; display: inline;"><img style="border-style:none;" alt="" src="other/out.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_003.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_004.gif" height="1" width="1">
-<img alt="" style="display:none" src="other/tr.gif" height="1" width="1"><img style="border-style:none;" alt="" src="other/a_003.gif" height="1" width="1">
-<img style="border-style:none;" alt="" src="other/out_002.gif" height="1" width="1">
-<!-- rmx placeholder -->
-<img src="other/seg.gif" height="1" width="1">
+        	<link media="all" href="other/notifications.css" type="text/css" rel="stylesheet"><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script><div style="width: 1px; height: 1px; display: inline;">
+			
 </div></head>
 	<body><div id="notifications"><div class="container"><input class="gray close_button" value="Dismiss" _leap_action="close" type="button"><ul class="messages"></ul></div></div>
 
@@ -83,7 +57,7 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 					<img src="logo_white_shadows1.png" height="35">
 				</div>
                 <div id="version">
-                    
+                    Corporate
                 </div>
 																	<div id="user">
 					<div id="username">

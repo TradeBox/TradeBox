@@ -29,7 +29,7 @@ div#header div#version {
     font-size: 10px;
     font-weight: bold;
     text-shadow: 0 -1px 1px rgba(40, 40, 40, 0.4);
-    left: -15px;
+    left: 0px;
     position: relative;
 }
 
