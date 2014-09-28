@@ -148,8 +148,8 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 		<a href="">Продажби</a>
 	</li>
 			<li>
-			<a href="">Клиенти</a>
-			<ul>
+			<a href="" onmouseover="submenu.style.display='block'" onmouseout="submenu.style.display='none'" >Клиенти</a>
+			<ul id="submenu" onmouseover="submenu.style.display='block'" onmouseout="submenu.style.display='none'">
 				<li>
 					<div class="header">
 						Design &amp; Deploy
