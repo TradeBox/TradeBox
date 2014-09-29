@@ -223,7 +223,20 @@ $username_id=$iiii['id'];
 	
 	
 	
-	echo "<li style=' height: 100px;color:red;font-size:24px'>Регистрацията е успешна!<br><a href='login.php' style='padding-left: 0px;font-size:16px'>
+	echo "<li style=' height: 100px;color:red;font-size:24px'>Регистрацията е успешна!<br><a href='login.php' style=' background-color: rgb(230, 230, 230);
+    border-color: darkGray #a0a0a0 #959595;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 4px -2px black, 0 1px 0 white inset;
+    color: #333;
+    font: bold 13px/14px helvetica,arial,sans-serif;
+    height: 44px;
+    padding: 6px 30px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 white;'>
                                             Назад
                                         </a></li>";
 	}}else{

@@ -145,246 +145,8 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 			<div class="container" style="overflow: visible;">
 				<ul id="toolbarlinks">
 	<li>
-		<a href="">Продажби</a>
-	</li>
-			<li>
-			<a href="" onmouseover="submenu.style.display='block'" onmouseout="submenu.style.display='none'" >Клиенти</a>
-			<ul id="submenu" onmouseover="submenu.style.display='block'" onmouseout="submenu.style.display='none'">
-				<li>
-					<div class="header">
-						Design &amp; Deploy
-					</div>
-					<div class="body">
-						<a href="" class="fullIcon" style="margin: 0px 35px; display: inline-block;">
-							<img style="height: 223px;" src="other/design-deploy.png">
-						</a>
-					</div>
-				</li>
-				<li>
-					<div class="header">
-						Your Solutions
-					</div>
-					<div class="body">
-													<a href="http://leap3.singlehop.com/solutions/home/">You haven't created any solutions, would you like to visit the solutions center?</a>
-											    					</div>
-				</li>
-				<li>
-					<div class="header">
-						Quick Deploy Components
-					</div>
-					<div class="body">
-						<a href="http://leap3.singlehop.com/solutions/public-cloud/">Public Cloud</a>
-						<a href="http://leap3.singlehop.com/solutions/dedicated-servers/">Dedicated Server</a>
-						<a href="http://leap3.singlehop.com/solutions/dynamic-servers/">Dynamic Servers</a>
-						<a href="http://leap3.singlehop.com/solutions/virtual-load-balancer/">Virtual Load Balancer</a>
-                        <!-- Removing Hosted Apps Ticket 2458
-						<a href="/solutions/hosted-apps/">Hosted Apps</a>
-						-->
-					</div>
-				</li>
-			</ul>
-		</li>
-				<li>
-			<a href="">Продукти</a>
-			<ul>
-				<li>
-					<div class="header">
-						Dedicated Servers &amp; Devices
-					</div>
-					<div class="body">
-                                                                        
-                                                         No devices 
-available.
-                                                <hr class="light-gradient-style">
-											    					    	 					    							<a href="http://leap3.singlehop.com/solutions/home/">You don't have any dedicated servers.</a>
-					    					</div>
-				</li>
-				<li>
-					<div class="header">
-						Dynamic Servers
-					</div>
-					<div class="body">
-											    					    	 					    							<a href="http://leap3.singlehop.com/solutions/home/">You currently have 0 dynamic servers.</a>
-					    					</div>
-				</li>
-				<li style="border-right: none;">
-					<div class="header">
-						Virtual Machines
-					</div>
-					<div class="body">
-											    					    						    								<a href="http://leap3.singlehop.com/components/vm/229579/" title="host.prohost-dns.com">host.prohost-dns.com <img src="other/icon_cloud.png" alt="Cloud Server"></a>
-					    					    					</div>
-				</li>
-							</ul>
-		</li>
-				<li>
-			<a href="http://leap3.singlehop.com/support/home/">Склад</a>
-			<ul>
-				<li style="width: 66.6%;">
-					<div class="header">
-						Recent Tickets
-					</div>
-                    <div class="body" id="toolbarRecentTickets"><a href="http://leap3.singlehop.com/support/view/36235103/">Invoice Notification <span>(9 hours ago)</span></a><a href="http://leap3.singlehop.com/support/view/36016175/">Invoice Notification <span>(6 days ago)</span></a><a href="http://leap3.singlehop.com/support/view/36210238/">Invoice Notification <span>(2 weeks ago)</span></a><a href="http://leap3.singlehop.com/support/view/36123408/">host.prohost-dns.com  - Server Down <span>(3 weeks ago)</span></a><a href="http://leap3.singlehop.com/support/view/36093784/">Scheduled Billing Maintenance Notification **SERVICE IMPACTING** Monday, March 17th <span>(4 weeks ago)</span></a><a href="http://leap3.singlehop.com/support/view/36068783/">SingleHop ? Software maintenance Reminder <span>(4 weeks ago)</span></a><a href="http://leap3.singlehop.com/support/view/36066291/">SingleHop ? Software maintenance <span>(4 weeks ago)</span></a><a href="http://leap3.singlehop.com/support/view/35982961/">host.prohost-dns.com  - Server Down <span>(1 month ago)</span></a><a href="http://leap3.singlehop.com/support/view/35983369/">host.prohost-dns.com  - Server Down <span>(2 months ago)</span></a><a href="http://leap3.singlehop.com/support/view/35483291/">Invoice Notification <span>(2 months ago)</span></a><a href="http://leap3.singlehop.com/support/view/35972757/">Invoice Notification <span>(2 months ago)</span></a><a href="http://leap3.singlehop.com/support/view/35760105/">SingleHop - Transport Provider Network Maintenance <span>(2 months ago)</span></a><a href="http://leap3.singlehop.com/support/view/35782287/">SingleHop - Transport Provider Network Maintenance Reminder <span>(2 months ago)</span></a><a href="http://leap3.singlehop.com/support/view/35775192/">host.prohost-dns.com  - Connectivity/Network Issues <span>(2 months ago)</span></a><a href="http://leap3.singlehop.com/support/view/35707141/">Invoice Notification <span>(3 months ago)</span></a></div>
-				</li>
-				<li>
-					<div class="header">
-						Statistics
-					</div>
-					<div class="body">
-						<table>
-							<tbody><tr>
-								<th>Open Tickets</th>
-								<td>10</td>
-							</tr>
-							<tr>
-								<th>Closed Tickets</th>
-								<td>26</td>
-							</tr>
-							<tr>
-								<th>Average Response Time</th>
-								<td>22 minutes</td>
-							</tr>
-							<tr>
-								<th>Client ID</th>
-								<td>186616</td>
-							</tr>
-						</tbody></table>
-					</div>
-					<div class="header">
-						Bill of Rights - Our SLA
-					</div>
-					<div class="body">
-						<a href="http://leap3.singlehop.com/bor/home/">Report Card</a>
-					</div>
-				</li>
-			</ul>
-		</li>
-				<li>
-			<a href="http://leap3.singlehop.com/account/home/">Разходи</a>
-			<ul>
-									<li>
-						<div class="header">
-							Recent Invoices
-						</div>
-						<div class="body">
-															<a href="http://leap3.singlehop.com/account/invoices/2234193/">
-									#2234193
-									<span>($35.02 Due on Apr 8 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2229755/">
-									#2229755
-									<span>($10.50 Due on Apr 3 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2227767/">
-									#2227767
-									<span>($28.75 Paid on Apr 8 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2223095/">
-									#2223095
-									<span>($28.74 Paid on Mar 24 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2219039/">
-									#2219039
-									<span>($10.50 Paid on Mar 11 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2217354/">
-									#2217354
-									<span>($28.84 Paid on Feb 26 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2213658/">
-									#2213658
-									<span>($35.02 Paid on Feb 26 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2209192/">
-									#2209192
-									<span>($10.50 Paid on Feb 26 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2206196/">
-									#2206196
-									<span>($28.84 Paid on Feb 5 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2202588/">
-									#2202588
-									<span>($32.96 Paid on Jan 28 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2199283/">
-									#2199283
-									<span>($10.50 Paid on Jan 20 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2196609/">
-									#2196609
-									<span>($30.90 Paid on Jan 20 2014)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2192862/">
-									#2192862
-									<span>($32.96 Paid on Dec 17 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2189627/">
-									#2189627
-									<span>($10.50 Paid on Dec 17 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2187135/">
-									#2187135
-									<span>($28.92 Paid on Nov 22 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2185943/">
-									#2185943
-									<span>($65.91 Paid on Nov 22 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2179856/">
-									#2179856
-									<span>($10.50 Paid on Dec 17 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2170557/">
-									#2170557
-									<span>($28.84 Paid on Oct 4 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2170179/">
-									#2170179
-									<span>($10.50 Paid on Oct 3 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2167041/">
-									#2167041
-									<span>($25.48 Paid on Sep 19 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2164239/">
-									#2164239
-									<span>($2.71 Paid on Sep 9 2013)</span>
-								</a>
-															<a href="http://leap3.singlehop.com/account/invoices/2163488/">
-									#2163488
-									<span>($7.50 Paid on Sep 3 2013)</span>
-								</a>
-													</div>
-					</li>
-													<li>
-						<div class="header">
-							Account Management
-						</div>
-						<div class="body">
-							<a href="http://leap3.singlehop.com/components/bandwidth/">Bandwidth Summary</a>
-							<a href="http://leap3.singlehop.com/account/invoices/">Invoices</a>
-							<a href="http://leap3.singlehop.com/account/home/">Account/Billing Information</a>
-							<a href="http://leap3.singlehop.com/account/subaccounts/">Sub Accounts</a>
-														<a href="http://leap3.singlehop.com/account/departments/">Departments</a>
-														<a href="http://leap3.singlehop.com/account/features/">Features (SSL)</a>
-                            <a href="http://leap3.singlehop.com/account/active-services/">Active Services</a>
-                            <a href="http://leap3.singlehop.com/account/cancelled-services/">Cancelled Services</a>
-                            <a href="http://ideas.singlehop.com/" target="_blank">Submit an Idea</a>
-						</div>
-					</li>
-								<li>
-					<div class="header">
-						Your Team
-					</div>
-					<div class="body team">
-											</div>
-				</li>
-			</ul>
-		</li>
-		<li>
-		<a href="#">Доставчици</a>
-		<ul>
+		<a href="" onmouseover="submenu1.style.display='block'" onmouseout="submenu1.style.display='none'">Продажби</a>
+		<ul id="submenu1" onmouseover="submenu1.style.display='block'" onmouseout="submenu1.style.display='none'">
 										<li>
 					<div class="header">
 						Affiliates
@@ -411,11 +173,25 @@ available.
 					<a href="http://facebook.com/singlehop">Facebook</a>
 				</div>
 			</li>
+			<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
 		</ul>
 	</li>
-	<li>
-		<a href="#">Служители</a>
-		<ul>
+			<li>
+			<a href="" onmouseover="submenu2.style.display='block'" onmouseout="submenu2.style.display='none'" >Клиенти</a>
+			<ul id="submenu2" onmouseover="submenu2.style.display='block'" onmouseout="submenu2.style.display='none'">
 										<li>
 					<div class="header">
 						Affiliates
@@ -429,6 +205,245 @@ available.
 					</div>
 				</li>
 						<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+			<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+		</ul>
+		</li>
+				<li>
+			<a href="" onmouseover="submenu3.style.display='block'" onmouseout="submenu3.style.display='none'">Продукти</a>
+			<ul id="submenu3" onmouseover="submenu3.style.display='block'" onmouseout="submenu3.style.display='none'">
+										<li>
+					<div class="header">
+						Affiliates
+					</div>
+					<div class="body">
+						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
+						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
+						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
+					</div>
+				</li>
+						<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+			<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+		</ul>
+		</li>
+				<li>
+			<a href="" id="submenu4" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">Склад</a>
+			<ul id="submenu4" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">
+										<li>
+					<div class="header">
+						Affiliates
+					</div>
+					<div class="body">
+						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
+						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
+						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
+					</div>
+				</li>
+						<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+			<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+		</ul>
+		</li>
+				<li>
+			<a href="" onmouseover="submenu5.style.display='block'" onmouseout="submenu5.style.display='none'">Разходи</a>
+			<ul id="submenu5" onmouseover="submenu5.style.display='block'" onmouseout="submenu5.style.display='none'">
+										<li>
+					<div class="header">
+						Affiliates
+					</div>
+					<div class="body">
+						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
+						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
+						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
+					</div>
+				</li>
+						<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+			<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+		</ul>
+		</li>
+		<li>
+		<a href="#" onmouseover="submenu6.style.display='block'" onmouseout="submenu6.style.display='none'">Доставчици</a>
+		<ul id="submenu6" onmouseover="submenu6.style.display='block'" onmouseout="submenu6.style.display='none'">
+										<li>
+					<div class="header">
+						Affiliates
+					</div>
+					<div class="body">
+						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
+						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
+						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
+					</div>
+				</li>
+						<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+			<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="#" onmouseover="submenu7.style.display='block'" onmouseout="submenu7.style.display='none'">Служители</a>
+		<ul id="submenu7" onmouseover="submenu7.style.display='block'" onmouseout="submenu7.style.display='none'">
+										<li>
+					<div class="header">
+						Affiliates
+					</div>
+					<div class="body">
+						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
+						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
+						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
+					</div>
+				</li>
+						<li>
+				<div class="header">
+					SingleHop
+				</div>
+				<div class="body">
+					<a href="http://singlehop.com/">SingleHop.com</a>
+					<a href="http://singlehop.com/blog/">Official Blog</a>
+					<a href="http://singlehop.com/about/press.php">Press Releases</a>
+					<a href="http://singlehop.com/about/events/">Event Schedule</a>
+					<a href="http://community.singlehop.com/">Our Community</a>
+					<a href="http://twitter.com/singlehop">Twitter @SingleHop</a>
+					<a href="http://facebook.com/singlehop">Facebook</a>
+				</div>
+			</li>
+			<li>
 				<div class="header">
 					SingleHop
 				</div>
