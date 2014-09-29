@@ -194,32 +194,9 @@ else{
 	$crypted_pass=md5($password);
 	mysql_query("INSERT INTO users (username,password,email,date_reg,status_admin) VALUES ('$username','$crypted_pass','$email','$date','1')")or die();
 		
-	
-function get_client_ip() {
-    $ipaddress = '';
-    if (getenv('HTTP_CLIENT_IP'))
-        $ipaddress = getenv('HTTP_CLIENT_IP');
-    else if(getenv('HTTP_X_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-    else if(getenv('HTTP_X_FORWARDED'))
-        $ipaddress = getenv('HTTP_X_FORWARDED');
-    else if(getenv('HTTP_FORWARDED_FOR'))
-        $ipaddress = getenv('HTTP_FORWARDED_FOR');
-    else if(getenv('HTTP_FORWARDED'))
-       $ipaddress = getenv('HTTP_FORWARDED');
-    else if(getenv('REMOTE_ADDR'))
-        $ipaddress = getenv('REMOTE_ADDR');
-    else
-        $ipaddress = 'UNKNOWN';
-    return $ipaddress;
-}
-$iiii=mysql_fetch_array(mysql_query("SELECT * FROM users WHERE username='$username'"));
-$username_id=$iiii['id'];
+	include('archive_add.php');
 
-
-	$browserAgent = $_SERVER['HTTP_USER_AGENT'];
-	$ipadd=get_client_ip();
-	mysql_query("INSERT INTO archive (who,action,ip,os) VALUES ('$username_id','Първоначална регистрация на админ','$ipadd','$browserAgent')");
+		add_to_archive('Първоначална регистрация на админ.');
 	
 	
 	
