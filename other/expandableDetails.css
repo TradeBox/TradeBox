@@ -14,7 +14,7 @@
 	cursor: pointer;
 }
 
-.expandableDetails > tbody > tr:nth-child(4n+0) {
+.expandableDetails > tbody > tr:nth-child(3n+0) {
 	background-color: rgb(244, 244, 244);
 }
 

@@ -19,8 +19,6 @@ function add_to_archive($action="Неразпознато действие") {
     return $ipaddress;
 }
 
-
-
 	$browserAgent = $_SERVER['HTTP_USER_AGENT'];
 	$ipadd=get_client_ip_2();
 	$who = $_SESSION['user_id'];
