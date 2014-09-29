@@ -71,7 +71,7 @@ table.dataTable.small > * > tr > td {
 	font-size: 11px;
 }
 
-table.dataTable > * > tr:nth-child(odd) {
+table.dataTable > * > tr:nth-child(2n-1) {
 	background-color: rgb(244, 244, 244);
 }
 
