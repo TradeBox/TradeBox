@@ -1,6 +1,7 @@
 <?php session_start();
 include('../DBconnect/dbconnect.php');
 $user_id=$_SESSION['user_id'];
+include('archive_add.php');
 if(empty($user_id)){ header("Location: login.php"); } ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
