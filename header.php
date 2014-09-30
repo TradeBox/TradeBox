@@ -281,7 +281,7 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 		</ul>
 		</li>
 				<li>
-			<a href="" id="submenu4" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">Склад</a>
+			<a href="" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">Склад</a>
 			<ul id="submenu4" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">
 										<li>
 					<div class="header">
