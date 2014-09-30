@@ -21,7 +21,9 @@ include('header.php');
 	$name_categ=$_POST['name_cat'];
 	$info_categ=$_POST['info_cat'];
 	mysql_query("INSERT INTO categories (name,info,active) VALUES ('$name_categ','$info_categ','1')");
+	add_to_archive('Потребителят добави нова категория');
 	}
+	
 	?>
 	<script src="cat_validate.js"></script>
 		<form method="post" action="" onsubmit="return validate()">
@@ -39,8 +41,18 @@ include('header.php');
 			</ul>
 			<input style="float: right;" class="green" value="Добави" name="submit_cat" type="submit">
 		</form>
+		
+		
 	</div>
 </div>
+
+
+
+
+
+
+
+
 <link href="LEAP3Account%20&amp;%20Billing2_files/subaccounts.css" rel="stylesheet" type="text/css">
 
 
@@ -73,19 +85,57 @@ include('header.php');
 			
 			if($check_if_empty==0){
 			}else{
-			
+			$bro=0;
 			$con=mysql_query("SELECT * FROM categories");
-			while($row=mysql_fetch_array($con)){
+			while($row=mysql_fetch_array($con)){ $bro++;
 			?>
-			<tr>
+			<tr style="cursor:pointer"
+			<?php if($bro%2==0){
+			echo "style='background:#F4F4F4'";
+			?>      
+			onmouseout="row<? echo "$bro"; ?>.style.background='#F4F4F4'" 
+			<?php 
+			}else{ 
+			?>  
+			onmouseout="row<?php echo "$bro"; ?>.style.background='none'"
+			<?
+			}
+			?>	  
+			id="row<?php echo "$bro"; ?>" onmouseover="row<?php echo "$bro"; ?>.style.background='#CBF791'" >
 				<th><?php echo "$row[name]"; ?></th>
 				<th><?php
 				$sss=$row['info'];
 				$infos=substr($sss,0, 32);
 				echo "$infos ..."; ?></th>
 				<th><center><a href="" ><img src="other/edit.png" width="20px" /></center></a></th>
-				<th><center><img src="other/delete.png" width="20px" /></center></th>
+				<th><center><img onclick="delete_cat.style.display='block'" src="other/delete.png" width="20px" /></center></th>
 			</tr>
+			<div id="delete_cat" style="display: none;  height: 152px;" class="modal" id="addSubAccount">
+	<div class="header">
+		<img class="close" src="other/close.png" width="20" onclick="delete_cat.style.display='none'">
+		Сигурни ли сте че искате да изтриете категорията?
+	</div>
+	<div class="body" style="min-height:38px">
+		<?php 
+		if(isset($_POST['del_cat'])){
+		$dell=$_POST['delete'];
+		add_to_archive('Потребителя изтри категория.');
+		include('delete.php');
+		$categorrr='categories';
+		delete($dell,'categories');
+		}
+		?>
+		
+		<form method="post" action="">
+			<center>
+			<input style="display:none" type="text" name="delete" value="<?php echo "$row[id]"; ?>"></input>
+			<input style="float: right;" class="green" value="Изтрии" name="del_cat" type="submit">
+			<input style="float: right;" class="green" value="Отказ" name="close_del" type="button" onclick="delete_cat.style.display='none'"></center>
+		</form>
+		
+		
+	</div>
+</div>
 			<? 
 			} }?>
 			<tr>
