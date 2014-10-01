@@ -84,23 +84,13 @@ include('header.php');
 			
 			if($check_if_empty==0){
 			}else{
-			$bro=0;
+			$br=0;
 			$con=mysql_query("SELECT * FROM categories");
-			while($row=mysql_fetch_array($con)){ $bro++;
+			while($row=mysql_fetch_array($con)){  $br++;
+			if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";}
+			
 			?>
-			<tr style="cursor:pointer"
-			<?php if($bro%2==0){
-			echo "style='background:#F4F4F4'";
-			?>      
-			onmouseout="row<? echo "$bro"; ?>.style.background='#F4F4F4'" 
-			<?php 
-			}else{ 
-			?>  
-			onmouseout="row<?php echo "$bro"; ?>.style.background='none'"
-			<?
-			}
-			?>	  
-			id="row<?php echo "$bro"; ?>" onmouseover="row<?php echo "$bro"; ?>.style.background='#CBF791'" >
+			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 				<th><?php echo "$row[name]"; ?></th>
 				<th><?php
 				$sss=$row['info'];
