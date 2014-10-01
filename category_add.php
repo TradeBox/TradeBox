@@ -23,7 +23,6 @@ include('header.php');
 	mysql_query("INSERT INTO categories (name,info,active) VALUES ('$name_categ','$info_categ','1')");
 	add_to_archive('Потребителят добави нова категория');
 	}
-	
 	?>
 	<script src="cat_validate.js"></script>
 		<form method="post" action="" onsubmit="return validate()">
@@ -106,69 +105,18 @@ include('header.php');
 				<th><?php
 				$sss=$row['info'];
 				$infos=substr($sss,0, 32);
-				echo "$infos ..."; ?></th>
-				<th><center><img src="other/edit.png" width="20px" onclick="edit_cat.style.display='block'" /></center></th>
-				<th><center><img onclick="delete_cat.style.display='block'" src="other/delete.png" width="20px" /></center></th>
+				echo "$infos ..."; 
+				$idc=$row['id'];
+				
+					?></th>
+				<th><center><a href="category_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></th>
+				<th><center><a href="category_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px" /></a></center></th>
 			</tr>
 			
-			<div id="edit_cat<?php echo "$bro"; ?>" style="display: none;  height: 152px;" class="modal" id="addSubAccount">
-	<div class="header">
-		<img class="close" src="other/close.png" width="20" onclick="edit_cat<?php echo "$bro"; ?>.style.display='none'">
-		Редактиране на категорията
-	</div>
-	<div class="body" style="min-height:38px">
-		<?php 
-		if(isset($_POST['edit_cat'])){
-		$id_edit=$_POST['editt'];
-		$edit_name=$_POST['edit_name'];
-		$edit_info=$_POST['edit_info'];
-		add_to_archive('Потребителя редактира категория.');
-		mysql_query("UPDATE categories SET name='$edit_name', info='$edit_info' WHERE id='$id_edit'");
-		}
-		?>
-		<form method="post" action="">
-			<input style="display:none" type="text" name="editt" value="<?php echo "$row[id]"; ?>"></input>
-			<input type="text" name="edit_name" value="<?php echo "$row[name]"; ?>"></input>
-			<input type="text" name="edit_info" value="<?php echo "$row[info]"; ?>"></input>
-			<input style="float: right;" class="green" value="Редактирай" name="edit_cat" type="submit">
-			<input style="float: right;" class="green" value="Отказ" name="close_edit" type="button" onclick="edit_cat.style.display='none'">
-		</form>
-		
-		
-	</div>
-</div>
 			
-			
-			
-			
-			<div id="delete_cat" style="display: none;  height: 152px;" class="modal" id="addSubAccount">
-	<div class="header">
-		<img class="close" src="other/close.png" width="20" onclick="delete_cat.style.display='none'">
-		Сигурни ли сте че искате да изтриете категорията?
-	</div>
-	<div class="body" style="min-height:38px">
-		<?php 
-		if(isset($_POST['del_cat'])){
-		$dell=$_POST['delete'];
-		add_to_archive('Потребителя изтри категория.');
-		include('delete.php');
-		$categorrr='categories';
-		delete($dell,'categories');
-		}
-		?>
-		
-		<form method="post" action="">
-			<center>
-			<input style="display:none" type="text" name="delete" value="<?php echo "$row[id]"; ?>"></input>
-			<input style="float: right;" class="green" value="Изтрии" name="del_cat" type="submit">
-			<input style="float: right;" class="green" value="Отказ" name="close_del" type="button" onclick="delete_cat.style.display='none'"></center>
-		</form>
-		
-		
-	</div>
-</div>
 			<? 
 			} }?>
+			
 			<tr>
 				<td colspan="4">
 					<? if($check_if_empty==0){ ?>
