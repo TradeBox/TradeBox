@@ -190,9 +190,10 @@ else{
 	$username=$_POST['user'];
 	$password=$_POST['pass'];
 	$email=$_POST['email'];
+	$object=$_POST['object'];
 	$date=date(Ymd);
 	$crypted_pass=md5($password);
-	mysql_query("INSERT INTO users (username,password,email,date_reg,status_admin) VALUES ('$username','$crypted_pass','$email','$date','1')")or die();
+	mysql_query("INSERT INTO users (username,password,email,date_reg,status_admin,info_name) VALUES ('$username','$crypted_pass','$email','$date','1','$object')")or die();
 		
 	include('archive_add.php');
 
@@ -218,7 +219,7 @@ else{
                                         </a></li>";
 	}}else{
 	?>
-	<li style=" height: 343px;">
+	<li style=" height: 414px;">
 	<script src="reg_validate.js"></script>					                                                            <form method="POST" action=""  onsubmit="return validate()">
                                     <div style="margin: 10px 0px; font-size: 22px; color: #333;">
                                         <b>Регистрация</b>
@@ -229,6 +230,8 @@ else{
                                     <input id='pass' name="pass" type="password" value="">
 									<label>E-mail:</label>
                                     <input id='email' name="email" type="text" value="">
+									<label>Име на обект:</label>
+                                    <input onclick="object.value='Централен офис'" id='object' name="object" type="text" value="Централен офис /или друго.../">
                                     <div style="margin: 10px 0px; color: #555;">
                                         
                                     </div>

@@ -52,7 +52,8 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 		<div id="transparency">
 
 		</div>
-				<div id="header">
+				<div id="header" style="box-shadow: 0 0 3px 2px rgba(30, 30, 30, 0.7);
+margin-top:3px;">
 			<div class="container">
 				<div id="logo">
 					<img src="logo_white_shadows1.png" height="35">
