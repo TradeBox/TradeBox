@@ -5,7 +5,7 @@ include('archive_add.php');
 if(empty($user_id)){ header("Location: login.php"); } ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-		<script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/233685.js" id="hs-analytics"></script><script src="other/dc.js" async="" type="text/javascript"></script><script id="undefined" src="other/inpage_linkid.js" async="" type="text/javascript"></script><script src="other/ga.js" async="" type="text/javascript"></script><script src="other/gtm.js" async=""></script><script src="other/gtm.js" async=""></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>LEAP3 :: Solutions Center</title>
+		<script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/233685.js" id="hs-analytics"></script><script src="other/dc.js" async="" type="text/javascript"></script><script id="undefined" src="other/inpage_linkid.js" async="" type="text/javascript"></script><script src="other/ga.js" async="" type="text/javascript"></script><script src="other/gtm.js" async=""></script><script src="other/gtm.js" async=""></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>TradeBox</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="robots" content="index,follow">
 		<meta name="googlebot" content="noarchive">
@@ -241,13 +241,13 @@ margin-top:3px;">
 			<ul id="submenu3" onmouseover="submenu3.style.display='block'" onmouseout="submenu3.style.display='none'">
 										<li>
 					<div class="header">
-						Affiliates
+						Добавяне
 					</div>
 					<div class="body">
 						<a href="category_add.php">Категории</a>
                         <a href="sub_category_add.php">Под-категории</a>
 						<a href="sub_sub_category_add.php">Под-под-категории</a>
-						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
+						<a href="product_add.php">Продукт</a>
 						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
 					</div>
 				</li>
