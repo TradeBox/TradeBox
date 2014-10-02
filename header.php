@@ -243,9 +243,9 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 						Affiliates
 					</div>
 					<div class="body">
-						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
-                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
-						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
+						<a href="category_add.php">Категории</a>
+                        <a href="sub_category_add.php">Под-категории</a>
+						<a href="sub_sub_category_add.php">Под-под-категории</a>
 						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
 						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
 					</div>
