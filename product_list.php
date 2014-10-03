@@ -80,6 +80,7 @@ include('header.php');
 				while($red=mysql_fetch_array($mysql_s)){ $br++;
 			if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";}
 			if($red['promo']==1){$bgcolor = "#FEE388";}
+			if($red['amount']==0){$bgcolor = "#E50101";}
 			?>
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 			<th><?php echo "$red[id]"; ?></th>

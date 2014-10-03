@@ -18,8 +18,9 @@ include('header.php');
 			$amount=$_POST['amount'];
 			$active=$_POST['active'];
 			$promo=$_POST['promo'];
+			$end_date=$_POST['end_date'];
 			$promo_price=$_POST['promo_price'];
-			mysql_query("INSERT INTO products (serial_no,name,cat_id,subcat_id,subsubcat_id,price,info,weight,active,promo,ml,promo_price,user_id,amount,bought) VALUES ('$serial','$name','$cat_id','$subcat_id','$subsubcat_id','$price','$info','$weight','$active','$promo','$ml','$promo_price','$user_id','$amount','0')");
+			mysql_query("INSERT INTO products (serial_no,name,cat_id,subcat_id,subsubcat_id,price,info,weight,active,promo,end_date,ml,promo_price,user_id,amount,bought) VALUES ('$serial','$name','$cat_id','$subcat_id','$subsubcat_id','$price','$info','$weight','$active','$promo','$end_date','$ml','$promo_price','$user_id','$amount','0')");
 			add_to_archive('Потребителят добави нов Продукт '.$name.'');
 			}
 			
@@ -136,6 +137,12 @@ include('header.php');
 					<th>Количество</th>
 					<td>
 						<input style="" id="amount" name="amount" value="" type="text">
+					</td>
+				</tr>
+				<tr>
+					<th>Срок на годност</th>
+					<td>
+						<input style="" id="end_date" name="end_date" value="0000-00-00" type="text">
 					</td>
 				</tr>
 				
