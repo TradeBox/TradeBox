@@ -247,8 +247,8 @@ margin-top:3px;">
 						<a href="category_add.php">Категории</a>
                         <a href="sub_category_add.php">Под-категории</a>
 						<a href="sub_sub_category_add.php">Под-под-категории</a>
-						<a href="product_add.php">Продукт</a>
-						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
+						<a href="product_add.php">Нов продукт</a>
+						<a href="product_list.php">Всички продукти</a>
 					</div>
 				</li>
 						<li>
