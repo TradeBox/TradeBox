@@ -88,8 +88,8 @@ include('header.php');
 			<th><?php echo "$red[name]"; ?></th>
 			<th><? if($red['promo']==1){ echo "<img src='other/promo.gif' width='35px' />"."$red[promo_price]"."лв. (Стара цена:".$red['price']."лв.)";}else{ ?><?php echo "$red[price]"; ?>лв.<? } ?></th>
 			<th><?php echo "$red[amount]"; ?>бр.</th>
-			<th><center><a href="product_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></th>
-			<th><center><a href="product_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></th>
+			<th><center><a href="product_edit.php?id=<?php echo "$red[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></th>
+			<th><center><a href="product_dell.php?id=<?php echo "$red[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></th>
 		</tr>
 	
 	<? }}else{ ?>
