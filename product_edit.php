@@ -175,11 +175,11 @@ include('header.php');
 			<ul class="checkboxes">
 														
 														<li>
-						<input name="active" value="1" type="checkbox">
+						<input <? if($active==1){ echo "checked='checked'";}  ?> name="active" value="1" type="checkbox">
 												<span class="mgmtName">В наличност</span>
 											</li>
 											<li>
-						<input name="promo" value="1" type="checkbox">
+						<input <? if($promo==1){ echo "checked='checked'";}  ?> name="promo" value="1" type="checkbox">
 												<span class="mgmtName">На промоция</span>
 												
 											</li>

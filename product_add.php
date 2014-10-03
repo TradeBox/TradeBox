@@ -151,7 +151,7 @@ include('header.php');
 				<li style="width: 100%; padding: 67px 0px 0px;">
 			<div class="caption">
 				<img src="other/globe.png" alt="">
-				Промиции
+				Промoции
 			</div>
 			<ul class="checkboxes">
 														
