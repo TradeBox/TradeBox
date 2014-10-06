@@ -7,10 +7,35 @@ include('header.php');
 				<div class="caption">
 					Продукти
 				</div>
+				<a href="product_add.php" style=" background-color: rgb(127, 182, 18);
+    border: 1px solid rgb(98, 141, 13);
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(5, 5, 5, 0.15);
+    color: white;
+    cursor: pointer;
+    float: right;
+    font-family: Helvetica,Arial;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    height: 15px;
+    line-height: 12px;
+    margin-top: 12px;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgb(91, 133, 8);">Добави продукт</a>
 			</div>
 		</div>
 				<div id="content">
 			<div class="container">
+			
+			<div id="orderform">
+   	     <ul class="floatingBlocks">
+		   	 <li style="width: 100%; border-right: none;">
+			  <div class="caption">
+					 Списък продукти
+				</div>
 <script type="text/javascript" src="LEAP3Account%20&amp;%20Billing2_files/modal_addsubaccount.js"></script>
 <link rel="stylesheet" type="text/css" href="LEAP3Account%20&amp;%20Billing2_files/modal_addsubaccount.css">
 <div style="display: none;" class="modal" id="addSubAccount">
@@ -54,14 +79,6 @@ include('header.php');
 
 
 <table class="dataTable expandableDetails">
-	<thead>
-		<tr>
-			<th colspan="7">
-				<input class="gray addSubAccount" style="float: right; margin-top: 12px;" value="Сортирай" type="button">
-				Подреждане
-			</th>
-		</tr>
-	</thead>
 	<tbody>
 		<tr>
 			<th>ID</th>
@@ -83,13 +100,13 @@ include('header.php');
 			if($red['amount']==0){$bgcolor = "#E50101";}
 			?>
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
-			<th><?php echo "$red[id]"; ?></th>
-			<th><?php echo "$red[serial_no]"; ?></th>
-			<th><?php echo "$red[name]"; ?></th>
-			<th><? if($red['promo']==1){ echo "<img src='other/promo.gif' width='35px' />"."$red[promo_price]"."лв. (Стара цена:".$red['price']."лв.)";}else{ ?><?php echo "$red[price]"; ?>лв.<? } ?></th>
-			<th><?php echo "$red[amount]"; ?>бр.</th>
-			<th><center><a href="product_edit.php?id=<?php echo "$red[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></th>
-			<th><center><a href="product_dell.php?id=<?php echo "$red[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></th>
+			<td><?php echo "$red[id]"; ?></td>
+			<td><?php echo "$red[serial_no]"; ?></td>
+			<td><?php echo "$red[name]"; ?></td>
+			<td><? if($red['promo']==1){ echo "<img src='other/promo.gif' width='35px' />"."$red[promo_price]"."лв. (Стара цена:".$red['price']."лв.)";}else{ ?><?php echo "$red[price]"; ?>лв.<? } ?></td>
+			<td><?php echo "$red[amount]"; ?>бр.</td>
+			<td><center><a href="product_edit.php?id=<?php echo "$red[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
+			<td><center><a href="product_dell.php?id=<?php echo "$red[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></td>
 		</tr>
 	
 	<? }}else{ ?>
@@ -101,6 +118,9 @@ include('header.php');
 					</tbody>
 </table>
 
+</li>
+		</ul>
+	</div>
 		</div>
 	</div>
 	
