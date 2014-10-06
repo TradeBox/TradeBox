@@ -147,11 +147,11 @@ margin-top:3px;">
 			<div class="container" style="overflow: visible;">
 				<ul id="toolbarlinks">
 	<li>
-		<a href="" onmouseover="submenu1.style.display='block'" onmouseout="submenu1.style.display='none'">Продажби</a>
+		<a style="cursor:pointer;" onmouseover="submenu1.style.display='block'" onmouseout="submenu1.style.display='none'">Продажби</a>
 		<ul id="submenu1" onmouseover="submenu1.style.display='block'" onmouseout="submenu1.style.display='none'">
 										<li>
 					<div class="header">
-						Affiliates
+						Продажби
 					</div>
 					<div class="body">
 						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
@@ -163,7 +163,7 @@ margin-top:3px;">
 				</li>
 						<li>
 				<div class="header">
-					SingleHop
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -177,7 +177,7 @@ margin-top:3px;">
 			</li>
 			<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -192,14 +192,14 @@ margin-top:3px;">
 		</ul>
 	</li>
 			<li>
-			<a href="" onmouseover="submenu2.style.display='block'" onmouseout="submenu2.style.display='none'" >Клиенти</a>
+			<a style="cursor:pointer;" onmouseover="submenu2.style.display='block'" onmouseout="submenu2.style.display='none'" >Клиенти</a>
 			<ul id="submenu2" onmouseover="submenu2.style.display='block'" onmouseout="submenu2.style.display='none'">
 										<li>
 					<div class="header">
-						Affiliates
+						Клиенти
 					</div>
 					<div class="body">
-						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+						<a href="customer_groups.php">Групи</a>
                         <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
 						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
 						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
@@ -208,7 +208,7 @@ margin-top:3px;">
 				</li>
 						<li>
 				<div class="header">
-					SingleHop
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -222,7 +222,7 @@ margin-top:3px;">
 			</li>
 			<li>
 				<div class="header">
-					SingleHop
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -237,11 +237,11 @@ margin-top:3px;">
 		</ul>
 		</li>
 				<li>
-			<a href="" onmouseover="submenu3.style.display='block'" onmouseout="submenu3.style.display='none'">Продукти</a>
+			<a style="cursor:pointer;" onmouseover="submenu3.style.display='block'" onmouseout="submenu3.style.display='none'">Продукти</a>
 			<ul id="submenu3" onmouseover="submenu3.style.display='block'" onmouseout="submenu3.style.display='none'">
 										<li>
 					<div class="header">
-						Добавяне
+						Продукти
 					</div>
 					<div class="body">
 						<a href="category_add.php">Категории</a>
@@ -253,7 +253,7 @@ margin-top:3px;">
 				</li>
 						<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -267,7 +267,7 @@ margin-top:3px;">
 			</li>
 			<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -282,11 +282,11 @@ margin-top:3px;">
 		</ul>
 		</li>
 				<li>
-			<a href="" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">Склад</a>
+			<a style="cursor:pointer;" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">Склад</a>
 			<ul id="submenu4" onmouseover="submenu4.style.display='block'" onmouseout="submenu4.style.display='none'">
 										<li>
 					<div class="header">
-						Affiliates
+						Склад
 					</div>
 					<div class="body">
 						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
@@ -298,7 +298,7 @@ margin-top:3px;">
 				</li>
 						<li>
 				<div class="header">
-					SingleHop
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -312,7 +312,7 @@ margin-top:3px;">
 			</li>
 			<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -327,11 +327,11 @@ margin-top:3px;">
 		</ul>
 		</li>
 				<li>
-			<a href="" onmouseover="submenu5.style.display='block'" onmouseout="submenu5.style.display='none'">Разходи</a>
+			<a style="cursor:pointer;" onmouseover="submenu5.style.display='block'" onmouseout="submenu5.style.display='none'">Разходи</a>
 			<ul id="submenu5" onmouseover="submenu5.style.display='block'" onmouseout="submenu5.style.display='none'">
 										<li>
 					<div class="header">
-						Affiliates
+						Разходи
 					</div>
 					<div class="body">
 						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
@@ -343,7 +343,7 @@ margin-top:3px;">
 				</li>
 						<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -357,7 +357,7 @@ margin-top:3px;">
 			</li>
 			<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -372,11 +372,11 @@ margin-top:3px;">
 		</ul>
 		</li>
 		<li>
-		<a href="#" onmouseover="submenu6.style.display='block'" onmouseout="submenu6.style.display='none'">Доставчици</a>
+		<a style="cursor:pointer;" onmouseover="submenu6.style.display='block'" onmouseout="submenu6.style.display='none'">Доставчици</a>
 		<ul id="submenu6" onmouseover="submenu6.style.display='block'" onmouseout="submenu6.style.display='none'">
 										<li>
 					<div class="header">
-						Affiliates
+						Доставчици
 					</div>
 					<div class="body">
 						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
@@ -388,7 +388,7 @@ margin-top:3px;">
 				</li>
 						<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -402,7 +402,7 @@ margin-top:3px;">
 			</li>
 			<li>
 				<div class="header">
-					SingleHop
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -417,11 +417,11 @@ margin-top:3px;">
 		</ul>
 	</li>
 	<li>
-		<a href="#" onmouseover="submenu7.style.display='block'" onmouseout="submenu7.style.display='none'">Служители</a>
+		<a style="cursor:pointer;" onmouseover="submenu7.style.display='block'" onmouseout="submenu7.style.display='none'">Служители</a>
 		<ul id="submenu7" onmouseover="submenu7.style.display='block'" onmouseout="submenu7.style.display='none'">
 										<li>
 					<div class="header">
-						Affiliates
+						Служители
 					</div>
 					<div class="body">
 						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
@@ -433,7 +433,7 @@ margin-top:3px;">
 				</li>
 						<li>
 				<div class="header">
-					SingleHop
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
@@ -447,7 +447,7 @@ margin-top:3px;">
 			</li>
 			<li>
 				<div class="header">
-					SingleHop
+					&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="body">
 					<a href="http://singlehop.com/">SingleHop.com</a>
