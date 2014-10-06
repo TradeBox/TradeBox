@@ -5,48 +5,81 @@
 		<div class="caption">
 					Добавяне на нов клиент
 		</div>
+		
+		
 	</div>
 </div>
 <div id="content">
  <div class="container">
     <script src="validate.js"></script>
-	<form method="POST" action="register_complete.php"  onsubmit="return validate()">
+	<form method="POST" action=""  onsubmit="return validate()">
        <div id="orderform">
    	     <ul class="floatingBlocks">
-	        <li style="width: 100%; border: 1px solid rgb(218, 218, 218);">
+		   	 <?php if ( $reg_complete == 1) { ?>
+		   <li style="width: 100%; border: 1px solid rgb(218, 218, 218); padding: 25px 5px 20px;">
 			  <div class="caption">
 			      <img src="images_2/icon_cloud.png">
 				
-				Задължителни данни
+			   Клиентът е добавен успешно!
 			</div>
 			
 			<table>
+			
+						
+						<tr><th></th>
+				<td style="padding: 0 0 0 0">
+				
+				<input class="gray addSubAccount" type="button" value="Добавяне на нов клиент" style="float: right; margin-top: 3px;">
+				 <input class="gray addSubAccount" type="button" value="Списък клиенти" style="float: right; margin-top: 3px;">
+				 <input class="gray addSubAccount" type="button" value="Нова продажба" style="float: right; margin-top: 3px;">
+				  </td> </tr>
+				
+			</table>
+		</li>
+		 <?php } ?>
+		 
+		 <?php if ( $reg_complete != 1) { ?>
+	        <li style="width: 100%; border: 1px solid rgb(218, 218, 218); padding: 25px 5px 20px;">
+			  <div class="caption">
+			      <img src="images_2/icon_cloud.png">
+				
+				Основни данни
+			</div>
+			
+			<table>
+			<tr>
+					<th></th>
+					<td align="right" style="text-align: right; padding-right: 15px">
+						<input style="transform: scale(1.2, 1.2); -moz-transform: scale(1.2, 1.2); -ms-transform: scale(1.2, 1.2);
+-webkit-transform: scale(1.2, 1.2); -o-transform: scale(1.2, 1.2); " id="customer_type" name="customer_type"  type="radio" checked="checked"  value="personal"   onClick="document.getElementById('dds_number').disabled = true; document.getElementById('manager').disabled = true; document.getElementById('dds_number').value = 'Полето е активно само за Юредически лица'; document.getElementById('manager').value = 'Полето е активно само за Юредически лица';"  > Физическо лице &nbsp;&nbsp;&nbsp; <input id="customer_type" style="transform: scale(1.2, 1.2); -moz-transform: scale(1.2, 1.2); -ms-transform: scale(1.2, 1.2); -webkit-transform: scale(1.2, 1.2); -o-transform: scale(1.2, 1.2); " name="customer_type" onClick="document.getElementById('dds_number').disabled = false; document.getElementById('dds_number').value = ''; document.getElementById('manager').disabled = false; document.getElementById('manager').value = ''; "  type="radio"  value="company"> Юридическо лице 
+					</td>
+				</tr>
 				<tr>
-					<th>Име:</th>
+					<th>Име*:</th>
 					<td>
 						<input id="name" name="name"  type="text">
 					</td>
 				</tr>
 				<tr>
-					<th>ЕИК:</th>
+					<th>ЕИК / (егн):</th>
 					<td>
-						<input id="eik" name="eik"  type="text">
+						<input id="eik" name="eik"  type="text" >
 					</td>
 				</tr>
 				<tr>
 					<th>ДДС Номер:</th>
 					<td>
-						<input id="dds_number" name="dds_number"  type="text">
+						<input id="dds_number" name="dds_number"  type="text" value="Полето е активно само за Юредически лица"  disabled="disabled">
 					</td>
 				</tr>
 				<tr>
-					<th>Адрес:</th>
+					<th>Адрес*:</th>
 					<td>
 						<input id="address" name="address"  type="text">
 					</td>
 				</tr>
 				<tr>
-					<th>Град:</th>
+					<th>Град*:</th>
 					<td>
 						<input id="city" name="city"  type="text">
 					</td>
@@ -55,7 +88,7 @@
 				<tr>
 					<th>МОЛ:</th>
 					<td>
-						<input id="manager" name="manager"  type="text">
+						<input id="manager" name="manager"  type="text" disabled="disabled" value="Полето е активно само за Юредически лица">
 					</td>
 				</tr>
 				
@@ -97,7 +130,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>E-mail за контакт:</th>
+					<th>E-mail:</th>
 					<td>
 						<input id="contact_email" name="contact_email" type="text">
 					</td>
@@ -120,7 +153,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>Уебсайт за контакт:</th>
+					<th>Уебсайт:</th>
 					<td>
 						<input id="contact_website" name="contact_website" type="text">
 					</td>
@@ -177,7 +210,8 @@
 				<td>
 				 <input class="gray addSubAccount" type="submit" value="Регистрация" style="float: right; margin-top: 3px;">
 				  </td> </tr>
-				</table>
+				</table></li> 
+				<?php } ?>
 				</form>
 	</div>
 				<?php
