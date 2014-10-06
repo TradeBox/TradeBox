@@ -53,7 +53,7 @@ ul.floatingBlocks > li > table:not(.dataTable) th {
 }
 
 #orderform #options ul#total li.caption {
-	font-size: 18px;
+	font-size: 20px;
 	color: rgb(255, 255, 255);
 	font-weight: bold;
 	text-align: center;
@@ -62,7 +62,7 @@ ul.floatingBlocks > li > table:not(.dataTable) th {
 }
 
 #orderform #options ul#total li:not(.caption) {
-	font-size: 15px;
+	font-size: 16px;
 	color: rgb(225, 225, 225);
 	font-weight: bold;
 	text-align: center;
