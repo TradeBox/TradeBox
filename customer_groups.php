@@ -4,7 +4,7 @@
 		<div class="caption">
 					Управление на групи
 		</div>
-		<a href="customer_add.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Създай група"></a>
+		<a href="customer_groups_add.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Създай група"></a>
 	</div>
 </div>
 <div id="content">
@@ -12,18 +12,7 @@
       <div id="orderform">
    	     <ul class="floatingBlocks">
 		   	 <li style="width: 100%; border-right: none;">
-				<div style="width: 320px; float: right; margin: -57px 10px;">
-				<table>
-				<tr>
-				<td style=" padding: 9px 0 3px 5px;"><input type="text" style="margin: 0 0; height: 30px; width: 220px; color: #D1CCCC" OnMouseOut="if (this.value == '') {this.value = 'Име / Еик / Адрес / Телефон';}"
- onMouseOver="if (this.value == 'Име / Еик / Адрес / Телефон') {this.value = '';}" value="Име / Еик / Адрес / Телефон"  name="search_customer"></td>
-				
-				
-				<td style=" padding: 9px 0 3px 5px;"><input  value="Търси" style="margin: 0 0;" class="gray" id="showAddPaymentMethodACH" type="button"></td>
-				</tr>
-				<tr><td style="font-size: 12px; margin: 0 0; padding: 0 0; text-align: right; vertical-align: middle; line-height: 15px" align="right" colspan="2"><a href="" style="color: #262B23">[Подробно търсене]</a></td></tr>
-				</table>
-				</div>
+			
 				
 				
 				<div class="caption">
@@ -38,24 +27,20 @@
 					<tbody>
 						<tr>
 							<th>Име</th>
-							<th>Град</th>
-							<th>МОЛ</th>
-							<th>Телефон</th>
-							<th>Обект</th>
-							<th></th>
+							
+							<th>Отстъпка</th>
+							<th>Дата на обновяване</th><th></th><th></th>
 						</tr>
-					<?php $con = mysql_query("SELECT * FROM customers ORDER BY id DESC"); $br = 0;
+					<?php $con = mysql_query("SELECT * FROM customer_groups ORDER BY id DESC"); $br = 0;
 					      while($row = mysql_fetch_array($con)) { $br++; if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";} 
-						  $who_reg = $row['who_reg']; $con2 = mysql_query("SELECT info_name FROM users WHERE id = $who_reg"); $row2= mysql_fetch_array($con2);
 						  ?>
 					<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 					
-							<td ><img class="indicator" src="images_2/triangle_closed.png">  <b> <?php echo $row['name']; ?></b> (<?php echo $row['eik']; ?>)</td>
-							<td><?php echo $row['city']; ?></td>
-							<td><?php echo $row['manager']; ?></td>
-							<td><?php echo $row['contact_phone']; ?></td>
-							<td><?php echo $row2['info_name']; ?></td>
-							<td><a href="customer_info.php?id=<?php echo $row['id']; ?>"><input value="Напред" class="gray" id="showAddPaymentMethodCC" type="button"></a></td>
+							<td ><img class="indicator" src="images_2/triangle_closed.png">  <b> <?php echo $row['group_name']; ?></b></td>
+							<td><?php echo $row['discount']; ?></td>
+							<td><?php echo $row['update_date']; ?></td>
+							<td><center><a href="customer_group_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
+							<td><center><a href="customer_group_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></td>
 							
 						</tr>
 					<?php } ?>
