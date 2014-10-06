@@ -6,10 +6,22 @@ include('header.php');
 				<div class="caption">
 					Категории продукти
 				</div>
+				
+				<input class="green" style="float: right; margin-top: 12px;" value="Добави категория" type="button" onclick="newcat.style.display='table-row'">
+				<?php 
+				$check_if_empty=mysql_num_rows(mysql_query("SELECT * FROM categories"));
+				if($check_if_empty==0){
+				?>
+				<label style="float:right; font-size:15px;color:#FF9900"><i>Все още няма добавена категория!</i></label>
+				<?php }
+				?>
 			</div>
 		</div>
-				<div id="content">
-			<div class="container">
+	<div id="content">
+ <div class="container">
+      <div id="orderform">
+   	     <ul class="floatingBlocks">
+		   	 <li style="width: 100%; border-right: none;">
 <div id="newcat" style="display: none;  height: 282px;" class="modal" id="addSubAccount">
 	<div class="header">
 		<img class="close" src="other/close.png" width="20" onclick="newcat.style.display='none'">
@@ -45,7 +57,9 @@ include('header.php');
 	</div>
 </div>
 
-
+<div class="caption">
+					Списък категории
+				</div>
 
 
 
@@ -56,22 +70,6 @@ include('header.php');
 
 
 <table class="dataTable expandableDetails">
-	<thead>
-		<tr>
-			<th colspan="4">
-				
-				<input class="gray" style="float: right; margin-top: 12px;" value="Добавяне" type="button" onclick="newcat.style.display='table-row'">
-				<?php 
-				$check_if_empty=mysql_num_rows(mysql_query("SELECT * FROM categories"));
-				if($check_if_empty==0){
-				?>
-				<label style="float:right; font-size:15px;color:#FF9900"><i>Все още няма добавена категория!</i></label>
-				<?php }
-				?>
-				Списък категории
-			</th>
-		</tr>
-	</thead>
 	<tbody>
 	<tr>
 				<th>Име</th>
@@ -91,33 +89,36 @@ include('header.php');
 			
 			?>
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
-				<th><?php echo "$row[name]"; ?></th>
-				<th><?php
+				<td><?php echo "$row[name]"; ?></td>
+				<td><?php
 				$sss=$row['info'];
 				$infos=substr($sss,0, 32);
 				echo "$infos ..."; 
 				$idc=$row['id'];
 				
-					?></th>
-				<th><center><a href="category_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></th>
-				<th><center><a href="category_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px" /></a></center></th>
+					?></td>
+				<td><center><a href="category_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
+				<td><center><a href="category_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px" /></a></center></td>
 			</tr>
 			
 			
 			<? 
 			} }?>
-			
+				<? if($check_if_empty==0){ ?>
 			<tr>
 				<td colspan="4">
-					<? if($check_if_empty==0){ ?>
-			<i>Няма добавена категория</i><? } ?>
+				
+			<i>Няма добавена категория</i>
 				</td>
-			</tr>
+			</tr><? } ?>
 					</tbody>
 </table>
-
+</li>
+		</ul>
+	</div>
 		</div>
 	</div>
+	
 <?php 
 include('footer.php');
 ?>

@@ -5,16 +5,23 @@ $id_category=$_GET['id'];
 <div id="module">
 			<div class="container">
 				<div class="caption">
-					Редактиране на категория <?
-					$name_of_cat=mysql_fetch_array(mysql_query("SELECT * FROM categories WHERE id = '$id_category'"));
-echo "$name_of_cat[name]";
-					?>
+					Редактиране на категория 
 				</div>
 			</div>
 		</div>
 				<div id="content">
 			<div class="container">
-
+<div id="orderform">
+   	     <ul class="floatingBlocks">
+		   	 <li style="width: 100%; border-right: none;">
+			 
+			 
+<div class="caption">
+					<?
+					$name_of_cat=mysql_fetch_array(mysql_query("SELECT * FROM categories WHERE id = '$id_category'"));
+echo "$name_of_cat[name]";
+					?>
+				</div>
 <link href="LEAP3Account%20&amp;%20Billing2_files/subaccounts.css" rel="stylesheet" type="text/css">
 
 
@@ -53,6 +60,9 @@ echo "$name_of_cat[name]";
 					</tbody>
 </table>
 
+</li>
+		</ul>
+	</div>
 		</div>
 	</div>
 <?php 
