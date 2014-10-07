@@ -47,7 +47,7 @@
 							<td><?php echo $row['address_store']; ?></td>
 							<td><?php echo $row['function']; ?></td>
 							<td><?php echo $row['phone']; ?></td>
-							<td><center><a href="customer_group_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
+							<td><center><a href="employees_info.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
 							<td><center><a href="customer_group_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></td>
 							
 						</tr>
