@@ -424,7 +424,7 @@ margin-top:3px;">
 						Служители
 					</div>
 					<div class="body">
-						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+						<a href="employees.php">Служители</a>
                         <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
 						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
 						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
