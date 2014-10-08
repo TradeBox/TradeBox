@@ -95,13 +95,26 @@ margin-top:3px;">
                     Corporate
                 </div>
 																	<div id="user">
+			<?
+			$log_name=mysql_fetch_array(mysql_query("SELECT * FROM users WHERE id='$user_id'"));	
+			$full_names=$log_name['full_name'];
+			$store_ids=$log_name['store_id'];
+			$stoooor=mysql_fetch_array(mysql_query("SELECT * FROM stores WHERE id='$store_ids'"));	
+			$firma=$stoooor['name'];
+			if(empty($firma)){ 
+			$firma=$log_name['username'];
+			}
+			if(empty($full_names)){ 
+			$full_names=$log_name['full_names'];
+			}
+			?>
 					<div id="username" onmouseover="usermenu.style.display='block'" onmouseout="usermenu.style.display='none'" >
-						ProHost LTD (<span style="font-size: 10px;">Pavel Peev</span>)
+						<?  echo $firma;?> (<span style="font-size: 10px;"><?  echo $full_names;?></span>)
 					</div>
 					<div onmouseover="usermenu.style.display='block'" onmouseout="usermenu.style.display='none'" id='usermenu' class="user_menu">
 						<ul>
 							<li>
-								<a href="">Account Settings</a>
+								<a href="employees_info.php?id=<? echo "$log_name[id]"; ?>">Account Settings</a>
 							</li>
                             														<li>
 								<a href="">Help</a>

@@ -20,7 +20,7 @@ $crypting=md5($password);
 		
 		include('archive_add.php');
 
-		add_to_archive('Потребителят влезе в системата.');
+		add_to_archive('Потребителят <'.$user.'> влезе в системата.');
 
 		header("Location: page.php");
 		}
