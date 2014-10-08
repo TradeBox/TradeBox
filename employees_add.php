@@ -52,7 +52,8 @@
 					<th>Обект</th>
 					<td>
 						<select class="obekt" name="obekt" >
-													
+													<option value="">
+                               Моля изберете                             </option>
 													<?php 
 													$con=mysql_query("SELECT * FROM stores"); 
 													while($row=mysql_fetch_array($con)){?>
