@@ -2,9 +2,9 @@
 <div id="module">
    <div class="container">
 		<div class="caption">
-					Служители
+					потребители
 		</div>
-		<a href="employees_add.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Добави служител"></a>
+		<a href="employees_add.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Добави потребител"></a>
 	</div>
 </div>
 <div id="content">
@@ -16,7 +16,7 @@
 				
 				
 				<div class="caption">
-					Списък служители
+					Списък потребители
 				</div>
 				<style>
 					.expandableDetails .details td {
@@ -30,22 +30,22 @@
 							
 							<th>Обект</th>
 							<th>Адрес</th>
-							<th>Длъжност</th>
+					
 							<th>Телефон</th>
 							<th></th><th></th>
 						</tr>
-					<?php $con = mysql_query("SELECT * FROM employees ORDER BY id DESC"); $br = 0;
+					<?php $con = mysql_query("SELECT * FROM users WHERE status_admin = 0 ORDER BY id DESC"); $br = 0;
 					      while($row = mysql_fetch_array($con)) { $br++; if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";} 
 						  ?>
 					<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 					
-							<td ><img class="indicator" src="images_2/triangle_closed.png">  <b> <?php echo $row['ful_name']; ?></b></td>
+							<td ><img class="indicator" src="images_2/triangle_closed.png">  <b> <?php echo $row['full_name']; ?></b></td>
 							<td><?php
 									$idstore=$row['store_id'];
-									$namestore=mysql_fetch_array(mysql_query("SELECT name FROM stores WHERE id='$idstore'"));
+									$namestore=mysql_fetch_array(mysql_query("SELECT * FROM stores WHERE id='$idstore'"));
 							echo $namestore['name']; ?></td>
-							<td><?php echo $row['address_store']; ?></td>
-							<td><?php echo $row['function']; ?></td>
+							<td><?php echo $namestore['address']; ?></td>
+			
 							<td><?php echo $row['phone']; ?></td>
 							<td><center><a href="employees_info.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
 							<td><center><a href="customer_group_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></td>

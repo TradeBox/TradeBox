@@ -1,12 +1,11 @@
 <? include('header.php'); ?>
 		<div id="module">
 <div class="container">
-<div class="caption"> Служител </div>
-<input class="green" type="button" onclick="newcat.style.display='table-row'" value="Добави категория" style="float: right; margin-top: 12px;">
-</div>
+<div class="caption"> Потребител </div>
+<a href="employees.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Потребители"></a></div>
 </div>
 		<? $ID=$_GET['id']; 
-		   $sele=mysql_query("SELECT * FROM employees WHERE id = '$ID'");
+		   $sele=mysql_query("SELECT * FROM users WHERE id = '$ID'");
 		   $employe=mysql_fetch_array($sele);
 		?>
 		
@@ -14,10 +13,9 @@
 			<div class="container">
 			<?php 
 			if(isset($_POST['submit'])){
-				$name=$_POST['name'];
+				$name=$_POST['fname'];
 				$obekt=$_POST['obekt'];
-				$address=$_POST['address'];
-				$work=$_POST['work'];
+	
 				$phone=$_POST['phone'];
 				$username=$_POST['username'];
 				$password=$_POST['password'];
@@ -26,11 +24,10 @@
 				$one=$_POST['one'];
 				$two=$_POST['two'];
 				$three=$_POST['three'];
-				$four=$_POST['four'];
-				$all=$one.",".$two.",".$three.",".$four;
+				$all=$one.",".$two.",".$three;
 				
-				mysql_query("UPDATE employees SET username='$username',password='$password',email='$email',store_id='$obekt',ful_name='$name',address_store='$address',function='$work',phone='$phone',privileges='$all' WHERE id='$ID'");
-				add_to_archive('Редактиран служител '.$name.'');
+				mysql_query("UPDATE users SET username='$username',password='$password',email='$email',store_id='$obekt',full_name='$name',phone='$phone' WHERE id='$ID'");
+				add_to_archive('Редактиран Потребител '.$name.'');
 				
 				
 			}
@@ -39,27 +36,35 @@
 			<form action='' method="post">
 <div id="info">
 	<ul class="floatingBlocks">
-		<li style="height: auto;">
+		<li style="height: 346px">
 			<div class="caption">
-				Информация за служителя
+				Информация за потребителя
 			</div>
 			
 			<table>
 				<tbody><tr>
 					<th>Име</th>
 					<td>
-						<input type="text" value="<? echo "$employe[ful_name]"; ?>" name='name'></input>
+						<input type="text" value="<? echo "$employe[full_name]"; ?>" name='fname'></input>
 					</td>
 				</tr>
 				<tr>
 					<th>Обект</th>
 					<td>
-						<select id="" name="obekt" >
+						<select class="obekt" name="obekt" >
 													
 													<?php 
 													$con=mysql_query("SELECT * FROM stores"); 
 													while($row=mysql_fetch_array($con)){?>
-													<option value="<?php echo "$row[id]"; ?>">
+													<option value="<?php echo "$row[id]"; ?>" <? 
+													$ff=$row['id'];
+													$ss=$employe['store_id'];
+if($ff==$ss){
+$adresasega=$row['address'];
+?> selected <?
+}
+
+													?>>
                                 <?php echo "$row[name]"; ?>                             </option>
 								<? } ?>
 												</select>
@@ -68,13 +73,7 @@
 				<tr>
 					<th>Адрес на Обекта</th>
 					<td>
-						<input type="text" value="<? echo "$employe[address_store]"; ?>" name='address'></input>
-					</td>
-				</tr>
-				<tr>
-					<th>Длъжност</th>
-					<td>
-						<input type="text" value="<? echo "$employe[function]"; ?>" name='work'></input>
+					<div class='adres' name='adres'><?php echo "$adresasega"; ?></div>
 					</td>
 				</tr>
 				<tr>
@@ -84,21 +83,11 @@
 					</td>
 				</tr>
 				
-				<tr>
-					<th>API Key</th>
-					<td>
-						397dcf7714124736373193de4375c0c1
-					</td>
-				</tr>
-                <tr>
-                    <th> Enable Two Factor Authentication</th>
-                    <td>
-              
-                    </td>
-                </tr>
+			
+        
 			</tbody></table>
 		</li>
-		<li style="height: 235px;">
+		<li style="height: 346px">
 		<div class="caption"> Данни за Вход </div>
 			<input style="float: right; margin: -45px 10px;" value="Редактирай" class="gray" name="submit"  type="submit">
 			<table>
@@ -122,9 +111,6 @@
 				<tr>
 					<th>Привилегии</th>
 					<td>
-						<table>
-						<tr>
-					<td align="right" colspan="2">
 					<script>
 function myFunction() {
     var x = document.getElementById("myCheck1");
@@ -139,27 +125,30 @@ function myFunction() {
 </script>
 					<div style="float:left;"><input name="all" type="checkbox" onclick="myFunction()" >Избери Всички</input></div>
 					</td>
-				</tr>
-						<tr>
+				</tr><tr>
+						<th>
 					<td>
-					<input id='myCheck1'  type="checkbox" name="one" value="1">1</input>
+					<input id='myCheck1'  type="checkbox" <? 
+					$priv=$employe['privileges'];
+					if (strpos($priv,'1') !== false){ echo "checked='checked'"; } ?> name="one" value="1">Редакция</input>
 					</td>
-					<td>
-					<input id='myCheck2'  type="checkbox" name="two" 
-					value="2" >2</input>
-					</td>
+					</th>
 				</tr>
 				<tr>
-					<td><input id='myCheck3'  type="checkbox" name="three" value="3" >3</input>
-					</td>
-					<td>
-						<input id='myCheck4'  type="checkbox" name="four" value="4" >4</input>
-					</td>
+						<th><td>
+					<input id='myCheck2' <? 
+					if (strpos($priv,'2') !== false){ echo "checked='checked'"; }  ?>   type="checkbox" name="two" 
+					value="2" >Изтриване</input>
+					</td></th>
 				</tr>
-				
-						</table>
-					</td>
+				<tr>
+						<th>
+					<td><input id='myCheck3' <? if (strpos($priv,'3') !== false){ echo "checked='checked'"; } ?>  type="checkbox" name="three" value="3" >Добавяне</input>
+					</td></th>
 				</tr>
+			
+		
+			
 			</tbody></table>
 		</li>
 	</ul>

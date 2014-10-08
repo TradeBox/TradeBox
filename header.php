@@ -32,9 +32,42 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 		<script src="other/jquery.js" type="text/javascript"></script>
 		<script src="other/jquery-ui.js" type="text/javascript"></script>
 		
-        	<link media="all" href="other/notifications.css" type="text/css" rel="stylesheet"><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script><script src="other/roundtrip.js" type="text/javascript" async="true"></script><script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script><div style="width: 1px; height: 1px; display: inline;">
-			
-</div></head>
+        	<link media="all" href="other/notifications.css" type="text/css" rel="stylesheet">
+			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
+			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
+			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
+			<script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script>
+			<script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script>
+			<script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script>
+			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
+			<script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script>
+
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".obekt").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_address.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".adres").html(html);
+				}
+			});
+
+		});
+
+	});
+</script> 
+</head>
 	<body><div id="notifications"><div class="container"><input class="gray close_button" value="Dismiss" _leap_action="close" type="button"><ul class="messages"></ul></div></div>
 
 		

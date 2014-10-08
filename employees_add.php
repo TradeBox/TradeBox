@@ -1,7 +1,8 @@
 <? include('header.php'); ?>
-		<div id="module">
+	
+	<div id="module">
 <div class="container">
-<div class="caption"> Добавяне на служител </div><a href="employees.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Служители"></a>
+<div class="caption"> Добавяне на потребител </div><a href="employees.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Потребители"></a>
 </div>
 </div>
 		
@@ -9,23 +10,22 @@
 			<div class="container">
 			<?php 
 			if(isset($_POST['submit'])){
-				$name=$_POST['name'];
+				$name=$_POST['fname'];
 				$obekt=$_POST['obekt'];
-				$address=$_POST['address'];
-				$work=$_POST['work'];
 				$phone=$_POST['phone'];
+				$date=date(Ymd);
 				$username=$_POST['username'];
 				$password=$_POST['password'];
+				$crypted_pass=md5($password);
 				$email=$_POST['email'];
 				
 				$one=$_POST['one'];
 				$two=$_POST['two'];
 				$three=$_POST['three'];
-				$four=$_POST['four'];
-				$all=$one.",".$two.",".$three.",".$four;
+				$all=$one.",".$two.",".$three;
 				
-				mysql_query("INSERT INTO employees (username,password,email,store_id,ful_name,address_store,function,phone,privileges) VALUES ('$username','$password','$email','$obekt','$name','$address','$work','$phone','$all')");
-				add_to_archive('Добавен нов служител '.$name.'');
+				mysql_query("INSERT INTO users (username,password,email,date_reg,status_admin,store_id,full_name,phone) VALUES ('$username','$crypted_pass','$email','$date','0','$obekt','$name','$phone')")or die();
+				add_to_archive('Добавен нов потребител '.$name.'');
 				
 				
 			}
@@ -34,42 +34,39 @@
 			<form action='' method="post">
 <div id="info">
 	<ul class="floatingBlocks">
-		<li style="height: auto;">
+		<li style="height: 346px">
 			<div class="caption">
-				Информация за служителя
+				Информация за потребител
 			</div>
 			
 			<table>
 				<tbody><tr>
 					<th>Име</th>
 					<td>
-						<input type="text" value="" name='name'></input>
+						<input type="text" value="" name='fname'></input>
 					</td>
 				</tr>
-				<tr>
+				
+
+<tr>
 					<th>Обект</th>
 					<td>
-						<select id="" name="obekt">
+						<select class="obekt" name="obekt" >
 													
 													<?php 
 													$con=mysql_query("SELECT * FROM stores"); 
 													while($row=mysql_fetch_array($con)){?>
 													<option value="<?php echo "$row[id]"; ?>">
                                 <?php echo "$row[name]"; ?>                             </option>
+								
 								<? } ?>
 												</select>
 					</td>
 				</tr>
 				<tr>
 					<th>Адрес на Обекта</th>
-					<td>
-						<input type="text" value="" name='address'></input>
-					</td>
-				</tr>
-				<tr>
-					<th>Длъжност</th>
-					<td>
-						<input type="text" value="" name='work'></input>
+					<td >
+					<div class='adres' name='adres'></div>
 					</td>
 				</tr>
 				<tr>
@@ -79,21 +76,10 @@
 					</td>
 				</tr>
 				
-				<tr>
-					<th>API Key</th>
-					<td>
-						397dcf7714124736373193de4375c0c1
-					</td>
-				</tr>
-                <tr>
-                    <th> Enable Two Factor Authentication</th>
-                    <td>
-              
-                    </td>
-                </tr>
+			
 			</tbody></table>
 		</li>
-		<li style="height: 235px;">
+		<li style="height: 346px">
 		<div class="caption"> Данни за Вход </div>
 			<input style="float: right; margin: -45px 10px;" value="Добави" class="gray" name="submit"  type="submit">
 			<table>
@@ -117,9 +103,7 @@
 				<tr>
 					<th>Привилегии</th>
 					<td>
-						<table>
-						<tr>
-					<td align="right" colspan="2">
+					
 					<script>
 function myFunction() {
     var x = document.getElementById("myCheck1");
@@ -135,26 +119,27 @@ function myFunction() {
 					<div style="float:left;"><input name="all" type="checkbox" onclick="myFunction()" >Избери Всички</input></div>
 					</td>
 				</tr>
-						<tr>
+				</tr>
+						<tr><th>
 					<td>
-					<input id='myCheck1'  type="checkbox" name="one" value="1">1</input>
+					<input id='myCheck1'  type="checkbox" name="one" value="1">Редакция</input>
 					</td>
-					<td>
-					<input id='myCheck2'  type="checkbox" name="two" 
-					value="2" >2</input>
-					</td>
+				</th>
 				</tr>
 				<tr>
-					<td><input id='myCheck3'  type="checkbox" name="three" value="3" >3</input>
-					</td>
-					<td>
-						<input id='myCheck4'  type="checkbox" name="four" value="4" >4</input>
-					</td>
+						<th><td>
+					<input id='myCheck2'  type="checkbox" name="two" 
+					value="2" >Изтриване</input>
+					</td></th>
 				</tr>
-				
-						</table>
-					</td>
+				<tr>
+						<th>
+					<td><input id='myCheck3'  type="checkbox" name="three" value="3" >Добавяне</input>
+					</td></th>
 				</tr>
+			
+						
+	
 			</tbody></table>
 		</li>
 	</ul>
