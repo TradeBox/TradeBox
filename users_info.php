@@ -190,7 +190,7 @@ function myFunction() {
 				<tr><th></th>
 				<td style="padding: 0 0 0 0" align="left"><table>
 				<tr><td style="padding: 0 0">
-				<input class="gray" type="submit" value="Изтрий обекта" style="float: left; margin-top: 3px; background-color: rgb(248, 96, 89); color: white; text-shadow: none; font-family: Arial"> </td></tr>
+				<input class="gray" type="submit" value="Изтрий потребителя" style="float: left; margin-top: 3px; background-color: rgb(248, 96, 89); color: white; text-shadow: none; font-family: Arial"> </td></tr>
 				<tr><td style="padding: 0 0">
 				 <label><input type="checkbox" name="delete_user" value="<?php echo $employe['id']; ?>"> <b>Потвърждавам,</b> че желая да премахна този потребител.</label></td></tr></table>
 				  

@@ -1,7 +1,54 @@
 <? 
 include('header.php');
 ?>
-	
+	<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".category_aja").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_categ.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".category_ajasub").html(html);
+				}
+			});
+
+		});
+
+	});
+</script> 
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".category_ajasub").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_categs.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".category_ajasubsub").html(html);
+				}
+			});
+
+		});
+
+	});
+</script> 
 		<div id="content">
 			<div class="container">
 			<?php 
@@ -45,12 +92,6 @@ include('header.php');
 			<table>
 				<tbody>
 				<tr>
-					<th>Сериен Номер</th>
-					<td>
-						<input style="" id="serial" name="serial" value="" type="text">
-					</td>
-				</tr>
-				<tr>
 					<th>Име</th>
 					<td>
 						<input style="" id="name" name="name" value="" type="text">
@@ -59,41 +100,35 @@ include('header.php');
 				<tr>
 					<th>Към категория</th>
 					<td>
-						<select id="" name="categoriq">
-													
-													<?php 
-													$con=mysql_query("SELECT * FROM categories"); 
-													while($row=mysql_fetch_array($con)){?>
-													<option value="<?php echo "$row[id]"; ?>">
-                                <?php echo "$row[name]"; ?>                             </option>
-								<? } ?>
-												</select>
+						<select class="category_aja" name="categoriq"><? 
+					$cat=mysql_query("SELECT * FROM categories");
+					while($optcat=mysql_fetch_array($cat)){
+					?>
+						<option  value="<? echo "$optcat[id]"; ?>"><? echo "$optcat[name]"; ?></option><?
+						}
+						?>
+					</select>
 					</td>
 				</tr>
 				<tr>
 					<th>Към под-категория</th>
 					<td>
-						<select id="" name="podcategoriq">
-							<?php 
-													$con1=mysql_query("SELECT * FROM sub_categories"); 
-													while($row1=mysql_fetch_array($con1)){?>
-													<option value="<?php echo "$row1[id]"; ?>">
-                                <?php echo "$row1[name]"; ?>                             </option>
-								<? } ?>
-						</select>
+						<select class="category_ajasub" name="podkategoriq"><?
+					$cata=mysql_fetch_array(mysql_query("SELECT * FROM categories"));
+					$catnowa=$cata['id'];
+					$scata=mysql_query("SELECT * FROM sub_categories WHERE cat_id='$catnowa'");
+					while($sqa=mysql_fetch_array($scata)){
+					?>
+						<option  value="<? echo "$sqa[id]"; ?>"><? echo "$sqa[name]"; ?></option><? } ?>
+					</select>
 					</td>
 				</tr>
 				<tr>
 					<th>Към под-под-категория</th>
 					<td>
-						<select id="" name="podpodcategoriq">
-							<?php 
-													$con2=mysql_query("SELECT * FROM sub_sub_categories"); 
-													while($row2=mysql_fetch_array($con2)){?>
-													<option value="<?php echo "$row2[id]"; ?>">
-                                <?php echo "$row2[name]"; ?>                             </option>
-								<? } ?>
-						</select>
+						<select class="category_ajasubsub" name="podpodkategoriq">
+						<option  value="">Избери</option>
+					</select>
 					</td>
 				</tr>
 				<tr>
@@ -133,44 +168,12 @@ include('header.php');
 						<input style="" id="ml" name="ml" value="" type="text">
 					</td>
 				</tr>
-				<tr>
-					<th>Количество</th>
-					<td>
-						<input style="" id="amount" name="amount" value="" type="text">
-					</td>
-				</tr>
-				<tr>
-					<th>Срок на годност</th>
-					<td>
-						<input style="" id="end_date" name="end_date" value="0000-00-00" type="text">
-					</td>
-				</tr>
 				
 			</tbody></table>
 		</li>
-				<li style="width: 100%; padding: 67px 0px 0px;">
-			<div class="caption">
-				<img src="other/globe.png" alt="">
-				Промoции
-			</div>
-			<ul class="checkboxes">
-														
-														<li>
-						<input name="active" value="1" type="checkbox">
-												<span class="mgmtName">В наличност</span>
-											</li>
-											<li>
-						<input name="promo" value="1" type="checkbox">
-												<span class="mgmtName">На промоция</span>
-												
-											</li>
-														<li>	<span class="mgmtName">Промоционална цена:</span>
-						<input name="promo_price" value="" type="text">
-											
-											</li>
-											<li>	
-											</li>
-											<li>	
+			
+											<li style="width:100%"><table>
+<tr><td ></td ><td>											
 						<input style=" -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -187,16 +190,16 @@ include('header.php');
     color: #333;
     font: bold 12px/14px helvetica,arial,sans-serif;
     height: 30px;
+	cursor:pointer;
     padding: 0 40px;
     text-align: center;
 	float:right;
     text-decoration: none;
     text-shadow: 0 1px 0 white;" name="submit" value="Добавяне" type="submit">
-											
+							</td></tr></table>				
 											</li>
 							</ul>
-		</li>
-	</ul>
+		
 	<div id="options" class="optionMenu">
 		<div class="caption active">
 			Меню

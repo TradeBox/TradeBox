@@ -1,6 +1,31 @@
 <?php 
 include('header.php');
 ?>
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".category_aja").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_categ.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".category_ajasub").html(html);
+				}
+			});
+
+		});
+
+	});
+</script> 
+
 <div id="module">
 			<div class="container">
 				<div class="caption">
@@ -35,7 +60,7 @@ include('header.php');
 		<img class="close" src="other/close.png" width="20" onclick="newcat.style.display='none'">
 		Добавяне на нова Под-под-категория
 	</div>
-	<div class="body">
+	<div class="body" style="min-height:240px">
 	<?php 
 	if(isset($_POST['submit_cat'])){
 	$cat_idc=$_POST['category_s'];
@@ -53,7 +78,7 @@ include('header.php');
 					<label>
 						Категория към която спада
 					</label>
-					<select name="category_s"><? 
+					<select class="category_aja" name="category_s"><? 
 					$cat=mysql_query("SELECT * FROM categories");
 					while($optcat=mysql_fetch_array($cat)){
 					?>
@@ -64,13 +89,13 @@ include('header.php');
 					<label>
 						Под-категория към която спада
 					</label>
-					<select name="category_ss"><? 
-					$cat=mysql_query("SELECT * FROM sub_categories");
-					while($optcat=mysql_fetch_array($cat)){
+					<select class="category_ajasub" name="category_ss"><?
+					$cat=mysql_fetch_array(mysql_query("SELECT * FROM categories"));
+					$catnow=$cat['id'];
+					$scat=mysql_query("SELECT * FROM sub_categories WHERE cat_id='$catnow'");
+					while($sq=mysql_fetch_array($scat)){
 					?>
-						<option  value="<? echo "$optcat[id]"; ?>"><? echo "$optcat[name]"; ?></option><?
-						}
-						?>
+						<option  value="<? echo "$sq[id]"; ?>"><? echo "$sq[name]"; ?></option><? } ?>
 					</select>
 					<label>
 						Име на Под-под-категория
