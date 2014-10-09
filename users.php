@@ -2,9 +2,9 @@
 <div id="module">
    <div class="container">
 		<div class="caption">
-					потребители
+					Управление на потребители
 		</div>
-		<a href="employees_add.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Добави потребител"></a>
+		<a href="users_add.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Добави потребител"></a>
 	</div>
 </div>
 <div id="content">
@@ -32,7 +32,7 @@
 							<th>Адрес</th>
 					
 							<th>Телефон</th>
-							<th></th><th></th>
+							<th></th>
 						</tr>
 					<?php $con = mysql_query("SELECT * FROM users WHERE status_admin = 0 ORDER BY id DESC"); $br = 0;
 					      while($row = mysql_fetch_array($con)) { $br++; if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";} 
@@ -47,8 +47,8 @@
 							<td><?php echo $namestore['address']; ?></td>
 			
 							<td><?php echo $row['phone']; ?></td>
-							<td><center><a href="employees_info.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
-							<td><center><a href="customer_group_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></td>
+							<td><center><a class="gray" style="   padding: 7px 15px;color:#464661" href="users_info.php?id=<?php echo "$row[id]"; ?>">Редактиране</a></center></td>
+							
 							
 						</tr>
 					<?php } ?>

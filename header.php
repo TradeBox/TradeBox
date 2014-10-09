@@ -114,7 +114,10 @@ margin-top:3px;">
 					<div onmouseover="usermenu.style.display='block'" onmouseout="usermenu.style.display='none'" id='usermenu' class="user_menu">
 						<ul>
 							<li>
-								<a href="employees_info.php?id=<? echo "$log_name[id]"; ?>">Account Settings</a>
+								<a href="users_info.php?id=<? echo "$log_name[id]"; ?>">Account Settings</a>
+							</li>
+							<li>
+								<a href="users.php">Accounts</a>
 							</li>
                             														<li>
 								<a href="">Help</a>

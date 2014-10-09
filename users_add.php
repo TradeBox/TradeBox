@@ -2,7 +2,7 @@
 	
 	<div id="module">
 <div class="container">
-<div class="caption"> Добавяне на потребител </div><a href="employees.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Потребители"></a>
+<div class="caption"> Добавяне на потребител </div><a href="users.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък потребители"></a>
 </div>
 </div>
 		
@@ -34,7 +34,7 @@
 			<form action='' method="post">
 <div id="info">
 	<ul class="floatingBlocks">
-		<li style="height: 346px">
+		<li style="height: 404px">
 			<div class="caption">
 				Информация за потребител
 			</div>
@@ -80,9 +80,8 @@
 			
 			</tbody></table>
 		</li>
-		<li style="height: 346px">
+		<li style="height: 404px">
 		<div class="caption"> Данни за Вход </div>
-			<input style="float: right; margin: -45px 10px;" value="Добави" class="gray" name="submit"  type="submit">
 			<table>
 				<tbody><tr>
 					<th>Потребителско име</th>
@@ -138,7 +137,12 @@ function myFunction() {
 					<td><input id='myCheck3'  type="checkbox" name="three" value="3" >Добавяне</input>
 					</td></th>
 				</tr>
+			<tr>
+						<th>
+					<td><input style="float: right; margin: 0px 10px;" value="Добавяне" class="gray" name="submit"  type="submit">
 			
+					</td></th>
+				</tr>
 						
 	
 			</tbody></table>

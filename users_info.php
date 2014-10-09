@@ -1,10 +1,18 @@
-<? include('header.php'); ?>
+<? include('header.php');   $ID=$_GET['id']; ?>
 		<div id="module">
 <div class="container">
 <div class="caption"> Потребител </div>
-<a href="employees.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Потребители"></a></div>
+<a href="users.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Потребители"></a></div>
 </div>
-		<? $ID=$_GET['id']; 
+		<? 
+		   
+		    if (!empty($_POST['delete_user']) AND !empty($_GET['delete'] ) AND $_POST['delete_user'] == $_GET['delete'] ) { 
+  $delete = $_GET['delete']; 
+  mysql_query("DELETE FROM users WHERE id = $delete") or die (mysql_error());
+   
+  }
+  if (empty($delete)) {
+
 		   $sele=mysql_query("SELECT * FROM users WHERE id = '$ID'");
 		   $employe=mysql_fetch_array($sele);
 		?>
@@ -18,25 +26,28 @@
 	
 				$phone=$_POST['phone'];
 				$username=$_POST['username'];
-				$password=$_POST['password'];
-				$email=$_POST['email'];
 				
+				$email=$_POST['email'];
 				$one=$_POST['one'];
 				$two=$_POST['two'];
 				$three=$_POST['three'];
 				$all=$one.",".$two.",".$three;
 				
-				mysql_query("UPDATE users SET username='$username',password='$password',email='$email',store_id='$obekt',full_name='$name',phone='$phone' WHERE id='$ID'");
+				if(!empty($_POST['password'])){
+				$password=$_POST['password'];
+				$crypted_pass=md5($password);
+				mysql_query("UPDATE users SET username='$username',password='$crypted_pass',email='$email',store_id='$obekt',full_name='$name',phone='$phone' WHERE id='$ID'");
+				}else{
+				mysql_query("UPDATE users SET username='$username',email='$email',store_id='$obekt',full_name='$name',phone='$phone' WHERE id='$ID'");
+				}
 				add_to_archive('Редактиран Потребител '.$name.'');
-				
-				
 			}
 			
 			?>
 			<form action='' method="post">
 <div id="info">
 	<ul class="floatingBlocks">
-		<li style="height: 346px">
+		<li style="height: 404px">
 			<div class="caption">
 				Информация за потребителя
 			</div>
@@ -82,14 +93,27 @@ $adresasega=$row['address'];
 						<input type="text" value="<? echo "$employe[phone]"; ?>" name='phone'></input>
 					</td>
 				</tr>
+				<tr>
+					<th></th>
+					<td>
+					</td>
+				</tr><tr>
+					<th></th>
+					<td>
+					</td>
+				</tr><tr>
+					<th></th>
+					<td>
+					</td>
+				</tr>
 				
 			
         
 			</tbody></table>
 		</li>
-		<li style="height: 346px">
+		<li style="height: 404px">
 		<div class="caption"> Данни за Вход </div>
-			<input style="float: right; margin: -45px 10px;" value="Редактирай" class="gray" name="submit"  type="submit">
+			
 			<table>
 				<tbody><tr>
 					<th>Потребителско име</th>
@@ -98,7 +122,7 @@ $adresasega=$row['address'];
 				<tr>
 					<th>Парола</th>
 					<td>
-						<input type="password" value="<? echo "$employe[password]"; ?>" name='password'></input>
+						<input type="password" value="" name='password'></input>
 					</td>
 				</tr>
 				<tr>
@@ -137,7 +161,8 @@ function myFunction() {
 				<tr>
 						<th><td>
 					<input id='myCheck2' <? 
-					if (strpos($priv,'2') !== false){ echo "checked='checked'"; }  ?>   type="checkbox" name="two" 
+					if (strpos($priv,'2') !== false){ echo "checked='checked'"; }
+					?>   type="checkbox" name="two" 
 					value="2" >Изтриване</input>
 					</td></th>
 				</tr>
@@ -146,11 +171,39 @@ function myFunction() {
 					<td><input id='myCheck3' <? if (strpos($priv,'3') !== false){ echo "checked='checked'"; } ?>  type="checkbox" name="three" value="3" >Добавяне</input>
 					</td></th>
 				</tr>
+			<tr>
+						<th>
+					<td><input style="float: right; margin: 0px 10px;" value="Редактирай" class="gray" name="submit"  type="submit">
 			
+					</td></th>
+				</tr>
+				</form>
+				
 		
-			
 			</tbody></table>
 		</li>
+		
 	</ul>
+		<form action="?delete=<?php echo $employe['id']; ?>&id=<?php echo $employe['id']; ?>" method="POST"><table >
+				<tr><th></th>
+				<td style="padding: 0 0 0 0" align="left"><table>
+				<tr><td style="padding: 0 0">
+				<input class="gray" type="submit" value="Изтрий обекта" style="float: left; margin-top: 3px; background-color: rgb(248, 96, 89); color: white; text-shadow: none; font-family: Arial"> </td></tr>
+				<tr><td style="padding: 0 0">
+				 <label><input type="checkbox" name="delete_user" value="<?php echo $employe['id']; ?>"> <b>Потвърждавам,</b> че желая да премахна този потребител.</label></td></tr></table>
+				  
+				  </td> </tr></table></form>
+		<?php } else { ?>
+		<div id="content">
+			<div class="container">
+			<ul><li style="width: 100%; border: 1px solid rgb(218, 218, 218); padding: 25px 5px 20px;">
+			  <div class="caption">
+			      <img src="images_2/icon_cloud.png"> ПОТРЕБИТЕЛЯ Е ПРЕМАХНАТ УСПЕШНО!</div>
+			
+			<table>
+				
+			<tr>
+					<th></th>  </tr></table >    <?php } ?>
+		</li></ul>
 	</div></div></div>
 		<? include('footer.php'); ?>
