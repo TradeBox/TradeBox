@@ -1,4 +1,4 @@
-  <?php if (!empty($_POST['name']) AND !empty($_POST['city'] )) {
+<?php if (!empty($_POST['name']) AND !empty($_POST['city'] )) {
   $name=$_POST['name']; 
   $address=$_POST['address']; 
   $city=$_POST['city']; 
@@ -47,16 +47,22 @@ if ((($_FILES["file"]["type"] == "image/gif")
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "store-images/" . $_FILES["file"]["name"]);
   $img = "store-images/" . $_FILES["file"]["name"];
+  mysql_query ("UPDATE stores SET img = '$img' WHERE id = $id") or die (mysql_error());
     }
   }
-} else {}
+} else {
+
+}
 
 mysql_query
-  ("INSERT INTO stores (name , city , address ,phone, img , warehouse , date , open_time_week , open_time_sat, open_time_sun) 
-     VALUES  ('$name', '$city' , '$address' ,'$phone', '$img', '$warehouse', NOW(), 'от $weekh:$weekm до $weekh2:$weekm2', 'от $sath:$satm до $sath2:$satm2',  'от $sunh:$sunm до $sunh2:$sunm2')") or die (mysql_error());
-$reg_complete = 1;
-add_to_archive("Добави обект: $name .");
-
+  ("UPDATE stores SET name = '$name' , city = '$city' , address = '$address' ,phone = '$phone', warehouse = '$warehouse' , open_time_week = 'от $weekh:$weekm до $weekh2:$weekm2', open_time_sat = 'от $sath:$satm до $sath2:$satm2', open_time_sun = 'от $sunh:$sunm до $sunh2:$sunm2' WHERE id = $id") 
+     or die (mysql_error());
+	 
+add_to_archive("Промени обект: $name.");
 
    } 
-      ?>
+     if (!empty($_POST['delete_store']) AND !empty($_GET['delete'] ) AND $_POST['delete_store'] == $_GET['delete'] ) { 
+  $delete = $_GET['delete']; 
+  mysql_query("DELETE FROM stores WHERE id = $delete") or die (mysql_error());
+   
+  }?>

@@ -51,11 +51,14 @@
 					<th></th>
 					<td align="right" style="text-align: right; padding-right: 15px; font-size: 16px">
 						<label><input style="transform: scale(1.2, 1.2); -moz-transform: scale(1.2, 1.2); -ms-transform: scale(1.2, 1.2);
--webkit-transform: scale(1.2, 1.2); -o-transform: scale(1.2, 1.2); " id="warehouse" name="warehouse"  type="radio" checked="checked"  value="0"> 
+-webkit-transform: scale(1.2, 1.2); -o-transform: scale(1.2, 1.2); " id="warehouse" name="warehouse"  type="radio" checked="checked"  value="Търговски обект"> 
 
-Търговски обект</label>&nbsp;&nbsp;&nbsp;
+Търговски обект</label>&nbsp;&nbsp;&nbsp; 
 <label>
- <input id="warehouse" style="transform: scale(1.2, 1.2); -moz-transform: scale(1.2, 1.2); -ms-transform: scale(1.2, 1.2); -webkit-transform: scale(1.2, 1.2); -o-transform: scale(1.2, 1.2); " name="warehouse" type="radio"  value="1"> Склад</label>
+  <input id="warehouse" style="transform: scale(1.2, 1.2); -moz-transform: scale(1.2, 1.2); -ms-transform: scale(1.2, 1.2); -webkit-transform: scale(1.2, 1.2); -o-transform: scale(1.2, 1.2); " name="warehouse" type="radio"  value="Склад"> Склад</label>&nbsp;&nbsp;&nbsp;
+<label>
+ <input id="warehouse" style="transform: scale(1.2, 1.2); -moz-transform: scale(1.2, 1.2); -ms-transform: scale(1.2, 1.2); -webkit-transform: scale(1.2, 1.2); -o-transform: scale(1.2, 1.2); " name="warehouse" type="radio"  value="Офис"> Офис</label>
+
 					</td>
 				</tr>
 				<tr>
