@@ -2,14 +2,16 @@
 		<div id="module">
 <div class="container">
 <div class="caption"> Потребител </div>
-<a href="users.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Потребители"></a></div>
+<a href="users.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък потребители"></a></div>
 </div>
 		<? 
 		   
 		    if (!empty($_POST['delete_user']) AND !empty($_GET['delete'] ) AND $_POST['delete_user'] == $_GET['delete'] ) { 
   $delete = $_GET['delete']; 
-  mysql_query("DELETE FROM users WHERE id = $delete") or die (mysql_error());
-   
+  $koi=mysql_fetch_array(mysql_query("SELECT username FROM users WHERE id = '$delete'"));
+  $iztritiq=$koi['username'];
+   add_to_archive("Изтрит Потребител $iztritiq.");
+   mysql_query("DELETE FROM users WHERE id = '$delete'") or die (mysql_error());
   }
   if (empty($delete)) {
 
