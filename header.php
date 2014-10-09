@@ -5,13 +5,14 @@ include('archive_add.php');
 if(empty($user_id)){ header("Location: login.php"); } ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-		<script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/dc.js" async="" type="text/javascript"></script><script src="other/233685.js" id="hs-analytics"></script><script src="other/dc.js" async="" type="text/javascript"></script><script id="undefined" src="other/inpage_linkid.js" async="" type="text/javascript"></script><script src="other/ga.js" async="" type="text/javascript"></script><script src="other/gtm.js" async=""></script><script src="other/gtm.js" async=""></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>TradeBox</title>
+		
+		<title>TradeBox</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="robots" content="index,follow">
 		<meta name="googlebot" content="noarchive">
-		<meta name="description" content="LEAP3 Platform">
-		<meta name="author" content="SingleHop, LLC">
-		<meta name="publisher" content="SingleHop, LLC">
+		<meta name="description" content="TradeBox">
+		<meta name="author" content="TradeBox, ltd">
+		<meta name="publisher" content="TradeBox, ltd">
 		<meta name="revisit-after" content="1 days">
         <link rel="icon" type="image/png" href="favicon.png">
 		<link href="other/global.css" rel="stylesheet" type="text/css">
@@ -27,22 +28,11 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
         <link href="other/jquery-ui-1.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="other/floatingBlockLayout.css">
 <link rel="stylesheet" type="text/css" href="other/orderform.css">
-
-		<!--[if IE]><script type="text/javascript" src="/resources/global/js/lib/excanvas.js"></script><![endif]-->
-		<script src="other/jquery.js" type="text/javascript"></script>
-		<script src="other/jquery-ui.js" type="text/javascript"></script>
+		
 		
         	<link media="all" href="other/notifications.css" type="text/css" rel="stylesheet">
-			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
-			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
-			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
-			<script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script>
-			<script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script>
-			<script src="other/HL3NMJBQOFEHDEFZY3KPL3" type="text/javascript" async="true"></script>
-			<script src="other/roundtrip.js" type="text/javascript" async="true"></script>
-			<script src="other/HL3NMJBQOFEHDEFZY3KPL3_002" type="text/javascript" async="true"></script>
-
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+			
+			<script type="text/javascript" src="other/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function()
 	{
@@ -68,28 +58,14 @@ if(empty($user_id)){ header("Location: login.php"); } ?>
 	});
 </script> 
 </head>
-	<body><div id="notifications"><div class="container"><input class="gray close_button" value="Dismiss" _leap_action="close" type="button"><ul class="messages"></ul></div></div>
-
-		
-		<!-- Google Tag Manager -->
-		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-83K3"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-83K3');</script>
-		<!-- End Google Tag Manager -->
-		
-
-		<div id="transparency">
-
-		</div>
+	<body>
+	
+	
 				<div id="header" style="box-shadow: 0 0 3px 2px rgba(30, 30, 30, 0.7);
 margin-top:3px;">
 			<div class="container">
 				<div id="logo">
-					<img src="logo_white_shadows1.png" height="35">
+					<img src="logo_small_white.png">
 				</div>
                 <div id="version">
                     Corporate
@@ -127,11 +103,6 @@ margin-top:3px;">
 							</li>
 						</ul>
 					</div>
-                    <!-- removing events, ticket 2650
-					<div id="events">
-						<img src="/resources/leap3/imgs/global/header_events.png" />
-					</div>
-					-->
 				</div>
 			</div>
 		</div>
