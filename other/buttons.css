@@ -1,5 +1,5 @@
 .green {
-	background-image: url('/resources/leap3/imgs/global/button_green.png');
+
 	background-color: rgb(127, 182, 18);
 	border: 1px solid rgb(98, 141, 13);
 	color: white;
@@ -25,7 +25,6 @@
 }
 
 .gray {
-	background-image: url('/resources/leap3/imgs/global/button_gray.png');
 	background-color: rgb(235, 235, 235);
 	border: 1px solid rgb(175, 175, 175);
 	color: rgb(70, 70, 70);
