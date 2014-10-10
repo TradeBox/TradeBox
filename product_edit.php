@@ -1,47 +1,134 @@
 <? 
 include('header.php');
 ?>
-	
+	<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".category_aja").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_categ.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".category_ajasub").html(html);
+				}
+			});
+
+		});
+
+	});
+</script> 
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".category_ajasub").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_categs.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".category_ajasubsub").html(html);
+				}
+			});
+
+		});
+
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".mqrkaizbor").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_mqrka.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".mqrka").html(html);
+				}
+			});
+
+		});
+
+	});
+</script> 
+ 
 		<div id="content">
 			<div class="container">
 			<?php 
+		
 			if(isset($_GET['id'])){
 			$idp=$_GET['id'];
 			$ediii=mysql_fetch_array(mysql_query("SELECT * FROM products WHERE id='$idp'"));
-			$serial=$ediii['serial_no'];
+		
 			$name=$ediii['name'];
-			$cat_id=$ediii['categoriq'];
-			$subcat_id=$ediii['podcategoriq'];
-			$subsubcat_id=$ediii['podpodcategoriq'];
+			$cat_id=$ediii['cat_id'];
+			$subcat_id=$ediii['subcat_id'];
+			$subsubcat_id=$ediii['subsubcat_id'];
 			$info=$ediii['info'];
 			$price=$ediii['price'];
-			$weight=$ediii['weight'];
-			$ml=$ediii['ml'];
-			$amount=$ediii['amount'];
-			$active=$ediii['active'];
-			$promo=$ediii['promo'];
-			$end_date=$ediii['end_date'];
-			$promo_price=$ediii['promo_price'];
-		
+			$mqrka=$ediii['measure'];
+			list($part1, $part2) = explode('.', $price);
 			}
 			
+			
+  if (!empty($_POST['delete_store']) AND !empty($_GET['delete'] ) AND $_POST['delete_store'] == $_GET['delete'] ) { 
+  $delete = $_GET['delete']; 
+  mysql_query("DELETE FROM products WHERE id = $delete") or die (mysql_error());
+   
+  }
+			
+			
+				if (empty($delete)) {
 			if(isset($_POST['submit'])){
 			add_to_archive('Потребителят Редактира продукт '.$name.'');
-			$serial=$_POST['serial'];
 			$name=$_POST['name'];
 			$cat_id=$_POST['categoriq'];
 			$subcat_id=$_POST['podcategoriq'];
 			$subsubcat_id=$_POST['podpodcategoriq'];
 			$info=$_POST['info'];
-			$price=$_POST['price'];
-			$weight=$_POST['weight'];
-			$ml=$_POST['ml'];
-			$amount=$_POST['amount'];
-			$active=$_POST['active'];
-			$promo=$_POST['promo'];
-			$end_date=$_POST['end_date'];
-			$promo_price=$_POST['promo_price'];
-			mysql_query("UPDATE products SET serial_no='$serial',name='$name',cat_id='$cat_id',subcat_id='$subcat_id',subsubcat_id='$subsubcat_id',price='$price',info='$info',weight='$weight',active='$active',promo='$promo',end_date='$end_date',ml='$ml',promo_price='$promo_price',user_id='$user_id',amount='$amount' WHERE id = '$idp' ");
+			$pricelev=$_POST['pricelev'];
+			$pricestot=$_POST['pricestot'];
+			$price=$pricelev.".".$pricestot;
+			$mqrka=$_POST['mqrka'];
+			if($mqrka==0){
+$mqrka="на брой";
+}
+			if($mqrka==1){
+$mqrka="на брой";
+}
+if($mqrka==2){
+$mqrka="на метър";
+}
+if($mqrka==3){
+$mqrka="на литър";
+}
+if($mqrka==4){
+$mqrka="на килограм";
+}
+			mysql_query("UPDATE products SET name='$name',cat_id='$cat_id',subcat_id='$subcat_id',subsubcat_id='$subsubcat_id',price='$price',info='$info',measure='$mqrka' WHERE id = '$idp' ");
 		
 			}
 			?>
@@ -50,7 +137,7 @@ include('header.php');
 <div id="orderform">
 	<div id="server">
 		Редактиране на продукт <?php echo "$name"; ?>
-		<span id="type"></span>
+		<span id="type"></span><a href="product_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
 	</div>
 	<ul class="floatingBlocks" style="width:75.6%">
 		<li style="width: 100%;">
@@ -64,52 +151,74 @@ include('header.php');
 			<table>
 				<tbody>
 				<tr>
-					<th>Сериен Номер</th>
-					<td>
-						<input style="" id="serial" name="serial" value="<?php echo "$serial"; ?>" type="text">
-					</td>
-				</tr>
-				<tr>
 					<th>Име</th>
 					<td>
 						<input style="" id="name" name="name" value="<?php echo "$name"; ?>" type="text">
 					</td>
 				</tr>
 				<tr>
-					<th>Към категория</th>
+					<th>Категория</th>
 					<td>
-						<select id="" name="categoriq">
+						<select class="category_aja"  id="" name="categoriq">
 													
 													<?php 
 													$con=mysql_query("SELECT * FROM categories"); 
 													while($row=mysql_fetch_array($con)){?>
-													<option value="<?php echo "$row[id]"; ?>">
+													<option value="<?php echo "$row[id]"; ?>"
+													<? 
+													if($cat_id==$row['id']){
+													?> 
+													selected
+													<?
+													}
+													?>
+													
+													>
                                 <?php echo "$row[name]"; ?>                             </option>
 								<? } ?>
 												</select>
 					</td>
 				</tr>
 				<tr>
-					<th>Към под-категория</th>
+					<th>Под-категория</th>
 					<td>
-						<select id="" name="podcategoriq">
+						<select class="category_ajasub" id="" name="podcategoriq">
 							<?php 
 													$con1=mysql_query("SELECT * FROM sub_categories"); 
 													while($row1=mysql_fetch_array($con1)){?>
-													<option value="<?php echo "$row1[id]"; ?>">
+													<option value="<?php echo "$row1[id]"; ?>"<? 
+													if($subcat_id==$row1['id']){
+													?>
+													 selected
+													<? 
+													}
+													?>
+													>
+													
+													
                                 <?php echo "$row1[name]"; ?>                             </option>
 								<? } ?>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<th>Към под-под-категория</th>
+					<th>Под-под-категория</th>
 					<td>
-						<select id="" name="podpodcategoriq">
+						<select class="category_ajasubsub" name="podpodcategoriq">
 							<?php 
 													$con2=mysql_query("SELECT * FROM sub_sub_categories"); 
 													while($row2=mysql_fetch_array($con2)){?>
-													<option value="<?php echo "$row2[id]"; ?>">
+													<option value="<?php echo "$row2[id]"; ?>"
+													
+													<? 
+													if($subsubcat_id==$row2['id']){
+													?>   
+													selected
+													<?
+													}
+													?>
+													
+													>
                                 <?php echo "$row2[name]"; ?>                             </option>
 								<? } ?>
 						</select>
@@ -118,13 +227,15 @@ include('header.php');
 				<tr>
 					<th>Информация</th>
 					<td>
-						<input style="" id="info" name="info" value="<?php echo "$info"; ?>" type="text">
+						<textarea cols="5" rows="4" style="" id="info" name="info" value=""></textarea>
 					</td>
 				</tr>
 				<tr>
 					<th>Цена</th>
 					<td>
-						<input style="" id="price" name="price" value="<?php echo "$price"; ?>" type="text">
+						<input style="height: 41px;
+    width: 50px;" id="price" name="pricelev" value="<? echo "$part1"; if(empty($part1)){echo "0";} ?>" type="text"><span style="font-size:33px" >,</span><input style="height: 41px;
+    width: 41px;" id="price" name="pricestot" value="<? echo "$part2"; if(empty($part2)){echo "00";} ?>" type="text"> лв./ <span class="mqrka" name="mqrka" ><? echo "$mqrka"; ?></span>
 					</td>
 				</tr>
 				
@@ -141,55 +252,21 @@ include('header.php');
 			</div>
 			<table>
 				<tbody><tr>
-					<th>Тегло</th>
-					<td id="storage_sliders">
-						<input style="" id="weight" name="weight" value="<?php echo "$weight"; ?>" type="text">
-					</td>
+					<th >Мерна единица</th>
+					<td><select style="width:200px" class="mqrkaizbor" name="mqrka">
+						<option  value="0" selected>Избери</option>
+						<option  value="1">брой</option>
+						<option  value="2">дължина</option>
+						<option  value="3">обем</option>
+						<option  value="4">тегло</option>
+					</select></td>
 				</tr>
-				<tr>
-					<th>Милилитри</th>
-					<td>
-						<input style="" id="ml" name="ml" value="<?php echo "$ml"; ?>" type="text">
-					</td>
-				</tr>
-				<tr>
-					<th>Количество</th>
-					<td>
-						<input style="" id="amount" name="amount" value="<?php echo "$amount"; ?>" type="text">
-					</td>
-				</tr>
-				<tr>
-					<th>Срок на годност</th>
-					<td>
-						<input style="" id="end_date" name="end_date" value="<?php echo "$end_date"; ?>" type="text">
-					</td>
-				</tr>
+				
 				
 			</tbody></table>
 		</li>
-				<li style="width: 100%; padding: 67px 0px 0px;">
-			<div class="caption">
-				<img src="other/globe.png" alt="">
-				Промoции
-			</div>
-			<ul class="checkboxes">
-														
-														<li>
-						<input <? if($active==1){ echo "checked='checked'";}  ?> name="active" value="1" type="checkbox">
-												<span class="mgmtName">В наличност</span>
-											</li>
-											<li>
-						<input <? if($promo==1){ echo "checked='checked'";}  ?> name="promo" value="1" type="checkbox">
-												<span class="mgmtName">На промоция</span>
-												
-											</li>
-														<li>	<span class="mgmtName">Промоционална цена:</span>
-						<input name="promo_price" value="<?php echo "$promo_price"; ?>" type="text">
-											
-											</li>
-											<li>	
-											</li>
-											<li>	
+				
+											<li style="width:100%;padding:10px">	
 						<input style=" -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -210,11 +287,38 @@ include('header.php');
     text-align: center;
 	float:right;
     text-decoration: none;
-    text-shadow: 0 1px 0 white;" name="submit" value="Редактиране" type="submit">
+    text-shadow: 0 1px 0 white;" name="submit" value="Редактиране" type="submit"></form></li><li style="width:100%">
+											 <form action="?delete=<?php echo "$idp"; ?>&id=<?php echo "$idp"; ?>" method="POST">
+				<tr><th></th>
+				<td style="padding: 0 0 0 0" align="left"><table>
+				<tr><td style="padding: 0 0">
+				<input class="gray addSubAccount" type="submit" value="Изтрий продукт" style="float: left; margin-top: 3px; background-color: rgb(248, 96, 89); color: white; text-shadow: none; font-family: Arial"> </td></tr>
+				<tr><td style="padding: 0 0">
+				 <label><input type="checkbox" name="delete_store" value="<?php echo "$idp"; ?>"> <b>Потвърждавам,</b> че желая да премахна този продукт.</label></td></tr></table>
+				  
+				  </td> </tr></form>
+										</li>	
+											<?php } else { ?>
 											
-											</li>
-							</ul>
+		<div id="content">
+			<div class="container">
+			<div id="orderform">
+	<div id="server">
+		Изтрит продукт <?php echo "$name"; ?>
+		<span id="type"></span><a href="product_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
+	</div>
+	<ul class="floatingBlocks" style="width:75.6%">
+			<li style="width: 100%; border: 1px solid rgb(218, 218, 218); padding: 25px 5px 20px;">
+			  <div class="caption">
+			      <img src="images_2/icon_cloud.png"> ПРОДУКТЪТ Е ПРЕМАХНАТ УСПЕШНО!</div>
+			
+			<table>
+				
+			<tr>
+					<th></th>  </tr></table >    
 		</li>
+				<?php } ?>
+		
 	</ul>
 	<div id="options" class="optionMenu">
 		<div class="caption active">
@@ -262,7 +366,7 @@ include('header.php');
 		</div>
 	</div>
 </div>
-</form>
+
 		</div>
 	</div>
 	<? 

@@ -82,11 +82,9 @@ include('header.php');
 	<tbody>
 		<tr>
 			<th>ID</th>
-			<th>Сериен Номер</th>
 			<th>Име</th>
 			<th>Цена</th>
 			<th>Наличност</th>
-			<th></th>
 			<th></th>
 		</tr>
 <? 
@@ -96,17 +94,15 @@ include('header.php');
 				$mysql_s=mysql_query("SELECT * FROM products");
 				while($red=mysql_fetch_array($mysql_s)){ $br++;
 			if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";}
-			if($red['promo']==1){$bgcolor = "#FEE388";}
-			if($red['amount']==0){$bgcolor = "#E50101";}
 			?>
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 			<td><?php echo "$red[id]"; ?></td>
-			<td><?php echo "$red[serial_no]"; ?></td>
+	
 			<td><?php echo "$red[name]"; ?></td>
 			<td><? if($red['promo']==1){ echo "<img src='other/promo.gif' width='35px' />"."$red[promo_price]"."лв. (Стара цена:".$red['price']."лв.)";}else{ ?><?php echo "$red[price]"; ?>лв.<? } ?></td>
-			<td><?php echo "$red[amount]"; ?>бр.</td>
-			<td><center><a href="product_edit.php?id=<?php echo "$red[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
-			<td><center><a href="product_dell.php?id=<?php echo "$red[id]"; ?>"><img src="other/delete.png" width="20px"  /></a></center></td>
+			<td>5бр.</td>
+			<td><center><a class="gray" style=" color: #464661;
+    padding: 7px 15px;" href="product_edit.php?id=<?php echo "$red[id]"; ?>">Редакция</a></center></td>
 		</tr>
 	
 	<? }}else{ ?>

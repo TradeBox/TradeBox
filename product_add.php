@@ -48,26 +48,60 @@ include('header.php');
 		});
 
 	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function()
+	{
+		$(".mqrkaizbor").change(function()
+		{
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_mqrka.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".mqrka").html(html);
+				}
+			});
+
+		});
+
+	});
 </script> 
+ 
 		<div id="content">
 			<div class="container">
 			<?php 
 			if(isset($_POST['submit'])){
-			$serial=$_POST['serial'];
 			$name=$_POST['name'];
 			$cat_id=$_POST['categoriq'];
 			$subcat_id=$_POST['podcategoriq'];
 			$subsubcat_id=$_POST['podpodcategoriq'];
 			$info=$_POST['info'];
-			$price=$_POST['price'];
-			$weight=$_POST['weight'];
-			$ml=$_POST['ml'];
-			$amount=$_POST['amount'];
-			$active=$_POST['active'];
-			$promo=$_POST['promo'];
-			$end_date=$_POST['end_date'];
-			$promo_price=$_POST['promo_price'];
-			mysql_query("INSERT INTO products (serial_no,name,cat_id,subcat_id,subsubcat_id,price,info,weight,active,promo,end_date,ml,promo_price,user_id,amount,bought) VALUES ('$serial','$name','$cat_id','$subcat_id','$subsubcat_id','$price','$info','$weight','$active','$promo','$end_date','$ml','$promo_price','$user_id','$amount','0')");
+			$pricelev=$_POST['pricelev'];
+			$pricestot=$_POST['pricestot'];
+			$price=$pricelev.".".$pricestot;
+			$mqrka=$_POST['mqrka'];
+			if($mqrka==1){
+$mqrka="на брой";
+}
+if($mqrka==2){
+$mqrka="на метър";
+}
+if($$mqrka==3){
+$mqrka="на литър";
+}
+if($mqrka==4){
+$mqrka="на килограм";
+}
+			
+			mysql_query("INSERT INTO products (name,cat_id,subcat_id,subsubcat_id,price,info,measure) VALUES ('$name','$cat_id','$subcat_id','$subsubcat_id','$price','$info','$mqrka')");
 			add_to_archive('Потребителят добави нов Продукт '.$name.'');
 			}
 			
@@ -79,6 +113,7 @@ include('header.php');
 	<div id="server">
 		Добавяне на Нов Продукт
 		<span id="type"></span>
+		<a href="product_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
 	</div>
 	<ul class="floatingBlocks" style="width:75.6%">
 		<li style="width: 100%;">
@@ -92,15 +127,16 @@ include('header.php');
 			<table>
 				<tbody>
 				<tr>
-					<th>Име</th>
+					<th>Наименование</th>
 					<td>
 						<input style="" id="name" name="name" value="" type="text">
 					</td>
 				</tr>
 				<tr>
-					<th>Към категория</th>
+					<th>Категория</th>
 					<td>
-						<select class="category_aja" name="categoriq"><? 
+						<select class="category_aja" name="categoriq">
+						<option  value="">Избери</option><? 
 					$cat=mysql_query("SELECT * FROM categories");
 					while($optcat=mysql_fetch_array($cat)){
 					?>
@@ -111,20 +147,15 @@ include('header.php');
 					</td>
 				</tr>
 				<tr>
-					<th>Към под-категория</th>
+					<th>Под-категория</th>
 					<td>
-						<select class="category_ajasub" name="podkategoriq"><?
-					$cata=mysql_fetch_array(mysql_query("SELECT * FROM categories"));
-					$catnowa=$cata['id'];
-					$scata=mysql_query("SELECT * FROM sub_categories WHERE cat_id='$catnowa'");
-					while($sqa=mysql_fetch_array($scata)){
-					?>
-						<option  value="<? echo "$sqa[id]"; ?>"><? echo "$sqa[name]"; ?></option><? } ?>
+						<select class="category_ajasub" name="podkategoriq">
+						<option  value="">Избери</option>
 					</select>
 					</td>
 				</tr>
 				<tr>
-					<th>Към под-под-категория</th>
+					<th>Под-под-категория</th>
 					<td>
 						<select class="category_ajasubsub" name="podpodkategoriq">
 						<option  value="">Избери</option>
@@ -134,14 +165,16 @@ include('header.php');
 				<tr>
 					<th>Информация</th>
 					<td>
-						<input style="" id="info" name="info" value="" type="text">
+						<textarea cols="5" rows="4" style="" id="info" name="info" value=""></textarea>
 					</td>
 				</tr>
 				<tr>
 					<th>Цена</th>
 					<td>
-						<input style="" id="price" name="price" value="" type="text">
-					</td>
+						<input style="height: 41px;
+    width: 50px;" id="price" name="pricelev" value="00" type="text"><span style="font-size:33px" >,</span><input style="height: 41px;
+    width: 41px;" id="price" name="pricestot" value="00" type="text"> лв./ <span class="mqrka"  >на брой</span>
+					</td> 
 				</tr>
 				
 				
@@ -157,17 +190,16 @@ include('header.php');
 			</div>
 			<table>
 				<tbody><tr>
-					<th>Тегло</th>
-					<td id="storage_sliders">
-						<input style="" id="weight" name="weight" value="" type="text">
-					</td>
+					<th >Мерна единица</th>
+					<td><select name="mqrka" style="width:200px" class="mqrkaizbor">
+						<option  value="" selected>Избери</option>
+						<option  value="1">брой</option>
+						<option  value="2">дължина</option>
+						<option  value="3">обем</option>
+						<option  value="4">тегло</option>
+					</select></td>
 				</tr>
-				<tr>
-					<th>Милилитри</th>
-					<td>
-						<input style="" id="ml" name="ml" value="" type="text">
-					</td>
-				</tr>
+				
 				
 			</tbody></table>
 		</li>
@@ -196,7 +228,7 @@ include('header.php');
 	float:right;
     text-decoration: none;
     text-shadow: 0 1px 0 white;" name="submit" value="Добавяне" type="submit">
-							</td></tr></table>				
+							</td></tr></table>	</form>			
 											</li>
 							</ul>
 		
@@ -246,7 +278,7 @@ include('header.php');
 		</div>
 	</div>
 </div>
-</form>
+
 		</div>
 	</div>
 	<? 
