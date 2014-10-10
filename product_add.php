@@ -78,30 +78,21 @@ include('header.php');
 		<div id="content">
 			<div class="container">
 			<?php 
-			if(isset($_POST['submit'])){
+			if(isset($_POST['submit']) AND !empty($_POST['name'])){
 			$name=$_POST['name'];
 			$cat_id=$_POST['categoriq'];
-			$subcat_id=$_POST['podcategoriq'];
-			$subsubcat_id=$_POST['podpodcategoriq'];
+			$subcat_id=$_POST['podkategoriq'];
+			$subsubcat_id=$_POST['podpodkategoriq'];
 			$info=$_POST['info'];
 			$pricelev=$_POST['pricelev'];
 			$pricestot=$_POST['pricestot'];
 			$price=$pricelev.".".$pricestot;
 			$mqrka=$_POST['mqrka'];
-			if($mqrka==1){
-$mqrka="на брой";
-}
-if($mqrka==2){
-$mqrka="на метър";
-}
-if($$mqrka==3){
-$mqrka="на литър";
-}
-if($mqrka==4){
-$mqrka="на килограм";
-}
+			$expire = $_POST['expire'];
 			
-			mysql_query("INSERT INTO products (name,cat_id,subcat_id,subsubcat_id,price,info,measure) VALUES ('$name','$cat_id','$subcat_id','$subsubcat_id','$price','$info','$mqrka')");
+			
+			mysql_query("INSERT INTO products (name,cat_id,subcat_id,subsubcat_id,price,info,measure, expire) VALUES ('$name','$cat_id','$subcat_id','$subsubcat_id','$price','$info','$mqrka', '$expire')") or die (mysql_query());
+			
 			add_to_archive('Потребителят добави нов Продукт '.$name.'');
 			}
 			
@@ -189,14 +180,24 @@ $mqrka="на килограм";
 				Добавете допълнителни данни за вашия продукт
 			</div>
 			<table>
-				<tbody><tr>
+				<tbody>
+				<tr>
 					<th >Мерна единица</th>
 					<td><select name="mqrka" style="width:200px" class="mqrkaizbor">
 						<option  value="" selected>Избери</option>
-						<option  value="1">брой</option>
-						<option  value="2">дължина</option>
-						<option  value="3">обем</option>
-						<option  value="4">тегло</option>
+						<option  value="на брой">брой</option>
+						<option  value="на метър">дължина</option>
+						<option  value="на литър">обем</option>
+						<option  value="на килограм">тегло</option>
+					</select></td>
+				</tr>
+				
+				<tr>
+					<th >Срок на годност</th>
+					<td><select name="expire" style="width:300px">
+						<option  value="0" selected>Не, продукта няма срок на годност</option>
+						<option  value="1">Да, продуктът има срок на годност</option>
+						
 					</select></td>
 				</tr>
 				
