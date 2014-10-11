@@ -33,76 +33,72 @@ include('header.php');
 			<div id="orderform">
    	     <ul class="floatingBlocks">
 		   	 <li style="width: 100%; border-right: none;">
+			 <div style="width: auto; float: right; margin: -57px 10px;">
+				<table>
+				<tr>
+				<td style=" padding: 5px 0 3px 5px;"><input type="text" style="margin: 0 0; height: 30px; width: 220px; color: #D1CCCC" OnMouseOut="if (this.value == '') {this.value = 'ID / Име / Описание / Цена';}"
+ onMouseOver="if (this.value == 'ID / Име / Описание / Цена') {this.value = '';}" value="ID / Име / Описание / Цена"  name="search_customer">
+ 	/ 
+	          <select id="" style="width: auto" name="categoriq">
+				  <option value="0">Избери категория</option>									
+													
+													<?php 
+													$con=mysql_query("SELECT * FROM categories"); 
+													while($row=mysql_fetch_array($con)){?>
+<option value="<?php echo "$row[id]"; ?>" <?php 	if($cat_id==$row['id']){ echo "selected"; }	?>	>
+                                <?php echo "$row[name]"; ?>                             </option>
+								<? } ?>
+												</select>
+ </td>
+				
+				
+				<td style=" padding: 5px 0 3px 5px;"><input  value="Търси" style="margin: 0 0;" class="gray" id="showAddPaymentMethodACH" type="button"></td>
+				</tr>
+				<tr><td style="font-size: 12px; margin: 0 0; padding: 0 0; text-align: right; vertical-align: middle; line-height: 15px" align="right" colspan="2"><a href="" style="color: #262B23">Всички продукти в: <b>"Хлебни продукти"</b> / (Може да изберете под-категория) </a></td></tr>
+				</table>
+				</div>
+			 
 			  <div class="caption">
 					 Списък продукти
 				</div>
-<script type="text/javascript" src="LEAP3Account%20&amp;%20Billing2_files/modal_addsubaccount.js"></script>
-<link rel="stylesheet" type="text/css" href="LEAP3Account%20&amp;%20Billing2_files/modal_addsubaccount.css">
-<div style="display: none;" class="modal" id="addSubAccount">
-	<div class="header">
-		<img class="close" src="LEAP3Account%20&amp;%20Billing2_files/close.png">
-		Add Sub Account
-	</div>
-	<div class="body">
-		<form method="post" action="/account/actn/subAcct-create/">
-			<ul>
-				<li>
-					<label>
-						Email
-					</label>
-					<input name="email" type="email">
-					<label>
-						First Name
-					</label>
-					<input name="first" type="text">
-					<label>
-						Last Name
-					</label>
-					<input name="last" type="text">
-				</li>
-				<li>
-					<label>
-						Password
-					</label>
-					<input name="password" type="password">
-					<label>
-						Description
-					</label>
-					<textarea name="description"></textarea>
-				</li>
-			</ul>
-			<input style="float: right;" class="green" value="Create Account" type="submit">
-		</form>
-	</div>
-</div>
-<link href="LEAP3Account%20&amp;%20Billing2_files/subaccounts.css" rel="stylesheet" type="text/css">
+
 
 
 <table class="dataTable expandableDetails">
 	<tbody>
 		<tr>
-			<th>ID</th>
+			<th width="30">ID</th>
 			<th>Име</th>
-			<th>Цена</th>
-			<th>Наличност</th>
-			<th></th>
+			<th width="75">Цена</th>
+			<th width="40">Наличност</th>
+			<th width="60"></th>
 		</tr>
 <? 
 				$check_if_empty=mysql_num_rows(mysql_query("SELECT * FROM products"));
-				if($check_if_empty!=0){
 				
+				if($check_if_empty!=0){
 				$mysql_s=mysql_query("SELECT * FROM products");
-				while($red=mysql_fetch_array($mysql_s)){ $br++;
+				while($red=mysql_fetch_array($mysql_s)){ $br++; $category_all = "";
 			if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";}
+			if($red[cat_id] != 0) {
+			$con2 = mysql_query("SELECT name FROM categories WHERE id = $red[cat_id]"); $cat_name = mysql_fetch_assoc($con2); 
+			$category_all = $cat_name['name']; }
+			if($red[subcat_id] != 0) {
+			$con2 = mysql_query("SELECT name FROM sub_categories WHERE id = $red[subcat_id]"); $cat_name = mysql_fetch_assoc($con2); 
+			$category_all .= " > ".$cat_name['name']; }
+			if($red[subsubcat_id] != 0) {
+			$con2 = mysql_query("SELECT name FROM sub_sub_categories WHERE id = $red[subsubcat_id]"); $cat_name = mysql_fetch_assoc($con2); 
+			$category_all .= " > ".$cat_name['name']; }
+			
+			
 			?>
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 			<td><?php echo "$red[id]"; ?></td>
-	
-			<td><?php echo "$red[name]"; ?></td>
-			<td><? if($red['promo']==1){ echo "<img src='other/promo.gif' width='35px' />"."$red[promo_price]"."лв. (Стара цена:".$red['price']."лв.)";}else{ ?><?php echo "$red[price]"; ?>лв.<? } ?></td>
-			<td>5бр.</td>
+			<td><b><?php echo "$red[name]"; ?></b><br><span style="font-size: 12px"><?php echo $category_all;  ?> </span> </td>
+			<td><? if($red['promo']==1){ echo "<img src='other/promo.gif' width='35px' />"."$red[promo_price]"."лв. (Стара цена:".$red['price']."лв.)";}else{ ?><?php echo "$red[price]"; ?> лв.<? } ?></td>
+			<td>5 бр.</td>
 			<td><center><a class="gray" style=" color: #464661;
-    padding: 7px 15px;" href="product_edit.php?id=<?php echo "$red[id]"; ?>">Редакция</a></center></td>
+    padding: 7px 15px;" href="product_edit.php?id=<?php echo "$red[id]"; ?>">Управление</a></center></td>
 		</tr>
 	
 	<? }}else{ ?>
