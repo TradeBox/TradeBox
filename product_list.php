@@ -24,7 +24,7 @@ include('header.php');
     padding: 7px 15px;
     text-align: center;
     text-decoration: none;
-    text-shadow: 0 1px 0 rgb(91, 133, 8);">Добави продукт</a>
+    text-shadow: 0 1px 0 rgb(91, 133, 8);">Добави нов продукт</a>
 			</div>
 		</div>
 				<div id="content">
