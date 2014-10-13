@@ -95,7 +95,7 @@ include('header.php');
 					$scat=mysql_query("SELECT * FROM sub_categories WHERE cat_id='$catnow'");
 					while($sq=mysql_fetch_array($scat)){
 					?>
-						<option  value="<? echo "$sq[id]"; ?>"><? echo "$sq[name]"; ?></option><? } ?>
+						<option  value="<? echo $sq[id]; ?>"><? echo $sq[name]; ?></option><? } ?>
 					</select>
 					<label>
 						Име на Под-под-категория
