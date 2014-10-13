@@ -374,7 +374,7 @@ $row = mysql_fetch_array($con);  ?>
 				  </td> </tr></form>
 			</table> 
 			
-			
+			</li>
 			<?php } else { ?>
 			<li style="width: 100%; border: 1px solid rgb(218, 218, 218); padding: 25px 5px 20px;">
 			  <div class="caption">
@@ -383,8 +383,8 @@ $row = mysql_fetch_array($con);  ?>
 			<table>
 				
 			<tr>
-					<th></th>  </tr></table >    <?php } ?>
-		</li>
+					<th></th>  </tr></table >    		</li><?php } ?>
+
 			
 				
 				

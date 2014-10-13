@@ -1,15 +1,15 @@
-<?php session_start();
-include('../DBconnect/dbconnect.php');
-$id_category=$_GET['id'];
-include('archive_add.php');
+<?php 
+if (!empty($_POST['delete_category']) AND !empty($_GET['delete'] ) AND $_POST['delete_category'] == $_GET['delete'] ) { 
+$id_category=$_GET['delete'];
+
 
 $name_cat=mysql_fetch_array(mysql_query("SELECT * FROM categories WHERE id='$id_category'"));
 $ime=$name_cat['name'];
 $checking_prod=mysql_num_rows(mysql_query("SELECT * FROM products WHERE cat_id='$id_category'"));
 if($checking_prod==0){
-mysql_query("DELETE FROM categories WHERE id='$id_category'");
+mysql_query("DELETE FROM categories WHERE id='$id_category'");   $delete = $_GET['delete']; 
 add_to_archive('Потребителят Изтри категория /'.$ime.'/.');
 }
 
-header("Location: category_add.php");
+}
 ?>

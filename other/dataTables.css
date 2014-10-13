@@ -63,7 +63,7 @@ table.dataTable.small > * > tr > th, table.dataTable.small > * > tr > td {
 }
 
 table.dataTable > * > tr > td {
-	color: rgb(120, 120, 120);
+	color: rgb(75, 75, 75);
 	font-size: 14px;
 }
 

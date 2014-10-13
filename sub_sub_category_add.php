@@ -32,12 +32,12 @@ include('header.php');
 					Под-под-категории продукти
 				</div>
 					
-				<input class="green" style="float: right; margin-top: 12px;" value="Добавяне" type="button" onclick="newcat.style.display='table-row'">
+				<input class="green" style="float: right; margin-top: 12px;" value="Добави нова под-под-категория" type="button" onclick="newcat.style.display='table-row'">
 				<?php 
 				$check_if_empty=mysql_num_rows(mysql_query("SELECT * FROM sub_sub_categories"));
 				if($check_if_empty==0){
 				?>
-				<label style="float:right; font-size:15px;color:#FF9900"><i>Все още няма добавена Под-под-категория!</i></label>
+				<label style="float:right; font-size:15px;color:#FF9900"><i>Все още няма добавени под-под-категория!</i></label>
 				<?php }
 				?>
 				
@@ -67,7 +67,7 @@ include('header.php');
 	$cat_ids=$_POST['category_ss'];
 	$name_categ=$_POST['name_cat'];
 	$info_categ=$_POST['info_cat'];
-	mysql_query("INSERT INTO sub_sub_categories (cat_id,subcat_id,name,info,active) VALUES ('$cat_idc','$cat_ids','$name_categ','$info_categ','1')");
+	mysql_query("INSERT INTO sub_sub_categories (cat_id,subcat_id,name,info,active) VALUES ('$cat_idc','$cat_ids','$name_categ','$info_categ','1')") or die (mysql_error());
 	add_to_archive('Потребителят добави нова Под-под-категория');
 	}
 	?>
@@ -133,13 +133,11 @@ include('header.php');
 		</tr>
 	</thead>
 	<tbody>
-	<tr>
+	<tr>        <th>Категория</th>
+	            <th>Под-категория</th>
 				<th>Име</th>
-				<th>Категория</th>
-				<th>Под-категория</th>
-				<th>Информация</th>
-				<th></th>
-				<th></th>
+				<th width="95" style="line-height: 18px; text-align: center; padding: 0 5px;">Продукти <br><span style="font-size: 13px; font-weight: normal">(брой)</span></th>
+				<th width="60"></th>
 			</tr>
 	
 			<?php 
@@ -150,28 +148,24 @@ include('header.php');
 			$con=mysql_query("SELECT * FROM sub_sub_categories");
 			while($row=mysql_fetch_array($con)){ $br++;
 			if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";}
+			$broi_produkti = mysql_result(mysql_query("SELECT COUNT(*) FROM products WHERE subsubcat_id=$row[id]"), 0);
 			
 			?>
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 				
-				<td><?php echo "$row[name]"; ?></td>
+				
 				<td><?php 
 				$iiid=$row['cat_id'];
 				$sd=mysql_fetch_array(mysql_query("SELECT * FROM categories WHERE id='$iiid'"));
-				echo "$sd[name]"; ?></td>
+				echo "$sd[name]"; ?> » </td>
 				<td><?php 
 				$iiid=$row['subcat_id'];
 				$sd=mysql_fetch_array(mysql_query("SELECT * FROM sub_categories WHERE id='$iiid'"));
-				echo "$sd[name]"; ?></td>
-				<td><?php
-				$sss=$row['info'];
-				$infos=substr($sss,0, 32);
-				echo "$infos ..."; 
-				$idc=$row['id'];
+				echo "$sd[name]"; ?> » </td>
+				<td><b><?php echo $row[name]; ?></b></td>
+				<td align="center"  style = "text-align: center; padding: 9px 10px; font-size: 13px"><a style="color: rgb(75, 75, 75);" href=""><b style="font-size: 19px;"><?php echo $broi_produkti; ?></b><br>(виж всички)</a></td>
 				
-					?></td>
-				<td><center><a href="sub_sub_category_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
-				<td><center><a href="sub_sub_category_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px" /></a></center></td>
+				<td style="padding: 0 5px;"><center><a href="sub_sub_category_edit.php?id=<?php echo $row[id]; ?>"><input value="Управление" class="gray" id="showAddPaymentMethodCC" type="button"></a></center></td>
 			</tr>
 			
 			

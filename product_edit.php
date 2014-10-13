@@ -243,7 +243,9 @@
 				<tr><td style="padding: 0 0">
 				<input class="gray addSubAccount" type="submit" value="Изтрий продукт" style="float: left; margin-top: 3px; background-color: rgb(248, 96, 89); color: white; text-shadow: none; font-family: Arial"> </td></tr>
 				<tr><td style="padding: 0 0">
-				 <label><input type="checkbox" name="delete_store" value="<?php echo "$idp"; ?>"> <b>Потвърждавам,</b> че желая да премахна този продукт.</label></td></tr></table>
+				 <label><input type="checkbox" name="delete_store" value="<?php echo "$idp"; ?>"> <b>Потвърждавам,</b> че желая да премахна този продукт.</label></td></tr>
+				 
+				 </table>
 				  
 				  </td> </tr></form>
 										</li>	

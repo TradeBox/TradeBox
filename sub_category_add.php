@@ -6,7 +6,7 @@ include('header.php');
 				<div class="caption">
 					Под-категории продукти
 				</div>
-				<input class="green" style="float: right; margin-top: 12px;" value="Добавяне" type="button" onclick="newcat.style.display='table-row'">
+				<input class="green" style="float: right; margin-top: 12px;" value="Добави нова под-категория" type="button" onclick="newcat.style.display='table-row'">
 				<?php 
 				$check_if_empty=mysql_num_rows(mysql_query("SELECT * FROM sub_categories"));
 				if($check_if_empty==0){
@@ -93,13 +93,14 @@ include('header.php');
 
 <table class="dataTable expandableDetails">
 	<tbody>
-	<tr>
-				<th>Име</th>
-				<th>Категория</th>
+	<tr>	    <th>Основна категория</th>
+				<th>Име на под-категорията</th>
+			
 				
-				<th>Информация</th>
-				<th></th>
-				<th></th>
+				<th width="95" style="line-height: 18px; text-align: center; padding: 0 5px;">Продукти <br><span style="font-size: 13px; font-weight: normal">(брой)</span></th>
+				<th width="60"  style="line-height: 18px; text-align: center; padding: 0 5px;">Под-пoд-категории <br><span style="font-size: 13px; font-weight: normal">(брой)</span></th>
+				<th width="60"></th>
+			
 			</tr>
 	
 			<?php 
@@ -110,24 +111,24 @@ include('header.php');
 			$con=mysql_query("SELECT * FROM sub_categories");
 			while($row=mysql_fetch_array($con)){  $br++;
 			if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";}
-			
+			$broi_produkti = mysql_result(mysql_query("SELECT COUNT(*) FROM products WHERE subcat_id=$row[id]"), 0);
+			$broi_podkategorii = mysql_result(mysql_query("SELECT COUNT(*) FROM sub_sub_categories WHERE subcat_id=$row[id]"), 0);
 			?>
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
-				
-				<td><?php echo "$row[name]"; ?></td>
-				<td><?php 
+				<td style=" padding: 5px 14px 5px;">  <?php 
 				$iiid=$row['cat_id'];
 				$sd=mysql_fetch_array(mysql_query("SELECT * FROM categories WHERE id='$iiid'"));
-				echo "$sd[name]"; ?></td>
-				<td><?php
-				$sss=$row['info'];
-				$infos=substr($sss,0, 32);
-				echo "$infos ..."; 
-				$idc=$row['id'];
+				echo "$sd[name]"; ?> <b style="margin-top: 5px">»</b></td>
+				<td><b><?php echo $row[name]; ?></b></td>
 				
-					?></td>
-				<td><center><a href="sub_category_edit.php?id=<?php echo "$row[id]"; ?>"><img src="other/edit.png" width="20px"  /></a></center></td>
-				<td><center><a href="sub_category_dell.php?id=<?php echo "$row[id]"; ?>"><img src="other/delete.png" width="20px" /></a></center></td>
+				
+					
+					<td align="center"  style = "text-align: center; padding: 9px 10px; font-size: 13px"><a style="color: rgb(75, 75, 75);" href="">
+					<b style="font-size: 19px;"><?php echo $broi_produkti; ?></b><br>(виж всички)</a></td>
+					<td align="center"  style = "text-align: center; padding: 9px 10px; font-size: 13px"><a style="color: rgb(75, 75, 75);"  href="">
+					<b style="font-size: 19px;"><?php echo $broi_podkategorii; ?></b><br>(виж всички)</a></td>
+				<td style="padding: 0 5px;"><center><a href="sub_category_edit.php?id=<?php echo "$row[id]"; ?>"><input value="Управление" class="gray" id="showAddPaymentMethodCC" type="button"></a></center></td>
+				
 			</tr>
 			
 			
