@@ -106,63 +106,6 @@ margin-top:3px;">
 				</div>
 			</div>
 		</div>
-		<div id="eventsbar">
-			<div class="container">
-				<ul>
-					<li>
-						<div class="header">
-							<div class="icon">
-								<img src="other/notifications_tickets.png">
-							</div>
-							Ticket Responses
-							<div class="events_num">
-								0
-							</div>
-						</div>
-						<ul class="body">
-													</ul>
-					</li>
-					<li>
-						<div class="header">
-							<div class="icon">
-								<img src="other/notifications_invoices.png">
-							</div>
-							Invoices
-							<div class="events_num">
-								0
-							</div>
-						</div>
-						<ul class="body">
-													</ul>
-					</li>
-					<li>
-						<div class="header">
-							<div class="icon">
-								<img src="other/icon_cloud.png" style="height: 19px; margin-top: 2px;">
-							</div>
-							Virtual Machines
-							<div class="events_num">
-								0
-							</div>
-						</div>
-						<ul class="body">
-													</ul>
-					</li><li>
-						<div class="header">
-							<div class="icon">
-								<img src="other/icon_server_single.png" style="height: 19px; margin-top: 3px;">
-							</div>
-							Servers
-							<div class="events_num">
-								0
-							</div>
-						</div>
-						<ul class="body">
-													</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
 		<div id="toolbar">
 			<div class="container" style="overflow: visible;">
 				<ul id="toolbarlinks">
@@ -309,7 +252,7 @@ margin-top:3px;">
 						Склад
 					</div>
 					<div class="body">
-						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
+						<a href="stock_note_add.php">Стокови разписки</a>
                         <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
 						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
 						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>

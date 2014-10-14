@@ -3,28 +3,8 @@ include('header.php');
 ?>
 		<div id="content">
 			<div class="container">
-			<?php 
-			if(isset($_POST['submit']) AND !empty($_POST['name'])){
-			$name=$_POST['name'];
-			$cat_id=$_POST['categoriq'];
-			$subcat_id=$_POST['podkategoriq'];
-			$subsubcat_id=$_POST['podpodkategoriq'];
-			$info=$_POST['info'];
-			$pricelev=$_POST['pricelev'];
-			$pricestot=$_POST['pricestot'];
-			$price=$pricelev.".".$pricestot;
-			$mqrka=$_POST['mqrka'];
-			$expire = $_POST['expire'];
-			
-			
-			mysql_query("INSERT INTO products (name,cat_id,subcat_id,subsubcat_id,price,info,measure, expire) VALUES ('$name','$cat_id','$subcat_id','$subsubcat_id','$price','$info','$mqrka', '$expire')") or die (mysql_query());
-			
-			add_to_archive('Потребителят добави нов Продукт '.$name.'');
-			}
-			
-			
-			?>
-<form method="post" action="">
+
+<form method="post" action="stock_note_complete.php">
 
 <div id="orderform">
 	<div id="server">
@@ -46,7 +26,7 @@ include('header.php');
 				<tr>
 					<th>Доставчик</th>
 					<td>
-						<input style="" id="name" name="name" value="" type="text">
+						<input style="" id="supplier" name="supplier" value="1" type="text">
 					</td>
 				</tr>
 				<tr>
@@ -86,28 +66,7 @@ include('header.php');
 				<tr>
 					<th></th>
 					<td>
-						<input style=" -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-color: rgb(230, 230, 230);
-    border-color: darkGray #a0a0a0 #959595;
-    border-image: none;
-    border-left: 1px solid #a0a0a0;
-    border-radius: 3px;
-    border-right: 1px solid #a0a0a0;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 0 1px 4px -2px black, 0 1px 0 white inset;
-    color: #333;
-    font: bold 12px/14px helvetica,arial,sans-serif;
-    height: 30px;
-	cursor:pointer;
-    padding: 0 40px;
-    text-align: center;
-	float:right;
-    text-decoration: none;
-    text-shadow: 0 1px 0 white;" name="submit" value="Напред" type="submit">
+						<input class="gray" style="float:right" name="submit" value="Напред" type="submit">
 					</td> 
 				</tr>
 				
