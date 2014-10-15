@@ -2,7 +2,9 @@
 include('../DBconnect/dbconnect.php');
 if($_POST['id']){
 $id=$_POST['id'];
-$cat=mysql_fetch_array(mysql_query("SELECT * FROM products WHERE id='$id'"));
+$sq=mysql_fetch_array(mysql_query("SELECT * FROM warehouse WHERE serial_barcode='$id'"));
+$prid=$sq['prod_id'];
+$cat=mysql_fetch_array(mysql_query("SELECT * FROM products WHERE id='$prid'"));
 if(!empty($cat['measure'])){
 	if($cat['measure']=="на брой"){
 	$nnn="Броя";

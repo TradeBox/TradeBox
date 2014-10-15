@@ -2,76 +2,37 @@
 include('header.php');
 ?>
 
-<script type="text/javascript">
-	$(document).ready(function()
-	{
-		$(".prod").change(function()
-		{
-			var id=$(this).val();
-			var dataString = 'id='+ id;
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="other/jquery.plugin.js"></script>
+<script src="other/jquery.datepick.js"></script>
+<link href="other/jquery.datepick.css" rel="stylesheet">
+<script>
+$(function() {
+	$('#popupDatepicker').datepick();
+	$('#inlineDatepicker').datepick({onSelect: showDate});
+});
 
-			$.ajax
-			({
-			type: "POST",
-			url: "ajax_ware_srok.php",
-			data: dataString,
-			cache: false,
-			success: function(html)
-				{
-					$(".srok").html(html);
-				}
-			});
+function showDate(date) {
+	alert('The date chosen is ' + date);
+}
+</script>
 
-		});
 
-	});
-</script> <script type="text/javascript">
-	$(document).ready(function()
-	{
-		$(".prod").change(function()
-		{
-			var id=$(this).val();
-			var dataString = 'id='+ id;
+<style>
 
-			$.ajax
-			({
-			type: "POST",
-			url: "ajax_ware_cena.php",
-			data: dataString,
-			cache: false,
-			success: function(html)
-				{
-					$(".cena").html(html);
-				}
-			});
-
-		});
-
-	});
-</script> <script type="text/javascript">
-	$(document).ready(function()
-	{
-		$(".prod").change(function()
-		{
-			var id=$(this).val();
-			var dataString = 'id='+ id;
-
-			$.ajax
-			({
-			type: "POST",
-			url: "ajax_ware_quantity.php",
-			data: dataString,
-			cache: false,
-			success: function(html)
-				{
-					$(".quan").html(html);
-				}
-			});
-
-		});
-
-	});
-</script> 
+ul.floatingBlocks > li > table:not(.dataTable) th {
+    border: 1px solid #ccc; }
+	
+ul.floatingBlocks > li table:not(.dataTable) td {
+  border: 1px solid #ccc;
+    color: rgb(110, 110, 110);
+    font-size: 15px;
+    overflow: auto;
+    padding: 16px 7px 7px;
+    text-align: left;
+    vertical-align: top;
+}
+</style>
 <script type="text/javascript">
 	$(document).ready(function()
 	{
@@ -89,35 +50,95 @@ include('header.php');
 			success: function(html)
 				{
 					$(".prod").html(html);
+				
+				}
+			}); 
+			
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_ware_srok.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".srok").html(html);
 				}
 			});
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_ware_cena.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".cena").html(html);
+				}
+			});
+				
+			var id=$(this).val();
+			var dataString = 'id='+ id;
+
+			$.ajax
+			({
+			type: "POST",
+			url: "ajax_ware_quantity.php",
+			data: dataString,
+			cache: false,
+			success: function(html)
+				{
+					$(".quan").html(html);
+				}
+			});
+
 
 		});
 
 	});
+	
+	
+	$('#pavel input').bind('keypress', function(e) {
+	var code = e.keyCode || e.which;
+ if(code == 13) { //Enter keycode
+   //Do something \
+   alert('NAaa');
+ }
+});
 </script> 
+
+
+
+
 		<div id="content">
 			<div class="container">
 <? 
 if(isset($_POST['submit'])){
 			$supplier = $_POST['supplier'];	
-			$obekt = $_POST['obekt'];
+			$prod = $_POST['prod'];
+			$serial_bar = $_POST['serial_bar']; 
+			$price = $_POST['price'];
+			$expire = $_POST['expire'];
+			$expire_group =  $_POST['expire_group'];
+			$quantity = $_POST['quantity']; 
+			$stock_note = $_GET['stid'];
 			
+			mysql_query("INSERT INTO warehouse (prod_id,serial_barcode,quantity,price,expire,expire_group,stock_note) VALUES ('$prod','$serial_bar','$price','$quantity','$expire','$expire_group','$stock_note')") or die (mysql_query());
 			
-			mysql_query("INSERT INTO warehouse (supply_id,store_id,user_id) VALUES ('$supplier','$obekt','$user_id')") or die (mysql_query());
+			add_to_archive('Потребителят добави продукт към Наличност No: '.$_GET['stid'].' !');
 			
-			add_to_archive('Потребителят добави продукт към стокова разписка No: '.$_GET['stid'].' !');
-			
-			$mysql=mysql_fetch_array(mysql_query("SELECT * FROM stock_note ORDER BY id DESC"));
-			$stid=$mysql['id'];
-		header("Location: ware_add.php?stid=$stid");
-			
+	
 			}
 
-
-
+$block='none';
 ?>
-<form method="post" action="">
+<form method="post" onsubmit="newRow.style.display='<? $block='block'; echo "$block"; ?>'"  action="">
 
 <div id="orderform">
 	<div id="server">
@@ -125,23 +146,36 @@ if(isset($_POST['submit'])){
 		<span id="type"></span>
 		<a href="product_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
 	</div>
-	<ul class="floatingBlocks" style="width:75.6%">
+	<ul class="floatingBlocks" style="width:100%">
 		<li style="width: 100%;">
 			<div class="caption">
 				<img src="other/icon_cloud.png" alt="Server Configuration">
-				Данни стокова разписка
+				Продукти в стокова разписка
 			</div>
 			<div class="description">
 				Попълнете данните за стокова разписка
 			</div>
-			<table>
+			<table style="border: 1px solid">
 				<tbody>
 				<tr>
+					<th>Сериен Номер (Баркод)</th>
 					<th>Продукт</th>
+					<th>Количество</th>
+					<th>Цена</th>
+					<th>Срок на Годност</th>
+					<th>Партида</th>
+				</tr>
+				<tr>
 					<td>
-						<select class="prod" name="prod" >
-													<option value="">
-                               Избери                             </option>
+					<input onkeydown="if (event.keyCode == 13) {
+						newRow1.style.visibility='visible';
+						foc = document.getElementById('barkoc1');
+						foc.focus();
+					}" class="barkoc" id="pavel" type="text" value="" autofocus name="serial_bar" ></input>
+					</td>
+					<td>
+					<select class="prod" name="prod" >
+													<option value="">Избери</option>
 													<?php 
 													$con=mysql_query("SELECT * FROM products"); 
 													while($row=mysql_fetch_array($con)){?>
@@ -149,46 +183,58 @@ if(isset($_POST['submit'])){
                                 <?php echo "$row[name]"; ?>                             </option>
 								
 								<? } ?>
-												</select>
+					</select>
 					</td>
-				</tr>
-				<tr>
-					<th>Сериен Номер (Баркод)</th>
-					<td>
-					<input class="barkoc" type="text" value="" name="serial_bar" ></input>
-					</td>
-				</tr>
-				<tr>
-					<th>Количество</th>
 					<td class="quan">
 					<input type="text" value="" style="width:60px" name="quantity" ></input>
 					</td>
-				</tr>
-				<tr>
-					<th>Цена</th>
 					<td class="cena">
 					
 					</td>
-				</tr>
-				<tr>
-					<th>Срок на Годност</th>
+					
 					<td class="srok">
-						
+					<input type='text' id='popupDatepicker'>
 					</td>
-				</tr>
-				<tr>
-					<th>Партида</th>
 					<td>
 						<input type='text' value='' name='expire_group'></input>
 					</td>
 				</tr>
-				<tr>
-					<th></th>
+			
+			<tr id="newRow1" style="visibility:collapse;">
 					<td>
-						<input class="gray" style="float:right" name="submit" value="Добави" type="submit">
-					</td> 
+					<input id="barkoc1" type="text" maxlength="13" value="" autofocus name="serial_bar1" ></input>
+					</td>
+					<td>
+					<select class="prod1" name="prod1" >
+													<option value="">Избери</option>
+													<?php 
+													$con=mysql_query("SELECT * FROM products"); 
+													while($row=mysql_fetch_array($con)){?>
+													<option value="<?php echo "$row[id]"; ?>">
+                                <?php echo "$row[name]"; ?>                             </option>
+								
+								<? } ?>
+					</select>
+					</td>
+					<td class="quan1">
+					<input type="text" value="" style="width:60px" name="quantity1" ></input>
+					</td>
+					<td class="cena1">
+					
+					</td>
+					
+					<td class="srok1">
+					<input type='text' id='popupDatepicker1'>
+					</td>
+					<td>
+						<input type='text' value='' name='expire_group1'></input>
+					</td>
 				</tr>
-				
+				<tr>
+				<td colspan="6">
+						<input style="float:right" class="gray" type='button' value='Добави продуктите' name=''></input>
+					</td>
+				</tr>
 				
 			</tbody></table>
 		</li>
@@ -196,53 +242,6 @@ if(isset($_POST['submit'])){
 											
 							</ul>
 		
-	<div id="options" class="optionMenu">
-		<div class="caption active">
-			Меню
-		</div>
-		<ul>
-			<li>
-				<a href="">
-	<img src="other/icon_server_single.png" alt="">Добави продукт
-</a>
-<a href="http://leap3.singlehop.com/solutions/dynamic-servers/">
-	<img src="other/icon_dynamic.png" alt="Dynamic"> Dynamic Servers
-</a>
-<a href="http://leap3.singlehop.com/solutions/public-cloud/">
-	<img src="other/icon_cloud.png" alt="Public Cloud"> Public Cloud
-</a>
-<!-- Removing Hosted Apps Ticket 2458
-<a href="/solutions/hosted-apps/">
-	<img src="/resources/leap3/imgs/solutions/icon_hostedapps.png" alt="Hosted Apps" /> Hosted Apps
-</a>
--->
-<a href="http://leap3.singlehop.com/solutions/virtual-load-balancer/">
-	<img src="other/icon_vlb.png" alt="Load Balancer"> Load Balancer
-</a>				<a href="http://leap3.singlehop.com/solutions/existing/">
-					<img> Existing Solutions
-				</a>
-			</li>
-		</ul>
-				<ul data-prices="hourly" id="total" class="ignore" style="margin-top: 30px;">
-			<li class="caption">Bandwidth &amp; Mgmt Services</li>
-			<li data-price="month">
-				$<span>0.0000</span> / Month
-			</li>
-			<li class="caption">Online</li>
-			<li data-price="online">
-				$<span>0.0605</span> / Hour
-			</li>
-			<li class="caption">Offline</li>
-			<li data-price="offline">
-				$<span>0.0055</span> / Hour
-			</li>
-		</ul>
-		<div style="display: none;" data-prices="monthly" id="total">
-			$<span>0.00</span> / Month
-		</div>
-	</div>
-</div>
-
 		</div>
 	</div>
 	<? 
