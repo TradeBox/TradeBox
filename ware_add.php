@@ -2,22 +2,6 @@
 include('header.php');
 ?>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="other/jquery.plugin.js"></script>
-<script src="other/jquery.datepick.js"></script>
-<link href="other/jquery.datepick.css" rel="stylesheet">
-<script>
-$(function() {
-	$('#popupDatepicker').datepick();
-	$('#inlineDatepicker').datepick({onSelect: showDate});
-});
-
-function showDate(date) {
-	alert('The date chosen is ' + date);
-}
-</script>
-
-
 <style>
 
 ul.floatingBlocks > li > table:not(.dataTable) th {
@@ -33,86 +17,66 @@ ul.floatingBlocks > li table:not(.dataTable) td {
     vertical-align: top;
 }
 </style>
+
 <script type="text/javascript">
-	$(document).ready(function()
-	{
-		$(".barkoc").change(function()
-		{
-			var id=$(this).val();
-			var dataString = 'id='+ id;
+$(document).ready(function()	{	$(".barkoc0").change(function()		{ 			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: dataString,			cache: false,			success: function(html)				{					$(".prod0").html(html);				}			}); 			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data: dataString,			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: dataString,			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: dataString,			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});		});	});	
+var broi = 0;
+function addRows(){
+broi++;
 
-			$.ajax
-			({
-			type: "POST",
-			url: "ajax_ware_bar.php",
-			data: dataString,
-			cache: false,
-			success: function(html)
-				{
-					$(".prod").html(html);
-				
-				}
-			}); 
-			
-			var id=$(this).val();
-			var dataString = 'id='+ id;
-
-			$.ajax
-			({
-			type: "POST",
-			url: "ajax_ware_srok.php",
-			data: dataString,
-			cache: false,
-			success: function(html)
-				{
-					$(".srok").html(html);
-				}
-			});
-			var id=$(this).val();
-			var dataString = 'id='+ id;
-
-			$.ajax
-			({
-			type: "POST",
-			url: "ajax_ware_cena.php",
-			data: dataString,
-			cache: false,
-			success: function(html)
-				{
-					$(".cena").html(html);
-				}
-			});
-				
-			var id=$(this).val();
-			var dataString = 'id='+ id;
-
-			$.ajax
-			({
-			type: "POST",
-			url: "ajax_ware_quantity.php",
-			data: dataString,
-			cache: false,
-			success: function(html)
-				{
-					$(".quan").html(html);
-				}
-			});
-
-
-		});
-
-	});
-	
-	
-	$('#pavel input').bind('keypress', function(e) {
-	var code = e.keyCode || e.which;
- if(code == 13) { //Enter keycode
-   //Do something \
-   alert('NAaa');
+  var TABLE = document.getElementById('tableId');
+  var BODY = TABLE.getElementsByTagName('tbody')[0];
+  var TR = document.createElement('tr');
+  
+  var TD1 = document.createElement('td');
+  TD1.innerHTML = "<input onkeydown=' if (event.keyCode == 13) { 	addRows(); nowfocus(); newscriptajax(); } ' type='text' value='' autofocus  name='serial_bar"+broi+"' class='barkoc"+broi+"' id='serial_bar"+broi+"' ></input>";
+  var TD2 = document.createElement('td');
+  TD2.innerHTML = "<select type='text' value='' class='prod"+broi+"'  name='prod"+broi+"' ></select>";
+  var TD3 = document.createElement('td');
+  TD3.innerHTML = "";
+  TD3.className="quan"+broi;
+  var TD4 = document.createElement('td');
+  TD4.innerHTML = "";
+  TD4.className="cena"+broi;
+  var TD5 = document.createElement('td');
+  TD5.innerHTML = "";
+  TD5.className="srok"+broi;
+  var TD6 = document.createElement('td');
+  TD6.innerHTML = "<input type='text' value=''  name='expire_group"+broi+"' ></input><input style='display:none' type='text' value='"+broi+"'  name='broqt_e' ></input>";
+  
+  
+  TR.appendChild (TD1);
+  TR.appendChild (TD2);
+   TR.appendChild (TD3);
+    TR.appendChild (TD4);
+	 TR.appendChild (TD5);
+	  TR.appendChild (TD6);
+  BODY.appendChild(TR);
+  
+ 
+   
+ 
+   
  }
-});
-</script> 
+ function newscriptajax() {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: dataString,			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data: dataString,			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: dataString,			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: dataString,			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	';
+    try {
+      s.appendChild(document.createTextNode(code));
+      document.body.appendChild(s);
+    } catch (e) {
+      s.text = code;
+      document.body.appendChild(s);
+    }
+}
 
+ 
+function nowfocus(){
+foc = document.getElementById('serial_bar'+broi);
+foc.focus();
+}
+</script>
 
 
 
@@ -138,7 +102,7 @@ if(isset($_POST['submit'])){
 
 $block='none';
 ?>
-<form method="post" onsubmit="newRow.style.display='<? $block='block'; echo "$block"; ?>'"  action="">
+<form method="post" name="formata" action="">
 
 <div id="orderform">
 	<div id="server">
@@ -155,7 +119,7 @@ $block='none';
 			<div class="description">
 				Попълнете данните за стокова разписка
 			</div>
-			<table style="border: 1px solid">
+			<table id="tableId" style="border: 1px solid">
 				<tbody>
 				<tr>
 					<th>Сериен Номер (Баркод)</th>
@@ -168,13 +132,13 @@ $block='none';
 				<tr>
 					<td>
 					<input onkeydown="if (event.keyCode == 13) {
-						newRow1.style.visibility='visible';
-						foc = document.getElementById('barkoc1');
-						foc.focus();
-					}" class="barkoc" id="pavel" type="text" value="" autofocus name="serial_bar" ></input>
+						addRows();
+						nowfocus();
+						newscriptajax();
+					}" class="barkoc0" id="pavel" type="text" value="" autofocus name="serial_bar0" ></input>
 					</td>
 					<td>
-					<select class="prod" name="prod" >
+					<select class="prod0" name="prod" >
 													<option value="">Избери</option>
 													<?php 
 													$con=mysql_query("SELECT * FROM products"); 
@@ -185,58 +149,33 @@ $block='none';
 								<? } ?>
 					</select>
 					</td>
-					<td class="quan">
+					<td class="quan0">
 					<input type="text" value="" style="width:60px" name="quantity" ></input>
 					</td>
-					<td class="cena">
+					<td class="cena0">
 					
 					</td>
 					
-					<td class="srok">
-					<input type='text' id='popupDatepicker'>
+					<td class="srok0">
+					<input type='text' name="expire" id='popupDatepicker'>
 					</td>
 					<td>
 						<input type='text' value='' name='expire_group'></input>
 					</td>
 				</tr>
+		
 			
-			<tr id="newRow1" style="visibility:collapse;">
-					<td>
-					<input id="barkoc1" type="text" maxlength="13" value="" autofocus name="serial_bar1" ></input>
-					</td>
-					<td>
-					<select class="prod1" name="prod1" >
-													<option value="">Избери</option>
-													<?php 
-													$con=mysql_query("SELECT * FROM products"); 
-													while($row=mysql_fetch_array($con)){?>
-													<option value="<?php echo "$row[id]"; ?>">
-                                <?php echo "$row[name]"; ?>                             </option>
-								
-								<? } ?>
-					</select>
-					</td>
-					<td class="quan1">
-					<input type="text" value="" style="width:60px" name="quantity1" ></input>
-					</td>
-					<td class="cena1">
-					
-					</td>
-					
-					<td class="srok1">
-					<input type='text' id='popupDatepicker1'>
-					</td>
-					<td>
-						<input type='text' value='' name='expire_group1'></input>
-					</td>
-				</tr>
-				<tr>
-				<td colspan="6">
-						<input style="float:right" class="gray" type='button' value='Добави продуктите' name=''></input>
-					</td>
-				</tr>
 				
 			</tbody></table>
+			<script type="text/javascript">
+function submitform()
+{
+  document.forms["formata"].submit();
+}
+</script>
+						<input style="float:right" class="gray" type='button' value='Добави продуктите'
+						onClick="submitform()" name="gotovo" />
+			
 		</li>
 			</form>	
 											
