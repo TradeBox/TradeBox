@@ -26,7 +26,18 @@ include('header.php');
 				<tr>
 					<th>Доставчик</th>
 					<td>
-						<input style="" id="supplier" name="supplier" value="1" type="text">
+						<select name="supplier"  >
+													<option value="">
+                               Моля изберете                             </option>
+													<?php 
+													$con=mysql_query("SELECT * FROM suppliers"); 
+													while($row=mysql_fetch_array($con)){?>
+													<option value="<?php echo "$row[id]"; ?>">
+                                <?php echo "$row[name]"; ?>                             </option>
+								
+								<? } ?>
+												</select>
+						
 					</td>
 				</tr>
 				<tr>

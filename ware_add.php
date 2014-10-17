@@ -118,7 +118,10 @@ $supplier = $_POST['supplier'];
 
 <div id="orderform">
 	<div id="server">
-		Продукти
+		Продукти от  <? $supplier = $_GET['suply'];	
+$ssaaa=mysql_fetch_array(mysql_query("SELECT * FROM suppliers WHERE id = '$supplier'"));
+echo $ssaaa[name];
+			?>
 		<span id="type"></span>
 		<a href="product_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
 	</div>
