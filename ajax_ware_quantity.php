@@ -2,6 +2,7 @@
 include('../DBconnect/dbconnect.php');
 if($_POST['id']){
 $id=$_POST['id'];
+$cdd=$_POST['broq4a'];
 $sq=mysql_fetch_array(mysql_query("SELECT * FROM warehouse WHERE serial_barcode='$id'"));
 $prid=$sq['prod_id'];
 $cat=mysql_fetch_array(mysql_query("SELECT * FROM products WHERE id='$prid'"));
@@ -19,9 +20,9 @@ if(!empty($cat['measure'])){
 	$nnn="Килограма";
 	}
 			
-			echo "<input type='text' value='' style='width:60px' name='quantity' >$nnn</input>";
+			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' >$nnn</input>";
 			}else{
-			echo "<input type='text' value='' style='width:60px' name='quantity' >Броя</input>";
+			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' >Броя</input>";
 			}
 }
 ?>

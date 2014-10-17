@@ -1,6 +1,10 @@
 <? 
 include('header.php');
+
+$cdd=0;
 ?>
+
+
 
 <style>
 
@@ -19,7 +23,9 @@ ul.floatingBlocks > li table:not(.dataTable) td {
 </style>
 
 <script type="text/javascript">
-$(document).ready(function()	{	$(".barkoc0").change(function()		{ 			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: dataString,			cache: false,			success: function(html)				{					$(".prod0").html(html);				}			}); 			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data: dataString,			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: dataString,			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});			var id=$(this).val();			var dataString = 'id='+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: dataString,			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});		});	});	
+$(document).ready(function()	{	$(".barkoc0").change(function()		{ 	
+		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});	
+		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".prod0").html(html);				}			}); 			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
 var broi = 0;
 function addRows(){
 broi++;
@@ -29,7 +35,7 @@ broi++;
   var TR = document.createElement('tr');
   
   var TD1 = document.createElement('td');
-  TD1.innerHTML = "<input onkeydown=' if (event.keyCode == 13) { 	addRows(); nowfocus(); newscriptajax(); } ' type='text' value='' autofocus  name='serial_bar"+broi+"' class='barkoc"+broi+"' id='serial_bar"+broi+"' ></input>";
+  TD1.innerHTML = "<input type='text' value='' autofocus  name='serial_bar"+broi+"' class='barkoc"+broi+"' id='serial_bar"+broi+"' ></input>";
   var TD2 = document.createElement('td');
   TD2.innerHTML = "<select type='text' value='' class='prod"+broi+"'  name='prod"+broi+"' ></select>";
   var TD3 = document.createElement('td');
@@ -54,14 +60,11 @@ broi++;
   BODY.appendChild(TR);
   
  
-   
- 
-   
  }
  function newscriptajax() {
     var s = document.createElement('script');
     s.type = 'text/javascript';
-    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: dataString,			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data: dataString,			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: dataString,			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();			var dataString = "id="+ id;			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: dataString,			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	';
+    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	';
     try {
       s.appendChild(document.createTextNode(code));
       document.body.appendChild(s);
@@ -80,7 +83,11 @@ foc.focus();
 
 
 
-		<div id="content">
+		<div onkeydown="if (event.keyCode == 13) {
+						addRows();
+						nowfocus();
+						newscriptajax();
+					}" id="content">
 			<div class="container">
 <? 
 if(isset($_POST['submit'])){
@@ -131,11 +138,7 @@ $block='none';
 				</tr>
 				<tr>
 					<td>
-					<input onkeydown="if (event.keyCode == 13) {
-						addRows();
-						nowfocus();
-						newscriptajax();
-					}" class="barkoc0" id="pavel" type="text" value="" autofocus name="serial_bar0" ></input>
+					<input  class="barkoc0" id="pavel" type="text" value="" autofocus name="serial_bar0" ></input>
 					</td>
 					<td>
 					<select class="prod0" name="prod" >
@@ -150,7 +153,7 @@ $block='none';
 					</select>
 					</td>
 					<td class="quan0">
-					<input type="text" value="" style="width:60px" name="quantity" ></input>
+					<input type="text" value="1" style="width:60px" name="quantity" ></input>
 					</td>
 					<td class="cena0">
 					
