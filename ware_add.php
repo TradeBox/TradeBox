@@ -90,24 +90,29 @@ foc.focus();
 					}" id="content">
 			<div class="container">
 <? 
-if(isset($_POST['submit'])){
-			$supplier = $_POST['supplier'];	
-			$prod = $_POST['prod'];
-			$serial_bar = $_POST['serial_bar']; 
-			$price = $_POST['price'];
-			$expire = $_POST['expire'];
-			$expire_group =  $_POST['expire_group'];
-			$quantity = $_POST['quantity']; 
-			$stock_note = $_GET['stid'];
+if(isset($_POST['broqt_e'])){
+$stock_note = $_GET['stid'];
+$supplier = $_POST['supplier'];	
+			$broqt_e=$_POST['broqt_e']+1;		
+			echo "<script> alert('broq e".$broqt_e."'); </script>";
+			$ii=0;
+			while($ii<$broqt_e){
+			$prod = $_POST['prod'.$ii];
+			$serial_bar = $_POST['serial_bar'.$ii]; 
+			$price = $_POST['price'.$ii];
+			$expire = $_POST['expire'.$ii];
+			$expire_group =  $_POST['expire_group'.$ii];
+			$quantity = $_POST['quantity'.$ii]; 
+			if(!empty($prod) && !empty($quantity)){
+			mysql_query("INSERT INTO warehouse (prod_id,serial_barcode,price,quantity,expire,expire_group,stock_note) VALUES ('$prod','$serial_bar','$price','$quantity','$expire','$expire_group','$stock_note')") or die (mysql_query());
+			}$ii++;
+			}
 			
-			mysql_query("INSERT INTO warehouse (prod_id,serial_barcode,quantity,price,expire,expire_group,stock_note) VALUES ('$prod','$serial_bar','$price','$quantity','$expire','$expire_group','$stock_note')") or die (mysql_query());
 			
-			add_to_archive('Потребителят добави продукт към Наличност No: '.$_GET['stid'].' !');
+			//add_to_archive('Потребителят добави продукт към Наличност No: '.$_GET['stid'].' !');
 			
 	
 			}
-
-$block='none';
 ?>
 <form method="post" name="formata" action="">
 
@@ -141,7 +146,7 @@ $block='none';
 					<input  class="barkoc0" id="pavel" type="text" value="" autofocus name="serial_bar0" ></input>
 					</td>
 					<td>
-					<select class="prod0" name="prod" >
+					<select class="prod0" name="prod0" >
 													<option value="">Избери</option>
 													<?php 
 													$con=mysql_query("SELECT * FROM products"); 
@@ -163,7 +168,7 @@ $block='none';
 					<input type='text' name="expire" id='popupDatepicker'>
 					</td>
 					<td>
-						<input type='text' value='' name='expire_group'></input>
+						<input type='text' value='' name='expire_group0'></input><input style='display:none' type='text' value='0'  name='broqt_e' ></input>
 					</td>
 				</tr>
 		

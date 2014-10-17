@@ -1,6 +1,7 @@
 <? 
 include('../DBconnect/dbconnect.php');
 if($_POST['id']){
+$cdd=$_POST['broq4a'];
 $sid=$_POST['id'];
 if(strlen($sid) != 13){
 echo "<option value=''>

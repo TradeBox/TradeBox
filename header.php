@@ -162,8 +162,8 @@ margin-top:3px;">
 						Клиенти
 					</div>
 					<div class="body">
-						<a href="customer_groups.php">Групи</a>
-                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+						<a href="customer_view.php">Клиенти</a>
+                        <a href="customer_groups.php">Групи</a>
 						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
 						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
 						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
@@ -342,8 +342,8 @@ margin-top:3px;">
 						Доставчици
 					</div>
 					<div class="body">
-						<a href="http://leap3.singlehop.com/affiliates/home/">Summary</a>
-                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+						<a href="supply_view.php">Доставчици лист</a>
+                         <a href="supply_groups.php">Групи</a>
 						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
 						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
 						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
