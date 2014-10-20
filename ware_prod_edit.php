@@ -23,13 +23,6 @@ ul.floatingBlocks > li table:not(.dataTable) td {
 </style>
 
 <script type="text/javascript">
-$(document).ready(function()	{	$(".prod0").change(function()		{ 	
-		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});	
-		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
-
-
-
-
 $(document).ready(function()	{	$(".barkoc0").change(function()		{ 	
 		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});	
 		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".prod0").html(html);				}			}); 			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
@@ -72,7 +65,7 @@ broi++;
  function newscriptajax() {
     var s = document.createElement('script');
     s.type = 'text/javascript';
-    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	         $(document).ready(function()	{	$(".prod'+broi+'").change(function()		{ 	var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});		});	});	';
+    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_srok.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	';
     try {
       s.appendChild(document.createTextNode(code));
       document.body.appendChild(s);
@@ -102,6 +95,7 @@ if(isset($_POST['broqt_e'])){
 $stock_note = $_GET['stid'];
 $supplier = $_POST['supplier'];	
 			$broqt_e=$_POST['broqt_e']+1;		
+			echo "<script> alert('broq e".$broqt_e."'); </script>";
 			$ii=0;
 			while($ii<$broqt_e){
 			$prod = $_POST['prod'.$ii];
@@ -113,9 +107,12 @@ $supplier = $_POST['supplier'];
 			if(!empty($prod) && !empty($quantity)){
 			mysql_query("INSERT INTO warehouse (prod_id,serial_barcode,price,quantity,expire,expire_group,stock_note) VALUES ('$prod','$serial_bar','$price','$quantity','$expire','$expire_group','$stock_note')") or die (mysql_query());
 			}$ii++;
-			}	
+			}
+			
+			
 			//add_to_archive('Потребителят добави продукт към Наличност No: '.$_GET['stid'].' !');
 			
+	
 			}
 ?>
 <form method="post" name="formata" action="">
@@ -127,7 +124,7 @@ $ssaaa=mysql_fetch_array(mysql_query("SELECT * FROM suppliers WHERE id = '$suppl
 echo $ssaaa[name];
 			?>
 		<span id="type"></span>
-		<a href="warehouse_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
+		<a href="product_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
 	</div>
 	<ul class="floatingBlocks" style="width:100%">
 		<li style="width: 100%;">

@@ -253,7 +253,7 @@ margin-top:3px;">
 					</div>
 					<div class="body">
 						<a href="stock_note_add.php">Стокови разписки</a>
-                        <a href="http://leap3.singlehop.com/affiliates/creatives/">Creatives</a>
+                        <a href="warehouse_list.php">Склад</a>
 						<a href="http://leap3.singlehop.com/affiliates/payout/">Payout History</a>
 						<a href="http://leap3.singlehop.com/affiliates/validations/">Pending Commissions</a>
 						<a href="http://leap3.singlehop.com/affiliates/sales/">Validated Commissions</a>
