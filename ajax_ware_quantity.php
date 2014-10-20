@@ -20,9 +20,30 @@ if(!empty($cat['measure'])){
 	$nnn="Килограма";
 	}
 			
-			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' >$nnn</input>";
+			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' id='quantity".$cdd."' 
+			onkeydown='if (event.keyCode == 38) {  
+					quant= this.value;
+					quant++;
+					return this.value = quant;
+						} 
+						if (event.keyCode == 40) {  
+					quant= this.value;
+					quant--;
+					return this.value = quant;
+						} '
+			>$nnn</input>";
 			}else{
-			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' >Броя</input>";
+			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' id='quantity".$cdd."' onkeydown='if (event.keyCode == 38) {  
+					quant= this.value;
+					quant++;
+					return this.value = quant;
+						} 
+						if (event.keyCode == 40) {  
+					quant= this.value;
+					quant--;
+					return this.value = quant;
+						} '
+						>Броя</input>";
 			}
 }
 ?>

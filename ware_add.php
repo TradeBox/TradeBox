@@ -41,6 +41,7 @@ broi++;
   var TD3 = document.createElement('td');
   TD3.innerHTML = "";
   TD3.className="quan"+broi;
+  TD3.id="quantity"+broi;
   var TD4 = document.createElement('td');
   TD4.innerHTML = "";
   TD4.className="cena"+broi;
@@ -161,7 +162,17 @@ echo $ssaaa[name];
 					</select>
 					</td>
 					<td class="quan0">
-					<input type="text" value="1" style="width:60px" name="quantity" ></input>
+					<input type="text" value="1" style="width:60px"  name="quantity" id="quantity0" 
+					onkeydown="if (event.keyCode == 38) {  
+					quant= this.value;
+					quant++;
+					return this.value = quant;
+						} 
+						if (event.keyCode == 40) {  
+					quant= this.value;
+					quant--;
+					return this.value = quant;
+						} "					></input>
 					</td>
 					<td class="cena0">
 					
