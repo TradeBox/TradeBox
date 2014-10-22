@@ -5,7 +5,11 @@ include('header.php');
 <div id="module">
 			<div class="container">
 				<div class="caption">
-					Склад
+					Продукт „<?
+					$pr_id=$_GET['id'];
+					$ss=mysql_fetch_array(mysql_query("SELECT * FROM products WHERE id = '$pr_id'"));
+					echo $ss[name];
+					?>“
 				</div>
 				<a href="stock_note_add.php" style=" background-color: rgb(127, 182, 18);
     border: 1px solid rgb(98, 141, 13);
@@ -59,7 +63,7 @@ include('header.php');
 				</div>
 			 
 			  <div class="caption">
-					 Списък продукти
+					 Списък Обекти
 				</div>
 
 
@@ -73,50 +77,37 @@ include('header.php');
 			<th width="40">Наличност</th>
 			<th width="60"></th>
 		</tr>
-<? 
-				$check_if_empty=mysql_num_rows(mysql_query("SELECT * FROM products"));
-				
-				if($check_if_empty!=0){
-				$mysql_s=mysql_query("SELECT * FROM products");
-				while($red=mysql_fetch_array($mysql_s)){ $br++; 
-				$prdd=$red['id'];
-				
-				$thiss=mysql_query("SELECT * FROM warehouse WHERE prod_id = '$prdd'");
-				$tot_q=0;
-					while($thisss=mysql_fetch_array($thiss)){ 
-					$tot_q = $tot_q + $thisss['quantity'];
-					}
-				$category_all = "";
-			if($br%2==0) {$bgcolor = "#F4F4F4";} else {$bgcolor = "#FFFFFF";}
-			if($red[cat_id] != 0) {
-			$con2 = mysql_query("SELECT name FROM categories WHERE id = $red[cat_id]"); 
-			$cat_name = mysql_fetch_assoc($con2); 
-			$category_all = $cat_name['name']; }
-			if($red[subcat_id] != 0) {
-			$con2 = mysql_query("SELECT name FROM sub_categories WHERE id = $red[subcat_id]"); $cat_name = mysql_fetch_assoc($con2); 
-			$category_all .= " > ".$cat_name['name']; }
-			if($red[subsubcat_id] != 0) {
-			$con2 = mysql_query("SELECT name FROM sub_sub_categories WHERE id = $red[subsubcat_id]"); $cat_name = mysql_fetch_assoc($con2); 
-			$category_all .= " > ".$cat_name['name']; }
-			
-			
+			<? 
+			$mysql_store=mysql_query("SELECT * FROM stores");
+			while($red=mysql_fetch_array($mysql_store)){
+			$store_id=$red['id'];$dff=0;
+			$ssa=mysql_query("SELECT * FROM warehouse WHERE prod_id='$pr_id'");
+			while($propp=mysql_fetch_array($ssa)){
+			$propp_idstore=$propp['store_id'];
+			if($propp_idstore==$store_id){  
+			$dff = $dff + $propp['quantity'];
+			}
+			}
 			?>
+			
 			<tr class="main" style="background-color: <?php echo $bgcolor; ?>" onMouseOver="this.style.background='#CBF791'" onMouseOut="this.style.background='<?php echo $bgcolor; ?>'">
 			<td><?php echo "$red[id]"; ?></td>
-			<td><b><?php echo "$red[name]"; ?></b><br><span style="font-size: 12px"><?php echo $category_all;  ?> </span> </td>
-			<td><? if($red['promo']==1){ echo "<img src='other/promo.gif' width='35px' />"."$red[promo_price]"."лв. (Стара цена:".$red['price']."лв.)";}else{ ?><?php echo "$red[price]"; ?> лв.<? } ?></td>
-			<td><center><? echo $tot_q; if($red[measure]=="на литър") echo " литра";
-			if($red[measure]=="на брой") echo " броя";if($red[measure]=="на метър") echo " метра";if($red[measure]=="на килограм") echo " килограма"; ?></center></td>
+			<td><b><?php echo $red[name]; ?></b><br><span style="font-size: 12px"><?php echo $red['city']." - ".$red['address'];  ?> </span> </td>
+			<td><?  ?></td>
+			<td><center><? echo $dff; if($ss[measure]=="на литър") echo " литра";
+			if($ss[measure]=="на брой") echo " броя";if($ss[measure]=="на метър") echo " метра";if($ss[measure]=="на килограм") echo " килограма"; ?></center></td>
 			<td><center><a class="gray" style=" color: #464661;
-    padding: 7px 15px;" href="warehouse_prod_view.php?id=<?php echo "$red[id]"; ?>">Управление</a></center></td>
+    padding: 7px 15px;" href="warehouse_list.php?id=<?php echo "$red[id]"; ?>">Управление</a></center></td>
 		</tr>
-	
-	<? }}else{ ?>
+	<?
+}
+	?>
+
 					<tr>
 				<td colspan="7">
 				
 				</td>
-			</tr> <? } ?>
+			</tr>
 					</tbody>
 </table>
 

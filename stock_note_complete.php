@@ -14,7 +14,7 @@ include('archive_add.php');
 			
 			$mysql=mysql_fetch_array(mysql_query("SELECT * FROM stock_note ORDER BY id DESC"));
 			$stid=$mysql['id'];
-		header("Location: ware_add.php?stid=$stid&suply=$supplier");
+		header("Location: ware_add.php?stid=$stid&suply=$supplier&store=$obekt");
 			
 			}
 			?>

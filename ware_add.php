@@ -101,6 +101,7 @@ foc.focus();
 if(isset($_POST['broqt_e'])){
 $stock_note = $_GET['stid'];
 $supplier = $_POST['supplier'];	
+$store_id = $_GET['store'];
 			$broqt_e=$_POST['broqt_e']+1;		
 			$ii=0;
 			while($ii<$broqt_e){
@@ -111,7 +112,7 @@ $supplier = $_POST['supplier'];
 			$expire_group =  $_POST['expire_group'.$ii];
 			$quantity = $_POST['quantity'.$ii]; 
 			if(!empty($prod) && !empty($quantity)){
-			mysql_query("INSERT INTO warehouse (prod_id,serial_barcode,price,quantity,expire,expire_group,stock_note) VALUES ('$prod','$serial_bar','$price','$quantity','$expire','$expire_group','$stock_note')") or die (mysql_query());
+			mysql_query("INSERT INTO warehouse (prod_id,serial_barcode,price,quantity,expire,expire_group,stock_note,store_id) VALUES ('$prod','$serial_bar','$price','$quantity','$expire','$expire_group','$stock_note','$store_id')") or die (mysql_query());
 			}$ii++;
 			}	
 			//add_to_archive('Потребителят добави продукт към Наличност No: '.$_GET['stid'].' !');
