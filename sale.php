@@ -4,8 +4,6 @@ include('header.php');
 $cdd=0;
 ?>
 
-
-
 <style>
 
 ul.floatingBlocks > li > table:not(.dataTable) th {
@@ -24,15 +22,15 @@ ul.floatingBlocks > li table:not(.dataTable) td {
 
 <script type="text/javascript">
 $(document).ready(function()	{	$(".prod0").change(function()		{ 	
-		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});	
-		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
+		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
 
 
 
 
 $(document).ready(function()	{	$(".barkoc0").change(function()		{ 	
 		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});	
-		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".prod0").html(html);				}			}); 			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
+		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".prod0").html(html);				}			});
+		var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
 var broi = 0;
 function addRows(){
 broi++;
@@ -53,8 +51,9 @@ broi++;
   TD4.innerHTML = "";
   TD4.className="cena"+broi;
   var TD5 = document.createElement('td');
-  TD5.innerHTML = "";
+  TD5.innerHTML = "<input id='obshto0' type='text' value=''  name='obshto"+broi+"' ></input>";
   TD5.className="srok"+broi;
+  
   
   TR.appendChild (TD1);
   TR.appendChild (TD2);
@@ -68,7 +67,7 @@ broi++;
  function newscriptajax() {
     var s = document.createElement('script');
     s.type = 'text/javascript';
-    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	         $(document).ready(function()	{	$(".prod'+broi+'").change(function()		{ 	var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});		});	});	';
+    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 	var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	         $(document).ready(function()	{	$(".prod'+broi+'").change(function()		{ 	var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});				var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});		});	});	';
     try {
       s.appendChild(document.createTextNode(code));
       document.body.appendChild(s);
@@ -82,6 +81,22 @@ broi++;
 function nowfocus(){
 foc = document.getElementById('serial_bar'+broi);
 foc.focus();
+}
+
+function calcTotals(){
+    var grandTotal = 0;
+	var broiq = broi;
+		while(broiq>=0){
+		prices = document.getElementById('price'+broi);
+        qty = document.getElementById('quantity'+broi);
+        total = document.getElementById('obshto'+broi);
+	
+            total.value = prices.value*qty.value;
+            document.getElementById('obshto'+broi).value = Math.round(total.value*1000)/1000;
+			grandTotal = (+grandTotal + +total.value);
+			broiq--;
+			}
+			document.getElementById('grand_total').value = grandTotal;
 }
 </script>
 
@@ -119,7 +134,7 @@ $store_id = $_GET['store'];
 
 <div id="orderform" style="min-height:0">
 	<div id="server">
-		Продукти
+		Нова Продажба
 		<span id="type"></span>
 		<a href="warehouse_list.php"><input type="button" style="margin: 10px; float: right" class="green addPaypalSubscription" value="Списък продукти"></a>
 	</div>
@@ -127,10 +142,10 @@ $store_id = $_GET['store'];
 		<li style="width: 100%;">
 			<div class="caption">
 				<img src="other/icon_cloud.png" alt="Server Configuration">
-				Продукти в стокова разписка
+				Артикули
 			</div>
 			<div class="description">
-				Попълнете данните за стокова разписка
+				Въвеждане на артикули за Продажба
 			</div>
 			<table id="tableId" style="border: 1px solid">
 				<tbody>
@@ -159,35 +174,40 @@ $store_id = $_GET['store'];
 					</td>
 					<td class="quan0">
 					<input type="text" value="1" style="width:60px"  name="quantity" id="quantity0" 
-					onkeydown="if (event.keyCode == 38) {  
+					onkeypress=" if (event.keyCode == 38) {  
 					quant= this.value;
 					quant++;
 					return this.value = quant;
-						} 
+						}
 						if (event.keyCode == 40) {  
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						} "					></input>
+						} " onkeyup="calcTotals()"	></input>
 					</td>
 					<td class="cena0">
 					
 					</td>
-					<td class="srok0">
-					
+					<td id="srok0">
+					<input id="obshto0" type="text" value=""  name="obshto0" ></input>
 					</td>
 				</tr>
 		
 			
 				
 			</tbody></table>
+			<table>
+			<tr>  
+      <th style="text-align:right;" >Всичко:</th>
+      <td width="32px" ><input type='text' name="gTotal" id="grand_total" /></td>
+  </tr></table>
 			<script type="text/javascript">
 function submitform()
 {
   document.forms["formata"].submit();
 }
 </script>
-						<input style="float:right" class="gray" type='button' value='Добави продуктите'
+						<input style="float:right" class="gray" type='button' value='Продажба'
 						onClick="submitform()" name="gotovo" />
 			
 		</li>

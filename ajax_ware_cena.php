@@ -15,10 +15,10 @@ if(!empty($cat['price'])){
 		if(empty($part2)){
 		$part2='00';
 		}
-			echo "<input type='text' style='width:80px;' value=".$part1.".".$part2." name='price".$cdd."'></input>лв.";
+			echo "<input type='text' style='width:80px;' id='price".$cdd."' value=".$part1.".".$part2." name='price".$cdd."'></input>лв.";
 			if(!empty($cat['measure'])){ echo " / ".$cat['measure']; }else{ echo "/ на броя";}
 			}else{
-			echo "<input type='text' value='' name='price'>/ Броя</input>";
+			echo "<input type='text' value='' id='price".$cdd."' name='price'>/ Броя</input>";
 			}
 }else{
 $cat=mysql_fetch_array(mysql_query("SELECT * FROM products WHERE id='$id'"));
@@ -30,10 +30,10 @@ if(!empty($cat['price'])){
 		if(empty($part2)){
 		$part2='00';
 		}
-			echo "<input type='text' style='width:80px;' value=".$part1.".".$part2." name='price".$cdd."'></input>лв.";
+			echo "<input type='text' style='width:80px;' id='price".$cdd."' value=".$part1.".".$part2." name='price".$cdd."'></input>лв.";
 			if(!empty($cat['measure'])){ echo " / ".$cat['measure']; }else{ echo "/ на броя";}
 			}else{
-			echo "<input type='text' value='' name='price'>/ Броя</input>";
+			echo "<input type='text' value='' name='price' id='price".$cdd."'>/ Броя</input>";
 			}
 			}
 } 

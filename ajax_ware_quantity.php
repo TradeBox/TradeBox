@@ -21,21 +21,21 @@ if(!empty($cat['measure'])){
 	$nnn="Килограма";
 	}
 			
-			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' 
-			onkeydown='if (event.keyCode == 38) {  
+			echo "<input type='text' value='1' style='width:60px' id='quantity".$cdd."' name='quantity".$cdd."' 
+			onkeypress='if (event.keyCode == 38) {  
 					quant= this.value;
 					quant++;
 					return this.value = quant;
-						} 
+						}
 						if (event.keyCode == 40) {  
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						} '
+						}' onkeyup='calcTotals()'
 			>$nnn</input>";
 			}else{
-			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' onkeydown='if (event.keyCode == 38) {  
-					quant = this.value;
+			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' id='quantity".$cdd."' onkeypress='if (event.keyCode == 38) {  
+					quant= this.value;
 					quant++;
 					return this.value = quant;
 						} 
@@ -43,7 +43,7 @@ if(!empty($cat['measure'])){
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						} '
+						} ' onkeyup='calcTotals()'
 						>Броя</input>";
 			}
 }else{
@@ -62,8 +62,8 @@ if(!empty($cat['measure'])){
 	$nnn="Килограма";
 	}
 			
-			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' 
-			onkeydown='if (event.keyCode == 38) {  
+			echo "<input type='text' value='1' style='width:60px' id='quantity".$cdd."' name='quantity".$cdd."' 
+			onkeypress='if (event.keyCode == 38) {  
 					quant= this.value;
 					quant++;
 					return this.value = quant;
@@ -72,11 +72,11 @@ if(!empty($cat['measure'])){
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						} '
+						}' onkeyup='calcTotals()'
 			>$nnn</input>";
 			}else{
-			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' onkeydown='if (event.keyCode == 38) {  
-					quant = this.value;
+			echo "<input type='text' value='1' style='width:60px' id='quantity".$cdd."' name='quantity".$cdd."' onkeypress='if (event.keyCode == 38) {  
+					quant= this.value;
 					quant++;
 					return this.value = quant;
 						} 
@@ -85,7 +85,7 @@ if(!empty($cat['measure'])){
 					quant--;
 					return this.value = quant;
 						} '
-						>Броя</input>";
+						onkeyup='calcTotals()'>Броя</input>";
 			}
 }
 }
