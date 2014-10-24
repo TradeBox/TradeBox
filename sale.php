@@ -46,12 +46,11 @@ broi++;
   var TD3 = document.createElement('td');
   TD3.innerHTML = "";
   TD3.className="quan"+broi;
-  TD3.id="quantity"+broi;
   var TD4 = document.createElement('td');
   TD4.innerHTML = "";
   TD4.className="cena"+broi;
   var TD5 = document.createElement('td');
-  TD5.innerHTML = "<input id='obshto0' type='text' value=''  name='obshto"+broi+"' ></input>";
+  TD5.innerHTML = "<input id='obshto"+broi+"' type='text' value=''  name='obshto"+broi+"' ></input>";
   TD5.className="srok"+broi;
   
   
@@ -67,7 +66,7 @@ broi++;
  function newscriptajax() {
     var s = document.createElement('script');
     s.type = 'text/javascript';
-    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 	var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	         $(document).ready(function()	{	$(".prod'+broi+'").change(function()		{ 	var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});				var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});		});	});	';
+    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 	var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	         $(document).ready(function()	{	$(".prod'+broi+'").change(function()		{ 	var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});				var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});		});	});	                                                                                                              function calcTotals'+broi+'(){ 	 var grandTotal'+broi+' = 0;	                                           prices'+broi+' = document.getElementById("price'+broi+'");                                                       qty'+broi+' = document.getElementById("quantity'+broi+'");                                               	total'+broi+' = document.getElementById("obshto'+broi+'");                                                   total'+broi+'.value = prices'+broi+'.value*qty'+broi+'.value;                                                   document.getElementById("obshto'+broi+'").value = Math.round(total'+broi+'.value*1000)/1000;	                                   grandTotal'+broi+' = (+grandTotal'+broi+' + +total'+broi+'.value);              	grandstot(); } ';
     try {
       s.appendChild(document.createTextNode(code));
       document.body.appendChild(s);
@@ -83,20 +82,28 @@ foc = document.getElementById('serial_bar'+broi);
 foc.focus();
 }
 
-function calcTotals(){
-    var grandTotal = 0;
-	var broiq = broi;
-		while(broiq>=0){
-		prices = document.getElementById('price'+broi);
-        qty = document.getElementById('quantity'+broi);
-        total = document.getElementById('obshto'+broi);
+function calcTotals0(){
+    var grandTotal0 = 0;
+		prices0 = document.getElementById('price0');
+        qty0 = document.getElementById('quantity0');
+        total0 = document.getElementById('obshto0');
 	
-            total.value = prices.value*qty.value;
-            document.getElementById('obshto'+broi).value = Math.round(total.value*1000)/1000;
-			grandTotal = (+grandTotal + +total.value);
-			broiq--;
-			}
-			document.getElementById('grand_total').value = grandTotal;
+            total0.value = prices0.value*qty0.value;
+            document.getElementById('obshto0').value = Math.round(total0.value*1000)/1000;
+			grandTotal0 = (+grandTotal0 + +total0.value);
+		grandstot();
+}
+
+
+function grandstot(){
+var totala = 0;
+var broiq = broi;
+while(broiq >= 0){
+ totalen =  document.getElementById('obshto'+broiq);
+	totala = ( +totalen.value + +totala );
+	broiq--;
+ }
+document.getElementById('grand_total').value = Math.round(totala*1000)/1000;
 }
 </script>
 
@@ -173,7 +180,7 @@ $store_id = $_GET['store'];
 					</select>
 					</td>
 					<td class="quan0">
-					<input type="text" value="1" style="width:60px"  name="quantity" id="quantity0" 
+					<input type="text" value="1" style="width:60px"  name="quantity0" id="quantity0" 
 					onkeypress=" if (event.keyCode == 38) {  
 					quant= this.value;
 					quant++;
@@ -183,12 +190,12 @@ $store_id = $_GET['store'];
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						} " onkeyup="calcTotals()"	></input>
+						} " onkeyup="calcTotals0()"	></input>
 					</td>
 					<td class="cena0">
 					
 					</td>
-					<td id="srok0">
+					<td class="srok0">
 					<input id="obshto0" type="text" value=""  name="obshto0" ></input>
 					</td>
 				</tr>

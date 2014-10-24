@@ -31,7 +31,7 @@ if(!empty($cat['measure'])){
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						}' onkeyup='calcTotals()'
+						}' onkeyup='calcTotals".$cdd."()'
 			>$nnn</input>";
 			}else{
 			echo "<input type='text' value='1' style='width:60px' name='quantity".$cdd."' id='quantity".$cdd."' onkeypress='if (event.keyCode == 38) {  
@@ -43,7 +43,7 @@ if(!empty($cat['measure'])){
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						} ' onkeyup='calcTotals()'
+						} ' onkeyup='calcTotals".$cdd."()'
 						>Броя</input>";
 			}
 }else{
@@ -72,7 +72,7 @@ if(!empty($cat['measure'])){
 					quant= this.value;
 					quant--;
 					return this.value = quant;
-						}' onkeyup='calcTotals()'
+						}' onkeyup='calcTotals".$cdd."()'
 			>$nnn</input>";
 			}else{
 			echo "<input type='text' value='1' style='width:60px' id='quantity".$cdd."' name='quantity".$cdd."' onkeypress='if (event.keyCode == 38) {  
@@ -85,7 +85,7 @@ if(!empty($cat['measure'])){
 					quant--;
 					return this.value = quant;
 						} '
-						onkeyup='calcTotals()'>Броя</input>";
+						onkeyup='calcTotals".$cdd."()'>Броя</input>";
 			}
 }
 }
