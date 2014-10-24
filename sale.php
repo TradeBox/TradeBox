@@ -22,15 +22,16 @@ ul.floatingBlocks > li table:not(.dataTable) td {
 
 <script type="text/javascript">
 $(document).ready(function()	{	$(".prod0").change(function()		{ 	
-		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
+		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});
+		var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});		});	});	
 
 
-
-
-$(document).ready(function()	{	$(".barkoc0").change(function()		{ 	
+$(document).ready(function()	{	$(".barkoc0").change(function()		{  	
 		var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".quan0").html(html);				}			});	
 		var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".prod0").html(html);				}			});
-		var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});		});	});	
+		var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".cena0").html(html);				}			});	
+var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data:  { id: id, broq4a:0 },			cache: false,			success: function(html)				{					$(".srok0").html(html);				}			});		
+});	 });	
 var broi = 0;
 function addRows(){
 broi++;
@@ -64,12 +65,14 @@ broi++;
  
  }
  function newscriptajax() {
+
     var s = document.createElement('script');
     s.type = 'text/javascript';
-    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 	var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	         $(document).ready(function()	{	$(".prod'+broi+'").change(function()		{ 	var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});				var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});		});	});	                                                                                                              function calcTotals'+broi+'(){ 	 var grandTotal'+broi+' = 0;	                                           prices'+broi+' = document.getElementById("price'+broi+'");                                                       qty'+broi+' = document.getElementById("quantity'+broi+'");                                               	total'+broi+' = document.getElementById("obshto'+broi+'");                                                   total'+broi+'.value = prices'+broi+'.value*qty'+broi+'.value;                                                   document.getElementById("obshto'+broi+'").value = Math.round(total'+broi+'.value*1000)/1000;	                                   grandTotal'+broi+' = (+grandTotal'+broi+' + +total'+broi+'.value);              	grandstot(); } ';
+    var code = '$(document).ready(function()	{	$(".barkoc'+broi+'").change(function()		{ 			var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_bar.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".prod'+broi+'").html(html);				}			}); 	var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});	var id=$(this).val();					$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});		var id=$(this).val();   			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});		});	});	         $(document).ready(function()	{	$(".prod'+broi+'").change(function()		{ 	var id=$(this).val();			$.ajax			({			type: "POST",			url: "ajax_ware_quantity.php",			data: { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".quan'+broi+'").html(html);				}			});				var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_cena.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".cena'+broi+'").html(html);				}			});			var id=$(this).val();				$.ajax			({			type: "POST",			url: "ajax_ware_total.php",			data:  { id: id, broq4a:'+broi+' },			cache: false,			success: function(html)				{					$(".srok'+broi+'").html(html);				}			});	});	});	                                                                                                              function calcTotals'+broi+'(){ 	 var grandTotal'+broi+' = 0;	                                           prices'+broi+' = document.getElementById("price'+broi+'");                                                       qty'+broi+' = document.getElementById("quantity'+broi+'");                                               	total'+broi+' = document.getElementById("obshto'+broi+'");                                                   total'+broi+'.value = prices'+broi+'.value*qty'+broi+'.value;                                                   document.getElementById("obshto'+broi+'").value = Math.round(total'+broi+'.value*1000)/1000;	                                   grandTotal'+broi+' = (+grandTotal'+broi+' + +total'+broi+'.value);         } ';
     try {
       s.appendChild(document.createTextNode(code));
       document.body.appendChild(s);
+	  grandstot();
     } catch (e) {
       s.text = code;
       document.body.appendChild(s);
@@ -109,11 +112,11 @@ document.getElementById('grand_total').value = Math.round(totala*1000)/1000;
 
 
 
-		<div onkeydown="if (event.keyCode == 13) {
+		<div  onkeydown="if (event.keyCode == 13) {
 						addRows();
 						nowfocus();
 						newscriptajax();
-					}" id="content">
+					 }" onclick="grandstot();" id="content" >
 			<div class="container">
 <? 
 if(isset($_POST['broqt_e'])){
@@ -165,7 +168,7 @@ $store_id = $_GET['store'];
 				</tr>
 				<tr>
 					<td>
-					<input  class="barkoc0" id="pavel" type="text" value="" autofocus name="serial_bar0" ></input><input style='display:none' type='text' value='0'  name='broqt_e' ></input>
+					<input onchange=" calcTotals0();" class="barkoc0" id="pavel" type="text" value="" autofocus name="serial_bar0" ></input><input style='display:none' type='text' value='0'  name='broqt_e' ></input>
 					</td>
 					<td>
 					<select class="prod0" name="prod0" >
@@ -196,7 +199,7 @@ $store_id = $_GET['store'];
 					
 					</td>
 					<td class="srok0">
-					<input id="obshto0" type="text" value=""  name="obshto0" ></input>
+					<input id="obshto0" type="text" value="0"   name="obshto0" ></input>
 					</td>
 				</tr>
 		
@@ -206,15 +209,15 @@ $store_id = $_GET['store'];
 			<table>
 			<tr>  
       <th style="text-align:right;" >Всичко:</th>
-      <td width="32px" ><input type='text' name="gTotal" id="grand_total" /></td>
+      <td width="32px" ><input type='text' name="gTotal" id="grand_total" onclick="grandstot();" value="0" /></td>
   </tr></table>
-			<script type="text/javascript">
+			<script onload='grandstot();' type="text/javascript">
 function submitform()
 {
   document.forms["formata"].submit();
 }
 </script>
-						<input style="float:right" class="gray" type='button' value='Продажба'
+						<input  style="float:right" class="gray" type='button' value='Продажба'
 						onClick="submitform()" name="gotovo" />
 			
 		</li>
